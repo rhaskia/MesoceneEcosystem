@@ -97,3 +97,4 @@ $RECYCLE.BIN/
 
 # C stuff
 *.vscode/
+*.meta
