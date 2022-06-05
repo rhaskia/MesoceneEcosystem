@@ -24,10 +24,6 @@ public class PlayerManager : MonoBehaviour
     public Slider thirstSlider;
     public Slider hungerSlider;
 
-    public Vector2 minMaxZoom;
-    public float zoomSpeed;
-    public float zoom = 2;
-
     void Start()
     {
         animator.current = creature;
@@ -60,13 +56,7 @@ public class PlayerManager : MonoBehaviour
         //Animations
         ManageAnimations(input);
 
-        //Zooming 
-        zoom = Mathf.Clamp(zoom + (zoomSpeed * Input.mouseScrollDelta.y), minMaxZoom.x, minMaxZoom.y);
-
         float size = (((growth.currentPercent / 2f) + 50f) / 100f) * creature.size;
-        follow.ZoomOffset = new Vector3(0f, size * zoom, -size * zoom * 1.75f);
-
-
         transform.localScale = size * Vector3.one;
     }
 
