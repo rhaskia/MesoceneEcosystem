@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using Photon.Pun;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -19,19 +19,28 @@ public class PlayerManager : MonoBehaviour
     public SpriteRenderer render;
 
     [Header("Variables")]
+    public Canvas canvas;
     public Slider healthSlider;
     public Slider staminaSlider;
     public Slider thirstSlider;
     public Slider hungerSlider;
 
+    PhotonView pv;
+
     void Start()
     {
         animator.current = creature;
-        ManageGrowth();
+        pv = GetComponent<PhotonView>();
     }
 
     void Update()
     {
+        if (!pv.IsMine)
+            canvas.gameObject.SetActive(false);
+
+        if (!pv.IsMine)
+            return;
+
         //Input
         Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
@@ -91,11 +100,5 @@ public class PlayerManager : MonoBehaviour
         {
             animator.currentAnim = CreatureAnimation.Animations.idle;
         }
-    }
-
-    //Growth idk i like the green
-    public void ManageGrowth()
-    {
-
     }
 }

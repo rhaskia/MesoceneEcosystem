@@ -18,7 +18,7 @@ public class MenuManager : MonoBehaviour
     {
         foreach (var _menu in menus)
         {
-            if (menu == _menu.menuName) OpenMenu(_menu);
+            if (menu == _menu.menuName) _menu.Open();
             else CloseMenu(_menu);
         }
     }

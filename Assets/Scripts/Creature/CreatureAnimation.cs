@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,10 +20,12 @@ public class CreatureAnimation : MonoBehaviour
 
     public BoxCollider collider;
     public float ppu;
+    PhotonView pv;
 
     void Start()
     {
         Invoke("ManageAnimation", 0.1f);
+        pv = gameObject.GetComponentInParent<PhotonView>();
     }
 
     void Update()
@@ -45,7 +48,17 @@ public class CreatureAnimation : MonoBehaviour
         var allAnims = new AnimationBundle[] { current.idle, current.walk, current.run, current.jump, current.glide, current.fly, current.rest, current.sleep, current.eat, current.drink, current.lmb, current.rmb, current.limp, current.death };
         AnimationSet(allAnims[((int)currentAnim)]);
 
+        pv.RPC("UpdateAnimations", RpcTarget.All, currentAnim, currentDir, currentFrame);
+
         Invoke("ManageAnimation", 0.1f);
+    }
+
+    [PunRPC]
+    void UpdateAnimations(Animations anim, Directions dir, int frame)
+    {
+        currentAnim = anim;
+        currentDir = dir;
+        currentFrame = frame;
     }
 
     void AnimationSet(AnimationBundle anim)

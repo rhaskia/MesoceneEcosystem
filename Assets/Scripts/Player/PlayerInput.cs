@@ -1,4 +1,5 @@
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -7,9 +8,17 @@ public class PlayerInput : MonoBehaviour
     public KeyCode run, jump, crouch, glide, fly;
 
     public Movement move;
+    PhotonView pv;
 
-    private void Update()
+    void Start()
     {
+        pv = GetComponent<PhotonView>();
+    }
+
+    void Update()
+    {
+        if (!pv.IsMine) return;
+
         //Input
         Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         move.moveInput = GetInput();
