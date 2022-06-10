@@ -133,7 +133,7 @@ MonoBehaviour:
   target: {fileID: 4822458901375794360}
   smoothSpeed: 0.125
   ZoomOffset: {x: 0, y: 0.1725, z: -0.24}
-  minMaxZoom: {x: 2, y: 4}
+  minMaxZoom: {x: 10, y: 40}
   zoomSpeed: -0.5
   zoom: 2
 --- !u!1 &4822458901458855826
@@ -1899,7 +1899,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6546358922740654188, guid: 18f71222c2611fd45aadd1db9ff939b8, type: 3}
       propertyPath: jumpForce
-      value: 0.1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6546358922740654191, guid: 18f71222c2611fd45aadd1db9ff939b8, type: 3}
       propertyPath: DieFunction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1979,7 +1979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6546358923929318781, guid: 18f71222c2611fd45aadd1db9ff939b8, type: 3}
       propertyPath: ppu
-      value: 100
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 6546358923929318781, guid: 18f71222c2611fd45aadd1db9ff939b8, type: 3}
       propertyPath: m_Enabled

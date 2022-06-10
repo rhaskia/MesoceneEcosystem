@@ -82,7 +82,7 @@ public class Movement : MonoBehaviour
             return;
 
         //Groundcheck
-        onGround = Physics.OverlapSphere(groundcheck.position, groundcheckRadius, groundLayer).Length != 0;
+        onGround = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), Mathf.Infinity, groundLayer);
 
         //Flying
         if (flying)
