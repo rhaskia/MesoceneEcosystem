@@ -30,6 +30,8 @@ public class CreatureAnimation : MonoBehaviour
 
     void Update()
     {
+        if (pv.IsMine) return;
+
         //Shadow stuff
         //Need to make a shader for it really
         RaycastHit hit;

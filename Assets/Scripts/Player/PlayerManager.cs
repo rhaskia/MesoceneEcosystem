@@ -25,7 +25,7 @@ public class PlayerManager : MonoBehaviour
     public Slider thirstSlider;
     public Slider hungerSlider;
 
-    PhotonView pv;
+    public PhotonView pv;
 
     void Start()
     {

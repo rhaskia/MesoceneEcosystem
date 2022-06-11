@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,12 @@ public class Health : MonoBehaviour
     public Ailment[] Ailments;
 
     public UnityEvent DeathFunction = new UnityEvent();
+    PhotonView pv;
 
+    private void Start()
+    {
+        pv = GetComponentInParent<PhotonView>();
+    }
 
     void Update()
     {

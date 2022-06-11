@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,8 +46,13 @@ public class Movement : MonoBehaviour
     public float glideEfficieny;
     public Vector3 glideDir;
 
+    PhotonView pv;
+
     private void Awake()
     {
+        pv = GetComponentInParent<PhotonView>();
+        if (!pv.IsMine) return;
+
         GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
         playerM = FindObjectOfType<PlayerManager>();
         creature = playerM.creature;
@@ -59,7 +65,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (moveInput == null)
+        if (moveInput == null || !playerM.pv.IsMine)
             return;
 
         Vector3 speed = new Vector3(moveInput.movement.normalized.x, 0, moveInput.movement.normalized.y);
@@ -78,7 +84,7 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
-        if (moveInput == null)
+        if (moveInput == null || !playerM.pv.IsMine)
             return;
 
         //Groundcheck
