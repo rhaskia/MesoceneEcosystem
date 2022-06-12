@@ -14,25 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 1
   sneakSpeed:
-    speed: 5
+    speed: 1
     staminaUse: 0
     minStamina: 10
     disturbance: 0
     can: 1
   walkSpeed:
-    speed: 10
+    speed: 3
     staminaUse: 0
     minStamina: 10
     disturbance: 0
     can: 1
   trotSpeed:
-    speed: 1
+    speed: 5
     staminaUse: 0
     minStamina: 10
     disturbance: 0
     can: 1
   runSpeed:
-    speed: 1
+    speed: 8
     staminaUse: 0
     minStamina: 10
     disturbance: 0

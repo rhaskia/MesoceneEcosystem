@@ -51,6 +51,18 @@ public class PlayerManager : MonoBehaviour
         hungerSlider.value = health.hunger / (health.maxHunger * 1f);
 
         //Flipping
+        pv.RPC("SetFlip", RpcTarget.All, input);
+
+        //Animations
+        ManageAnimations(input);
+
+        float size = (((growth.currentPercent / 2f) + 50f) / 100f) * creature.size;
+        transform.localScale = size * Vector3.one;
+    }
+
+    [PunRPC]
+    public void SetFlip(Vector2 input)
+    {
         if (input.x > 0.01)
         {
             render.flipX = true;
@@ -61,12 +73,6 @@ public class PlayerManager : MonoBehaviour
             render.flipX = false;
             animator.shadow.flipX = false;
         }
-
-        //Animations
-        ManageAnimations(input);
-
-        float size = (((growth.currentPercent / 2f) + 50f) / 100f) * creature.size;
-        transform.localScale = size * Vector3.one;
     }
 
     public void Die()

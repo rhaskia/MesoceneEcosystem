@@ -74,8 +74,10 @@ public class Movement : MonoBehaviour
         if (Mathf.Abs(speed.x) + Mathf.Abs(speed.z) > 0.75f) glideDir = speed;
 
         //Applying Input If On Ground
-        Vector3 i = speed * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
-        if (onGround || flying) rb.velocity = new Vector3(i.x, rb.velocity.y, i.z);
+        Vector3 s = transform.right * moveInput.movement.normalized.x * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
+        Vector3 f = transform.forward * moveInput.movement.normalized.y * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
+
+        if (onGround || flying) rb.velocity = new Vector3(s.x + f.x, rb.velocity.y, s.z + f.z);
 
         //Stamina
         stamina += 2;
@@ -84,11 +86,13 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
+        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, RoomManager.Instance.rotation, transform.rotation.z));
+
         if (moveInput == null || !playerM.pv.IsMine)
             return;
 
         //Groundcheck
-        onGround = Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), Mathf.Infinity, groundLayer);
+        onGround = Physics.Raycast(groundcheck.position, transform.TransformDirection(Vector3.down), 0.5f, groundLayer);
 
         //Flying
         if (flying)

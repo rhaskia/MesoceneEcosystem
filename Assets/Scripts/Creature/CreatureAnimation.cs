@@ -43,6 +43,7 @@ public class CreatureAnimation : MonoBehaviour
         //Setting collidor size
         collider.size = new Vector3(spriteRenderer.sprite.rect.width / ppu, spriteRenderer.sprite.rect.height / ppu, 0.5f);
         collider.center = new Vector3(0, spriteRenderer.sprite.rect.height / (ppu * 2), 0);
+
     }
 
     void ManageAnimation()
