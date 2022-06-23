@@ -24,6 +24,8 @@ public class Movement : MonoBehaviour
     [Header("Relations")]
     PlayerManager playerM;
     public Rigidbody rb;
+    public MoveInput moveInput;
+    public Creature creature;
 
     [Header("Variables")]
     public float stamina;
@@ -36,15 +38,18 @@ public class Movement : MonoBehaviour
     public Transform groundcheck;
     public bool onGround;
 
-    public MoveInput moveInput;
 
-    public Creature creature;
 
-    public bool crouching, gliding, flying;
+    bool crouching, gliding, flying;
 
+    [Header("Gliding")]
     public float maxGlideSpeed;
     public float glideEfficieny;
     public Vector3 glideDir;
+
+    [Header("Swimming")]
+    public LayerMask waterLayer;
+    public float buoyancy;
 
     PhotonView pv;
 
@@ -93,11 +98,25 @@ public class Movement : MonoBehaviour
 
         //Groundcheck
         onGround = Physics.Raycast(groundcheck.position, transform.TransformDirection(Vector3.down), 0.5f, groundLayer);
+        bool inWater = Physics.Raycast(groundcheck.position, transform.TransformDirection(Vector3.down), 0.5f, waterLayer);
+
+        //Swimming
+        if (inWater)
+        {
+            flying = false;
+            gliding = false;
+            crouching = false;
+
+            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.one * buoyancy, 0.99f);
+
+            if (moveInput.flyUp) rb.AddForce(new Vector3(0, 0.1f, 0), ForceMode.Impulse);
+            if (moveInput.flyDown) rb.AddForce(new Vector3(0, -0.1f, 0), ForceMode.Impulse);
+        }
 
         //Flying
         if (flying)
         {
-            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, 0.99f);
+            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.one * -0.01f, 0.99f);
 
             if (moveInput.flyUp) rb.AddForce(new Vector3(0, 0.1f, 0), ForceMode.Impulse);
             if (moveInput.flyDown) rb.AddForce(new Vector3(0, -0.1f, 0), ForceMode.Impulse);
