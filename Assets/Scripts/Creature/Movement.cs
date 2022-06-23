@@ -49,7 +49,9 @@ public class Movement : MonoBehaviour
 
     [Header("Swimming")]
     public LayerMask waterLayer;
+    public Transform watercheck;
     public float buoyancy;
+    public bool inWater;
 
     PhotonView pv;
 
@@ -82,7 +84,7 @@ public class Movement : MonoBehaviour
         Vector3 s = transform.right * moveInput.movement.normalized.x * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
         Vector3 f = transform.forward * moveInput.movement.normalized.y * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
 
-        if (onGround || flying) rb.velocity = new Vector3(s.x + f.x, rb.velocity.y, s.z + f.z);
+        if (onGround || flying || inWater) rb.velocity = new Vector3(s.x + f.x, rb.velocity.y, s.z + f.z);
 
         //Stamina
         stamina += 2;
@@ -98,7 +100,6 @@ public class Movement : MonoBehaviour
 
         //Groundcheck
         onGround = Physics.Raycast(groundcheck.position, transform.TransformDirection(Vector3.down), 0.5f, groundLayer);
-        bool inWater = Physics.Raycast(groundcheck.position, transform.TransformDirection(Vector3.down), 0.5f, waterLayer);
 
         //Swimming
         if (inWater)
@@ -188,5 +189,29 @@ public class Movement : MonoBehaviour
     private void OnGameStateChanged(GameState newGameState)
     {
         enabled = newGameState == GameState.GamePlay;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            inWater = true;
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            inWater = true;
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Water")
+        {
+            inWater = false;
+        }
     }
 }
