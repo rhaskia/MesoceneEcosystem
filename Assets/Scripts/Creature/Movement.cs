@@ -24,7 +24,7 @@ namespace Creature
     public class Movement : MonoBehaviour
     {
         [Header("Relations")]
-        PlayerManager playerM;
+        Player.PlayerManager playerM;
         public Rigidbody rb;
         public MoveInput moveInput;
         public Creature creature;
@@ -62,7 +62,7 @@ namespace Creature
             if (!pv.IsMine) return;
 
             GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
-            playerM = FindObjectOfType<PlayerManager>();
+            playerM = FindObjectOfType<Player.PlayerManager>();
             creature = playerM.creature;
         }
 
