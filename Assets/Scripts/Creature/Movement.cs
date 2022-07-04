@@ -120,6 +120,11 @@ namespace Creature
             {
                 rb.velocity = Vector3.Lerp(rb.velocity, Vector3.one * (1 - (Time.time - lastInWater / 2)) * buoyancy, 0.99f);
             }
+            else if (Time.time - lastInWater < 4)
+            {
+                print("yes");
+                rb.velocity = Vector3.Lerp(rb.velocity, Vector3.one * (Time.time - lastInWater / 3) * -buoyancy, 0.99f);
+            }
 
             //Flying
             if (flying)
