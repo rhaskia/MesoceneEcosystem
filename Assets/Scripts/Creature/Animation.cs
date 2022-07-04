@@ -74,7 +74,7 @@ namespace Creature
                 newText.filterMode = FilterMode.Point;
                 return newText;
             }
-            return null;
+            return sprite.texture;
         }
 
         public static Texture2D Resize(Texture2D texture2D, int targetX, int targetY)
