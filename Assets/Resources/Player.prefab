@@ -2327,11 +2327,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6546358922740654188, guid: 18f71222c2611fd45aadd1db9ff939b8, type: 3}
       propertyPath: buoyancy
-      value: 1
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6546358922740654188, guid: 18f71222c2611fd45aadd1db9ff939b8, type: 3}
       propertyPath: jumpForce
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546358922740654188, guid: 18f71222c2611fd45aadd1db9ff939b8, type: 3}
+      propertyPath: waterLevel
+      value: -0.18
       objectReference: {fileID: 0}
     - target: {fileID: 6546358922740654188, guid: 18f71222c2611fd45aadd1db9ff939b8, type: 3}
       propertyPath: watercheck

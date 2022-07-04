@@ -13,7 +13,7 @@ namespace Player
         [Header("Relations")]
         public Creature.Creature creature;
         public Creature.Movement movement;
-        public Creature.Animation animator;
+        public Creature.CAnimation animator;
         public Creature.Health health;
         public Creature.Growth growth;
         public CameraFollow follow;
@@ -68,13 +68,11 @@ namespace Player
         {
             if (input.x > 0.01)
             {
-                render.flipX = true;
-                animator.shadow.flipX = true;
+                animator.flip = true;
             }
             else if (input.x < -0.01)
             {
-                render.flipX = false;
-                animator.shadow.flipX = false;
+                animator.flip = false;
             }
         }
 
@@ -88,9 +86,9 @@ namespace Player
         {
             //idk
             bool movingAnims =
-                animator.currentAnim == Creature.Animation.Animations.idle ||
-                animator.currentAnim == Creature.Animation.Animations.run ||
-                animator.currentAnim == Creature.Animation.Animations.walk;
+                animator.currentAnim == Creature.CAnimation.Animations.idle ||
+                animator.currentAnim == Creature.CAnimation.Animations.run ||
+                animator.currentAnim == Creature.CAnimation.Animations.walk;
 
             //If not animating movement
             if (!movingAnims)
@@ -99,15 +97,15 @@ namespace Player
             //Animations
             if (rb.velocity.x + rb.velocity.z > creature.walkSpeed.speed + 0.01f || rb.velocity.x + rb.velocity.z < -creature.walkSpeed.speed + 0.01f)
             {
-                animator.currentAnim = Creature.Animation.Animations.run;
+                animator.currentAnim = Creature.CAnimation.Animations.run;
             }
             else if (rb.velocity.x + rb.velocity.z > creature.walkSpeed.speed / 8f || rb.velocity.x + rb.velocity.z < -creature.walkSpeed.speed / 8f)
             {
-                animator.currentAnim = Creature.Animation.Animations.walk;
+                animator.currentAnim = Creature.CAnimation.Animations.walk;
             }
             else
             {
-                animator.currentAnim = Creature.Animation.Animations.idle;
+                animator.currentAnim = Creature.CAnimation.Animations.idle;
             }
         }
     }

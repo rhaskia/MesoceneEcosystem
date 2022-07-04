@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Creature
 {
-    public class Animation : MonoBehaviour
+    public class CAnimation : MonoBehaviour
     {
         public enum Animations { idle, walk, run, jump, glide, fly, rest, sleep, eat, drink, LMB, RMB, limp, death }
         public enum Directions { Side, Front, Back }
@@ -20,6 +20,8 @@ namespace Creature
         public LayerMask layerMask;
         public Creature current;
         public MeshRenderer material;
+
+        public bool flip;
 
         public BoxCollider collider;
         public float ppu;
@@ -46,8 +48,6 @@ namespace Creature
             //Setting collidor size
             collider.size = new Vector3(spriteRenderer.sprite.rect.width / ppu, spriteRenderer.sprite.rect.height / ppu, 0.5f);
             collider.center = new Vector3(0, spriteRenderer.sprite.rect.height / (ppu * 2), 0);
-
-
         }
 
         void ManageAnimation()
@@ -60,7 +60,36 @@ namespace Creature
             Invoke("ManageAnimation", 0.1f);
         }
 
-        public static Texture2D textureFromSprite(Sprite sprite)
+        public Texture2D FlipTexture(Texture2D original)
+        {
+            int textureWidth = original.width;
+            int textureHeight = original.height;
+
+            Color[] colorArray = original.GetPixels();
+
+            for (int j = 0; j < textureHeight; j++)
+            {
+                int rowStart = 0;
+                int rowEnd = textureWidth - 1;
+
+                while (rowStart < rowEnd)
+                {
+                    Color hold = colorArray[(j * textureWidth) + (rowStart)];
+                    colorArray[(j * textureWidth) + (rowStart)] = colorArray[(j * textureWidth) + (rowEnd)];
+                    colorArray[(j * textureWidth) + (rowEnd)] = hold;
+                    rowStart++;
+                    rowEnd--;
+                }
+            }
+
+            Texture2D finalFlippedTexture = new Texture2D(original.width, original.height);
+            finalFlippedTexture.SetPixels(colorArray);
+            finalFlippedTexture.Apply();
+
+            return finalFlippedTexture;
+        }
+
+        public Texture2D textureFromSprite(Sprite sprite)
         {
             if (sprite.rect.width != sprite.texture.width)
             {
@@ -75,17 +104,6 @@ namespace Creature
                 return newText;
             }
             return sprite.texture;
-        }
-
-        public static Texture2D Resize(Texture2D texture2D, int targetX, int targetY)
-        {
-            RenderTexture rt = new RenderTexture(targetX, targetY, 24);
-            RenderTexture.active = rt;
-            Graphics.Blit(texture2D, rt);
-            Texture2D result = new Texture2D(targetX, targetY);
-            result.ReadPixels(new Rect(0, 0, targetX, targetY), 0, 0);
-            result.Apply();
-            return result;
         }
 
         [PunRPC]
@@ -106,21 +124,23 @@ namespace Creature
                 case Directions.Side:
                     if (currentFrame >= anim.side.Length)
                     { currentFrame = 0; }
-                    material.material.mainTexture = textureFromSprite(anim.side[currentFrame]);
-                    spriteRenderer.sprite = anim.side[currentFrame];
-                    shadow.sprite = anim.side[currentFrame];
+
+                    var texture = textureFromSprite(anim.side[currentFrame]);
+                    if (flip) material.material.mainTexture = FlipTexture(texture);
+                    else material.material.mainTexture = texture;
+
                     break;
+
                 case Directions.Front:
                     if (currentFrame >= anim.front.Length)
                     { currentFrame = 0; }
                     spriteRenderer.sprite = anim.front[currentFrame];
-                    shadow.sprite = anim.front[currentFrame];
                     break;
+
                 case Directions.Back:
                     if (currentFrame >= anim.back.Length)
                     { currentFrame = 0; }
                     spriteRenderer.sprite = anim.back[currentFrame];
-                    shadow.sprite = anim.back[currentFrame];
                     break;
             }
         }

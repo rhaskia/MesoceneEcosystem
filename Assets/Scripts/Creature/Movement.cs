@@ -50,9 +50,13 @@ namespace Creature
         [Header("Swimming")]
         public LayerMask waterLayer;
         public Transform watercheck;
+        public float waterLevel;
+        public float underwaterDrag = 3;
+        public float underwaterAngularDrag = 1;
+        float airDrag = 0;
+        float airAngularDrag = 0.05f;
         public float buoyancy;
-        public bool inWater;
-        float lastInWater;
+        bool underwater;
 
         PhotonView pv;
 
@@ -85,46 +89,11 @@ namespace Creature
             Vector3 s = transform.right * moveInput.movement.normalized.x * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
             Vector3 f = transform.forward * moveInput.movement.normalized.y * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
 
-            if (onGround || flying || inWater) rb.velocity = new Vector3(s.x + f.x, rb.velocity.y, s.z + f.z);
+            if (onGround || flying || underwater) rb.velocity = new Vector3(s.x + f.x, rb.velocity.y, s.z + f.z);
 
             //Stamina
             stamina += 2;
             stamina = Mathf.Clamp(stamina, 0, maxStamina);
-
-        }
-        void Update()
-        {
-            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, RoomManager.Instance.rotation, transform.rotation.z));
-
-            if (moveInput == null || !playerM.pv.IsMine)
-                return;
-
-            //Groundcheck
-            onGround = Physics.Raycast(groundcheck.position, transform.TransformDirection(Vector3.down), 0.5f, groundLayer);
-
-            //Swimming
-            if (inWater)
-            {
-                flying = false;
-                gliding = false;
-                crouching = false;
-
-                rb.velocity = Vector3.Lerp(rb.velocity, Vector3.one * buoyancy, 0.99f);
-
-                if (moveInput.flyUp) rb.AddForce(new Vector3(0, 0.1f, 0), ForceMode.Impulse);
-                if (moveInput.flyDown) rb.AddForce(new Vector3(0, -0.1f, 0), ForceMode.Impulse);
-
-                lastInWater = Time.time;
-            }
-            else if (Time.time - lastInWater < 2)
-            {
-                rb.velocity = Vector3.Lerp(rb.velocity, Vector3.one * (1 - (Time.time - lastInWater / 2)) * buoyancy, 0.99f);
-            }
-            else if (Time.time - lastInWater < 4)
-            {
-                print("yes");
-                rb.velocity = Vector3.Lerp(rb.velocity, Vector3.one * (Time.time - lastInWater / 3) * -buoyancy, 0.99f);
-            }
 
             //Flying
             if (flying)
@@ -143,6 +112,29 @@ namespace Creature
                 glideDir = new Vector3(Mathf.Clamp(glideDir.x * mult, -maxGlideSpeed, maxGlideSpeed), -0.1f, Mathf.Clamp(glideDir.z * mult, -maxGlideSpeed, maxGlideSpeed));
                 rb.velocity = glideDir;
             }
+
+            //Swimming
+            var diff = transform.position.y - waterLevel;
+            print(diff);
+
+            if (diff < 0)
+            {
+                rb.AddForceAtPosition(Vector3.up * buoyancy * Mathf.Abs(diff), transform.position, ForceMode.Force);
+
+                if (!underwater) SwitchState(true);
+            }
+            else if (underwater) SwitchState(false);
+
+        }
+        void Update()
+        {
+            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, RoomManager.Instance.rotation, transform.rotation.z));
+
+            if (moveInput == null || !playerM.pv.IsMine)
+                return;
+
+            //Groundcheck
+            onGround = Physics.Raycast(groundcheck.position, transform.TransformDirection(Vector3.down), 0.5f, groundLayer);
 
             //Managing stuff
             if (onGround)
@@ -175,11 +167,14 @@ namespace Creature
 
         public float GetSpeed()
         {
+            var mult = 1f;
+            if (underwater) mult = 0.7f;
+
             //Trotting
             if (moveInput.trot)
             {
                 stamina -= creature.runSpeed.staminaUse;
-                if (stamina > creature.runSpeed.minStamina) return creature.runSpeed.speed;
+                if (stamina > creature.runSpeed.minStamina) return creature.runSpeed.speed * mult;
                 crouching = false;
             }
 
@@ -187,7 +182,7 @@ namespace Creature
             if (moveInput.run)
             {
                 stamina -= creature.runSpeed.staminaUse;
-                if (stamina > creature.runSpeed.minStamina) return creature.runSpeed.speed;
+                if (stamina > creature.runSpeed.minStamina) return creature.runSpeed.speed * mult;
                 crouching = false;
             }
 
@@ -203,27 +198,18 @@ namespace Creature
             enabled = newGameState == GameState.GamePlay;
         }
 
-        void OnTriggerEnter(Collider other)
+        void SwitchState(bool u)
         {
-            if (other.gameObject.tag == "Water")
+            underwater = u;
+            if (underwater)
             {
-                inWater = true;
+                rb.drag = underwaterDrag;
+                rb.angularDrag = underwaterAngularDrag;
             }
-        }
-
-        void OnTriggerStay(Collider other)
-        {
-            if (other.gameObject.tag == "Water")
+            else
             {
-                inWater = true;
-            }
-        }
-
-        void OnTriggerExit(Collider other)
-        {
-            if (other.gameObject.tag == "Water")
-            {
-                inWater = false;
+                rb.drag = airDrag;
+                rb.angularDrag = airAngularDrag;
             }
         }
     }
