@@ -1,4 +1,5 @@
 using Photon.Pun;
+using StylizedWater;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -48,15 +49,22 @@ namespace Creature
         public Vector3 glideDir;
 
         [Header("Swimming")]
+        public StylizedWaterURP water;
         public LayerMask waterLayer;
         public Transform watercheck;
         public float waterLevel;
+        public float strength;
         public float underwaterDrag = 3;
         public float underwaterAngularDrag = 1;
+        public float depth = 1;
         float airDrag = 0;
         float airAngularDrag = 0.05f;
-        public float buoyancy;
         bool underwater;
+
+        float steepness;
+        float waveLength;
+        float waterSpeed;
+        float[] directions;
 
         PhotonView pv;
 
@@ -68,6 +76,14 @@ namespace Creature
             GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
             playerM = FindObjectOfType<Player.PlayerManager>();
             creature = playerM.creature;
+
+            // Get wave properties from water
+            water = FindObjectOfType<StylizedWaterURP>();
+
+            steepness = water.GetWaveSteepness();
+            waveLength = water.GetWaveLength();
+            waterSpeed = water.GetWaveSpeed();
+            directions = water.GetWaveDirections();
         }
 
         private void OnDestroy()
@@ -77,6 +93,8 @@ namespace Creature
 
         private void FixedUpdate()
         {
+            //heaigfght
+
             if (moveInput == null || !playerM.pv.IsMine)
                 return;
 
@@ -114,12 +132,23 @@ namespace Creature
             }
 
             //Swimming
-            var diff = transform.position.y - waterLevel;
-            print(diff);
+            var pos = transform.position;
+            var wave = transform.position;
+            wave.y = water.transform.position.y + GerstnerWaveDisplacement.GetWaveDisplacement(pos, steepness, waveLength, waterSpeed, directions).y;
 
-            if (diff < 0)
+            float waveHeight = wave.y;
+            float effectorHeight = pos.y;
+
+            if (effectorHeight < waveHeight) // submerged
             {
-                rb.AddForceAtPosition(Vector3.up * buoyancy * Mathf.Abs(diff), transform.position, ForceMode.Force);
+                float submersion = Mathf.Clamp01(waveHeight - effectorHeight) / depth;
+                float buoyancy = Mathf.Abs(Physics.gravity.y) * submersion * strength;
+
+                // buoyancy
+                rb.AddForceAtPosition(Vector3.up * buoyancy, pos, ForceMode.Acceleration);
+
+                gliding = false;
+                flying = false;
 
                 if (!underwater) SwitchState(true);
             }

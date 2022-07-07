@@ -9,6 +9,7 @@ namespace Creature
         public Creature creature;
         public Health health;
         public Growth growth;
+        public Movement movement;
 
         // Start is called before the first frame update
         void Start()

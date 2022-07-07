@@ -2326,8 +2326,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 4822458902514857148}
     m_Modifications:
     - target: {fileID: 6546358922740654188, guid: 18f71222c2611fd45aadd1db9ff939b8, type: 3}
+      propertyPath: depth
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546358922740654188, guid: 18f71222c2611fd45aadd1db9ff939b8, type: 3}
       propertyPath: buoyancy
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6546358922740654188, guid: 18f71222c2611fd45aadd1db9ff939b8, type: 3}
+      propertyPath: strength
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6546358922740654188, guid: 18f71222c2611fd45aadd1db9ff939b8, type: 3}
       propertyPath: jumpForce
