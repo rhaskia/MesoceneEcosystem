@@ -152,6 +152,7 @@ namespace Creature
                 else
                 {
                     rb.AddForceAtPosition(Vector3.up * buoyancy / 3, pos, ForceMode.Acceleration);
+
                 }
 
                 stamina -= 10 * Time.deltaTime;
