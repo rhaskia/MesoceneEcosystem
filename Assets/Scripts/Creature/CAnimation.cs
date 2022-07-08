@@ -60,35 +60,6 @@ namespace Creature
             Invoke("ManageAnimation", 0.1f);
         }
 
-        public Texture2D FlipTexture(Texture2D original)
-        {
-            int textureWidth = original.width;
-            int textureHeight = original.height;
-
-            Color[] colorArray = original.GetPixels();
-
-            for (int j = 0; j < textureHeight; j++)
-            {
-                int rowStart = 0;
-                int rowEnd = textureWidth - 1;
-
-                while (rowStart < rowEnd)
-                {
-                    Color hold = colorArray[(j * textureWidth) + (rowStart)];
-                    colorArray[(j * textureWidth) + (rowStart)] = colorArray[(j * textureWidth) + (rowEnd)];
-                    colorArray[(j * textureWidth) + (rowEnd)] = hold;
-                    rowStart++;
-                    rowEnd--;
-                }
-            }
-
-            Texture2D finalFlippedTexture = new Texture2D(original.width, original.height);
-            finalFlippedTexture.SetPixels(colorArray);
-            finalFlippedTexture.Apply();
-
-            return finalFlippedTexture;
-        }
-
         public Texture2D textureFromSprite(Sprite sprite)
         {
             if (sprite.rect.width != sprite.texture.width)
@@ -126,8 +97,9 @@ namespace Creature
                     { currentFrame = 0; }
 
                     var texture = textureFromSprite(anim.side[currentFrame]);
-                    if (flip) material.material.mainTexture = FlipTexture(texture);
-                    else material.material.mainTexture = texture;
+                    if (flip) material.material.mainTextureScale = new Vector2(-1, 1);
+                    else material.material.mainTextureScale = new Vector2(1, 1);
+                    material.material.mainTexture = texture;
 
                     break;
 

@@ -57,6 +57,7 @@ namespace Creature
         public float underwaterDrag = 3;
         public float underwaterAngularDrag = 1;
         public float depth = 1;
+        public float swimStaminaUse;
         float airDrag = 0;
         float airAngularDrag = 0.05f;
         bool underwater;
@@ -144,8 +145,16 @@ namespace Creature
                 float submersion = Mathf.Clamp01(waveHeight - effectorHeight) / depth;
                 float buoyancy = Mathf.Abs(Physics.gravity.y) * submersion * strength;
 
-                // buoyancy
-                rb.AddForceAtPosition(Vector3.up * buoyancy, pos, ForceMode.Acceleration);
+                if (stamina > 10)
+                {
+                    rb.AddForceAtPosition(Vector3.up * buoyancy, pos, ForceMode.Acceleration);
+                }
+                else
+                {
+                    rb.AddForceAtPosition(Vector3.up * buoyancy / 3, pos, ForceMode.Acceleration);
+                }
+
+                stamina -= 10 * Time.deltaTime;
 
                 gliding = false;
                 flying = false;
@@ -219,7 +228,7 @@ namespace Creature
             if (crouching) return creature.sneakSpeed.speed;
 
             stamina -= creature.walkSpeed.staminaUse;
-            return creature.walkSpeed.speed;
+            return creature.walkSpeed.speed * mult;
         }
 
         private void OnGameStateChanged(GameState newGameState)

@@ -15,25 +15,25 @@ MonoBehaviour:
   size: 1
   sneakSpeed:
     speed: 1
-    staminaUse: 0
+    staminaUse: -0.1
     minStamina: 10
     disturbance: 0
     can: 1
   walkSpeed:
     speed: 3
-    staminaUse: 0
+    staminaUse: 0.1
     minStamina: 10
     disturbance: 0
     can: 1
   trotSpeed:
     speed: 5
-    staminaUse: 0
+    staminaUse: 5
     minStamina: 10
     disturbance: 0
     can: 1
   runSpeed:
     speed: 8
-    staminaUse: 0
+    staminaUse: 2.5
     minStamina: 10
     disturbance: 0
     can: 1

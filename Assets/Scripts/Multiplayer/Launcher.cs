@@ -22,6 +22,8 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     [SerializeField] GameObject startGameButton;
 
+    [SerializeField] GameObject noConnection;
+
     [SerializeField] string[] adject;
     [SerializeField] string[] dinosaurs;
 
@@ -48,8 +50,18 @@ public class Launcher : MonoBehaviourPunCallbacks
         Debug.Log("Joined Lobby");
         MenuManager.Instance.OpenMenu("Title");
 
-
         PhotonNetwork.NickName = adject[Random.Range(0, adject.Length)] + dinosaurs[Random.Range(0, dinosaurs.Length)] + Random.Range(10, 99);
+    }
+
+    public override void OnLeftLobby()
+    {
+        MenuManager.Instance.OpenMenu("Loading");
+    }
+
+    public void ReloadClient()
+    {
+        PhotonNetwork.Disconnect();
+        PhotonNetwork.ConnectUsingSettings();
     }
 
     public void CreateRoom()
