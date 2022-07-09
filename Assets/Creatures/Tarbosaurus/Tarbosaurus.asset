@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
+  m_Name: Tarbosaurus
+  m_EditorClassIdentifier: 
+  ppu: 10
+  sneakSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance: 0
+    can: 1
+  walkSpeed:
+    speed: 7
+    staminaUse: 0
+    minStamina: 10
+    disturbance: 0
+    can: 1
+  trotSpeed:
+    speed: 10
+    staminaUse: 0
+    minStamina: 10
+    disturbance: 0
+    can: 1
+  runSpeed:
+    speed: 15
+    staminaUse: 0
+    minStamina: 10
+    disturbance: 0
+    can: 1
+  jumpForce:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance: 0
+    can: 1
+  glideSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance: 0
+    can: 1
+  flySpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance: 0
+    can: 1
+  idle:
+    side:
+    - {fileID: 202405268, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: -1203976971, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: 1571611953, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: -1325171685, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: -91643586, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: 725305639, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: -1971334460, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: -1942243969, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: -1855704676, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: -1162206999, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: -1563558280, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: -687871594, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: -549657744, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: 480808594, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: -834427571, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: 164609035, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: 30204901, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: -862059007, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: 1727398942, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: -177932101, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    front: []
+    back: []
+    speed: 0.15
+  walk:
+    side:
+    - {fileID: 202405268, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: 202405268, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    front: []
+    back: []
+    speed: 0.15
+  run:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+  jump:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+  glide:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+  fly:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+  rest:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+  sleep:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+  eat:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+  drink:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+  lmb:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+  rmb:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+  limp:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+  death:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+  dead: {fileID: 0}

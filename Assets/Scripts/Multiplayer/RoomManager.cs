@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class RoomManager : MonoBehaviourPunCallbacks
 {
     public static RoomManager Instance;
+    public Creature.Creature[] creatures;
     public float rotation;
 
     void Awake()

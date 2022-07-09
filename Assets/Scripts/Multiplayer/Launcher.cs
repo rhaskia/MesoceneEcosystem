@@ -28,6 +28,9 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField] string[] adject;
     [SerializeField] string[] dinosaurs;
 
+    [SerializeField] TMP_Dropdown dropdown;
+    [SerializeField] TMP_InputField nickname;
+
     void Awake()
     {
         Instance = this;
@@ -51,7 +54,14 @@ public class Launcher : MonoBehaviourPunCallbacks
         Debug.Log("Joined Lobby");
         MenuManager.Instance.OpenMenu("Title");
 
-        PhotonNetwork.NickName = adject[Random.Range(0, adject.Length)] + dinosaurs[Random.Range(0, dinosaurs.Length)] + Random.Range(10, 99);
+        if (PlayerPrefs.GetString("Nickname") != "")
+        {
+            PhotonNetwork.NickName = PlayerPrefs.GetString("Nickname");
+            nickname.text = PlayerPrefs.GetString("Nickname");
+        }
+        else PhotonNetwork.NickName = "Player#" + Random.Range(10, 99);
+
+        dropdown.value = PlayerPrefs.GetInt("Creature");
     }
 
     public override void OnLeftLobby()
@@ -124,6 +134,17 @@ public class Launcher : MonoBehaviourPunCallbacks
     public void StartGame()
     {
         PhotonNetwork.LoadLevel(1);
+    }
+
+    public void SaveOptions()
+    {
+        if (nickname.text != "")
+        {
+            PlayerPrefs.SetString("Nickname", nickname.text);
+            PhotonNetwork.NickName = PlayerPrefs.GetString("Nickname");
+        }
+
+        PlayerPrefs.SetInt("Creature", dropdown.value);
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)

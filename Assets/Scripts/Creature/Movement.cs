@@ -50,7 +50,6 @@ namespace Creature
 
         [Header("Swimming")]
         public LayerMask waterLayer;
-        public Transform watercheck;
         public float strength;
         public float underwaterDrag = 3;
         public float underwaterAngularDrag = 1;
@@ -179,7 +178,7 @@ namespace Creature
             {
                 gliding = false; flying = false;
 
-                if (moveInput.jump) rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+                if (moveInput.jump && creature.jumpForce.can) rb.AddForce(new Vector3(0, creature.jumpForce.speed, 0), ForceMode.Impulse);
                 if (moveInput.crouch) crouching = !crouching;
             }
             else

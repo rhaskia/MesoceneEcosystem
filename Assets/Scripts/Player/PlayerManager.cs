@@ -34,6 +34,8 @@ namespace Player
         {
             animator.current = creature;
             pv = GetComponent<PhotonView>();
+
+            if (pv.IsMine) creature = RoomManager.Instance.creatures[PlayerPrefs.GetInt("Creature")];
         }
 
         void Update()
@@ -58,9 +60,6 @@ namespace Player
 
             //Animations
             ManageAnimations(input);
-
-            float size = (((growth.currentPercent / 2f) + 50f) / 100f) * creature.size;
-            transform.localScale = size * Vector3.one;
         }
 
         [PunRPC]

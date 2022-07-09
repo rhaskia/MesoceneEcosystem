@@ -15,28 +15,30 @@ namespace Creature
         public Directions currentDir;
         public int currentFrame;
 
-        public Vector3 shadowDir;
-        public LayerMask layerMask;
         public Creature current;
 
         public MeshRenderer material;
-        public Transform renderer;
+        public Transform sprite;
 
         public bool flip;
 
-        public BoxCollider collider;
+        public CapsuleCollider maincollider;
+        public CapsuleCollider slipcollider;
         public float ppu;
         PhotonView pv;
+
 
         void Start()
         {
             Invoke("ManageAnimation", 0.1f);
-            pv = gameObject.GetComponentInParent<PhotonView>();
+            pv = GetComponent<PhotonView>();
+            ppu = current.ppu;
         }
 
         void Update()
         {
-            if (pv.IsMine) return;
+            print(pv.IsMine);
+            if (!pv.IsMine) return;
 
             //Flipping
             if (flip) material.material.mainTextureScale = new Vector2(-1, 1);
@@ -46,11 +48,17 @@ namespace Creature
             var size = new Vector3(material.material.mainTexture.width / ppu, material.material.mainTexture.height / ppu, 0.5f);
             var centre = new Vector3(0, material.material.mainTexture.height / (ppu * 2), 0);
 
-            collider.size = size;
-            collider.center = centre;
+            maincollider.height = size.x;
+            maincollider.radius = size.y / 2f;
+            maincollider.center = centre;
 
-            renderer.localScale = size;
-            renderer.localPosition = centre;
+            slipcollider.height = size.x * 1.01f;
+            slipcollider.radius = size.y / 2.01f;
+            slipcollider.center = centre;
+
+            print(size);
+            sprite.localScale = size;
+            sprite.localPosition = centre;
         }
 
         void ManageAnimation()
