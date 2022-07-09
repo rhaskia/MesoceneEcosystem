@@ -14,12 +14,13 @@ namespace Creature
         public Animations currentAnim;
         public Directions currentDir;
         public int currentFrame;
-        public SpriteRenderer spriteRenderer;
-        public SpriteRenderer shadow;
+
         public Vector3 shadowDir;
         public LayerMask layerMask;
         public Creature current;
+
         public MeshRenderer material;
+        public Transform renderer;
 
         public bool flip;
 
@@ -37,17 +38,19 @@ namespace Creature
         {
             if (pv.IsMine) return;
 
-            //Shadow stuff
-            //Need to make a shader for it really
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(shadowDir), out hit, Mathf.Infinity, layerMask))
-            {
-                shadow.transform.position = hit.point;
-            }
+            //Flipping
+            if (flip) material.material.mainTextureScale = new Vector2(-1, 1);
+            else material.material.mainTextureScale = new Vector2(1, 1);
 
             //Setting collidor size
-            collider.size = new Vector3(spriteRenderer.sprite.rect.width / ppu, spriteRenderer.sprite.rect.height / ppu, 0.5f);
-            collider.center = new Vector3(0, spriteRenderer.sprite.rect.height / (ppu * 2), 0);
+            var size = new Vector3(material.material.mainTexture.width / ppu, material.material.mainTexture.height / ppu, 0.5f);
+            var centre = new Vector3(0, material.material.mainTexture.height / (ppu * 2), 0);
+
+            collider.size = size;
+            collider.center = centre;
+
+            renderer.localScale = size;
+            renderer.localPosition = centre;
         }
 
         void ManageAnimation()
@@ -96,45 +99,45 @@ namespace Creature
                     if (currentFrame >= anim.side.Length)
                     { currentFrame = 0; }
 
-                    var texture = textureFromSprite(anim.side[currentFrame]);
-                    if (flip) material.material.mainTextureScale = new Vector2(-1, 1);
-                    else material.material.mainTextureScale = new Vector2(1, 1);
-                    material.material.mainTexture = texture;
-
+                    material.material.mainTexture = textureFromSprite(anim.side[currentFrame]);
                     break;
 
                 case Directions.Front:
                     if (currentFrame >= anim.front.Length)
                     { currentFrame = 0; }
-                    spriteRenderer.sprite = anim.front[currentFrame];
+
+                    material.material.mainTexture = textureFromSprite(anim.front[currentFrame]);
                     break;
 
                 case Directions.Back:
                     if (currentFrame >= anim.back.Length)
                     { currentFrame = 0; }
-                    spriteRenderer.sprite = anim.back[currentFrame];
+
+                    material.material.mainTexture = textureFromSprite(anim.back[currentFrame]);
                     break;
             }
         }
 
-        void AnimationOneTime(Sprite[] side, Sprite[] front, Sprite[] back)
+        void AnimationOneTime(AnimationBundle anim)
         {
             switch (currentDir)
             {
                 case Directions.Side:
-                    if (currentFrame >= side.Length)
+                    if (currentFrame >= anim.side.Length)
                     { currentAnim = Animations.idle; currentFrame = 0; }
-                    spriteRenderer.sprite = side[currentFrame];
+                    material.material.mainTexture = textureFromSprite(anim.front[currentFrame]);
                     break;
+
                 case Directions.Front:
-                    if (currentFrame >= front.Length)
+                    if (currentFrame >= anim.front.Length)
                     { currentAnim = Animations.idle; currentFrame = 0; }
-                    spriteRenderer.sprite = front[currentFrame];
+                    material.material.mainTexture = textureFromSprite(anim.front[currentFrame]);
                     break;
+
                 case Directions.Back:
-                    if (currentFrame >= back.Length)
+                    if (currentFrame >= anim.back.Length)
                     { currentAnim = Animations.idle; currentFrame = 0; }
-                    spriteRenderer.sprite = back[currentFrame];
+                    material.material.mainTexture = textureFromSprite(anim.front[currentFrame]);
                     break;
             }
             currentFrame++;

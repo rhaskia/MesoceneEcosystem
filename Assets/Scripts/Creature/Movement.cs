@@ -49,15 +49,14 @@ namespace Creature
         public Vector3 glideDir;
 
         [Header("Swimming")]
-        public StylizedWaterURP water;
         public LayerMask waterLayer;
         public Transform watercheck;
-        public float waterLevel;
         public float strength;
         public float underwaterDrag = 3;
         public float underwaterAngularDrag = 1;
         public float depth = 1;
         public float swimStaminaUse;
+        StylizedWaterURP water;
         float airDrag = 0;
         float airAngularDrag = 0.05f;
         bool underwater;
