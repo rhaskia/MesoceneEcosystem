@@ -113,11 +113,10 @@ namespace Player
 
         IEnumerator DisconnectPlayer()
         {
-            print("wtf");
             PhotonNetwork.LeaveRoom();
             while (PhotonNetwork.InRoom)
                 yield return null;
-            print("wtf2");
+
             SceneManager.LoadScene(0);
         }
 
