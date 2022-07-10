@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
   m_Name: Minmi
   m_EditorClassIdentifier: 
-  size: 1
+  ppu: 28
   sneakSpeed:
     speed: 1
     staminaUse: 0
@@ -20,18 +20,24 @@ MonoBehaviour:
     disturbance: 0
     can: 1
   walkSpeed:
-    speed: 1
+    speed: 3
     staminaUse: 0
     minStamina: 10
     disturbance: 0
     can: 1
   trotSpeed:
-    speed: 1
+    speed: 4
     staminaUse: 0
     minStamina: 10
     disturbance: 0
     can: 1
   runSpeed:
+    speed: 5
+    staminaUse: 0
+    minStamina: 10
+    disturbance: 0
+    can: 1
+  jumpForce:
     speed: 1
     staminaUse: 0
     minStamina: 10
@@ -50,17 +56,30 @@ MonoBehaviour:
     disturbance: 0
     can: 1
   idle:
-    side: []
+    side:
+    - {fileID: -1963573102, guid: 53a48a00778a1af429479a0f5e34a05c, type: 3}
+    - {fileID: -1556634615, guid: 53a48a00778a1af429479a0f5e34a05c, type: 3}
     front: []
     back: []
     speed: 0.15
   walk:
-    side: []
+    side:
+    - {fileID: 784620419, guid: 53a48a00778a1af429479a0f5e34a05c, type: 3}
+    - {fileID: 1014321142, guid: 53a48a00778a1af429479a0f5e34a05c, type: 3}
+    - {fileID: -220913123, guid: 53a48a00778a1af429479a0f5e34a05c, type: 3}
+    - {fileID: 1871853026, guid: 53a48a00778a1af429479a0f5e34a05c, type: 3}
+    - {fileID: -1963573102, guid: 53a48a00778a1af429479a0f5e34a05c, type: 3}
+    - {fileID: -1556634615, guid: 53a48a00778a1af429479a0f5e34a05c, type: 3}
     front: []
     back: []
     speed: 0.15
   run:
-    side: []
+    side:
+    - {fileID: 1308588346, guid: 24df2226ee34fd04eb5f555a7dcb2937, type: 3}
+    - {fileID: -631302875, guid: 24df2226ee34fd04eb5f555a7dcb2937, type: 3}
+    - {fileID: -2028233292, guid: 24df2226ee34fd04eb5f555a7dcb2937, type: 3}
+    - {fileID: -1941716950, guid: 24df2226ee34fd04eb5f555a7dcb2937, type: 3}
+    - {fileID: -2001933963, guid: 24df2226ee34fd04eb5f555a7dcb2937, type: 3}
     front: []
     back: []
     speed: 0.15

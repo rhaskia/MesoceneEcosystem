@@ -82,13 +82,23 @@ MonoBehaviour:
     speed: 0.15
   walk:
     side:
-    - {fileID: 202405268, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
-    - {fileID: 202405268, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
+    - {fileID: 583420862, guid: 8acafca5dc8c5224bad2f15391ca6531, type: 3}
+    - {fileID: -401247892, guid: 8acafca5dc8c5224bad2f15391ca6531, type: 3}
+    - {fileID: -1686006169, guid: 8acafca5dc8c5224bad2f15391ca6531, type: 3}
+    - {fileID: 1985143535, guid: 8acafca5dc8c5224bad2f15391ca6531, type: 3}
+    - {fileID: -565711896, guid: 8acafca5dc8c5224bad2f15391ca6531, type: 3}
+    - {fileID: 101470537, guid: 8acafca5dc8c5224bad2f15391ca6531, type: 3}
     front: []
     back: []
-    speed: 0.15
+    speed: 0.2
   run:
-    side: []
+    side:
+    - {fileID: 583420862, guid: 8acafca5dc8c5224bad2f15391ca6531, type: 3}
+    - {fileID: -401247892, guid: 8acafca5dc8c5224bad2f15391ca6531, type: 3}
+    - {fileID: -1686006169, guid: 8acafca5dc8c5224bad2f15391ca6531, type: 3}
+    - {fileID: 1985143535, guid: 8acafca5dc8c5224bad2f15391ca6531, type: 3}
+    - {fileID: -565711896, guid: 8acafca5dc8c5224bad2f15391ca6531, type: 3}
+    - {fileID: 101470537, guid: 8acafca5dc8c5224bad2f15391ca6531, type: 3}
     front: []
     back: []
     speed: 0.15

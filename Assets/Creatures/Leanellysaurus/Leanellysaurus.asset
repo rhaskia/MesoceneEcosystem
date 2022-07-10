@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
   m_Name: Leanellysaurus
   m_EditorClassIdentifier: 
-  size: 1
+  ppu: 28
   sneakSpeed:
     speed: 1
     staminaUse: 0
@@ -20,18 +20,24 @@ MonoBehaviour:
     disturbance: 0
     can: 1
   walkSpeed:
-    speed: 1
+    speed: 3
     staminaUse: 0
     minStamina: 10
     disturbance: 0
     can: 1
   trotSpeed:
-    speed: 1
+    speed: 4
     staminaUse: 0
     minStamina: 10
     disturbance: 0
     can: 1
   runSpeed:
+    speed: 5
+    staminaUse: 0
+    minStamina: 10
+    disturbance: 0
+    can: 1
+  jumpForce:
     speed: 1
     staminaUse: 0
     minStamina: 10
@@ -55,12 +61,42 @@ MonoBehaviour:
     back: []
     speed: 0.15
   walk:
-    side: []
+    side:
+    - {fileID: -1073909164, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1810502085, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -1910371613, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -597834954, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -1306705954, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -210399776, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -1774200367, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 188258951, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -2101476150, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -277472841, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -548148126, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 183659963, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1591385251, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1717728453, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1936991240, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
     front: []
     back: []
     speed: 0.15
   run:
-    side: []
+    side:
+    - {fileID: -1073909164, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1810502085, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -1910371613, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -597834954, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -1306705954, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -210399776, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -1774200367, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 188258951, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -2101476150, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -277472841, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -548148126, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 183659963, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1591385251, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1717728453, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1936991240, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
     front: []
     back: []
     speed: 0.15

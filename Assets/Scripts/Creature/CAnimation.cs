@@ -30,9 +30,9 @@ namespace Creature
 
         void Start()
         {
-            Invoke("ManageAnimation", 0.1f);
             pv = GetComponent<PhotonView>();
             ppu = current.ppu;
+            ManageAnimation();
         }
 
         void Update()
@@ -68,7 +68,7 @@ namespace Creature
 
             pv.RPC("UpdateAnimations", RpcTarget.All, currentAnim, currentDir, currentFrame);
 
-            Invoke("ManageAnimation", 0.1f);
+            Invoke("ManageAnimation", allAnims[((int)currentAnim)].speed);
         }
 
         public Texture2D textureFromSprite(Sprite sprite)
@@ -99,7 +99,6 @@ namespace Creature
         void AnimationSet(AnimationBundle anim)
         {
             currentFrame++;
-
 
             switch (currentDir)
             {

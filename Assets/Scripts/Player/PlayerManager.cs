@@ -29,9 +29,14 @@ namespace Player
         public Slider hungerSlider;
 
         public PhotonView pv;
+        void Awake()
+        {
+            creature = RoomManager.Instance.creatures[PlayerPrefs.GetInt("Creature")];
+        }
 
         void Start()
         {
+
             animator.current = creature;
             pv = GetComponent<PhotonView>();
 
