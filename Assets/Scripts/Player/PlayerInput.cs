@@ -10,6 +10,7 @@ namespace Player
         public KeyCode run, jump, crouch, glide, fly;
 
         public Creature.Movement move;
+        public PlayerManager manager;
         PhotonView pv;
 
         void Start()
@@ -23,7 +24,9 @@ namespace Player
 
             //Input
             Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-            move.moveInput = GetInput();
+
+            if (manager.paused) move.moveInput = null;
+            else move.moveInput = GetInput();
         }
 
         Creature.MoveInput GetInput()

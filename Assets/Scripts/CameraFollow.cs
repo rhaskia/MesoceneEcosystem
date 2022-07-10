@@ -41,8 +41,6 @@ public class CameraFollow : MonoBehaviour
     {
         if (!pv.IsMine) return;
 
-        Cursor.visible = false;
-
         //Zooming 
         zoom = Mathf.Clamp(zoom + (zoomSpeed * Input.mouseScrollDelta.y), minMaxZoom.x, minMaxZoom.y);
 

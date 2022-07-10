@@ -165,10 +165,12 @@ namespace Creature
         }
         void Update()
         {
-            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, RoomManager.Instance.rotation, transform.rotation.z));
+
 
             if (moveInput == null || !playerM.pv.IsMine)
                 return;
+
+            transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, RoomManager.Instance.rotation, transform.rotation.z));
 
             //Groundcheck
             onGround = Physics.Raycast(groundcheck.position, transform.TransformDirection(Vector3.down), 0.5f, groundLayer);

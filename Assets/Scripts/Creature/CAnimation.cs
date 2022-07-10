@@ -27,6 +27,8 @@ namespace Creature
         public float ppu;
         PhotonView pv;
 
+        Vector3 size;
+        Vector3 centre = new Vector3();
 
         void Start()
         {
@@ -37,17 +39,10 @@ namespace Creature
 
         void Update()
         {
-            print(pv.IsMine);
-            if (!pv.IsMine) return;
+            size = new Vector3(material.material.mainTexture.width / ppu, material.material.mainTexture.height / ppu, 0.5f);
+            centre = new Vector3(0, material.material.mainTexture.height / (ppu * 2), 0);
 
-            //Flipping
-            if (flip) material.material.mainTextureScale = new Vector2(-1, 1);
-            else material.material.mainTextureScale = new Vector2(1, 1);
-
-            //Setting collidor size
-            var size = new Vector3(material.material.mainTexture.width / ppu, material.material.mainTexture.height / ppu, 0.5f);
-            var centre = new Vector3(0, material.material.mainTexture.height / (ppu * 2), 0);
-
+            //Sizes
             maincollider.height = size.x;
             maincollider.radius = size.y / 2f;
             maincollider.center = centre;
@@ -56,9 +51,12 @@ namespace Creature
             slipcollider.radius = size.y / 2.01f;
             slipcollider.center = centre;
 
-            print(size);
             sprite.localScale = size;
             sprite.localPosition = centre;
+
+            //Flipping
+            if (flip) material.material.mainTextureScale = new Vector2(-1, 1);
+            else material.material.mainTextureScale = new Vector2(1, 1);
         }
 
         void ManageAnimation()

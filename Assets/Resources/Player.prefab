@@ -274,10 +274,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
-        m_Mode: 5
+      - m_Target: {fileID: 4822458902514857151}
+        m_TargetAssemblyTypeName: Player.PlayerManager, Assembly-CSharp
+        m_MethodName: SetPaused
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -607,10 +607,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
-        m_Mode: 5
+      - m_Target: {fileID: 4822458902514857151}
+        m_TargetAssemblyTypeName: Player.PlayerManager, Assembly-CSharp
+        m_MethodName: LeaveGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1598,6 +1598,7 @@ MonoBehaviour:
   glide: 120
   fly: 122
   move: {fileID: 4822458901375794343}
+  manager: {fileID: 4822458902514857151}
 --- !u!114 &4822458902514857151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1624,6 +1625,9 @@ MonoBehaviour:
   thirstSlider: {fileID: 4822458902391862367}
   hungerSlider: {fileID: 4822458901996997346}
   pv: {fileID: 0}
+  pauseButton: 9
+  paused: 0
+  pauseMenu: {fileID: 6717693135744168197}
 --- !u!114 &-2715118525632906757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2731,6 +2735,7 @@ GameObject:
   - component: {fileID: 3061818640263314109}
   - component: {fileID: 4251441778603771560}
   - component: {fileID: 20792324305717668}
+  - component: {fileID: 1895649145575243705}
   m_Layer: 0
   m_Name: Quad
   m_TagString: Untagged
@@ -2803,6 +2808,22 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1895649145575243705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6072424217845577578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 0
+  m_SynchronizeRotation: 0
+  m_SynchronizeScale: 1
+  m_UseLocal: 1
 --- !u!1 &6717693135744168197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2815,7 +2836,7 @@ GameObject:
   - component: {fileID: 7728103098452962537}
   - component: {fileID: 3718420582197558203}
   m_Layer: 5
-  m_Name: Menu
+  m_Name: Pause Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3405,6 +3426,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 4236154365305658335}
+  - {fileID: 1895649145575243705}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

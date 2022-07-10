@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 namespace Player
 {
@@ -29,27 +30,60 @@ namespace Player
         public Slider hungerSlider;
 
         public PhotonView pv;
+
+        public KeyCode pauseButton;
+        public bool paused;
+        public GameObject pauseMenu;
+
+
         void Awake()
         {
-            creature = RoomManager.Instance.creatures[PlayerPrefs.GetInt("Creature")];
-        }
-
-        void Start()
-        {
-
-            animator.current = creature;
             pv = GetComponent<PhotonView>();
 
-            if (pv.IsMine) creature = RoomManager.Instance.creatures[PlayerPrefs.GetInt("Creature")];
+            if (pv.IsMine)
+            {
+                creature = RoomManager.Instance.creatures[PlayerPrefs.GetInt("Creature")];
+                pv.RPC("UpdateCreature", RpcTarget.All, PlayerPrefs.GetInt("Creature"));
+            }
+
+            animator.current = creature;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        [PunRPC]
+        void UpdateCreature(int c)
+        {
+            creature = RoomManager.Instance.creatures[c];
         }
 
         void Update()
         {
+            animator.current = creature;
+
             if (!pv.IsMine)
                 canvas.gameObject.SetActive(false);
 
             if (!pv.IsMine)
                 return;
+
+            //Pause Menu
+            if (Input.GetKeyDown(pauseButton)) paused = !paused;
+
+            if (paused)
+            {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                pauseMenu.SetActive(true);
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                pauseMenu.SetActive(false);
+            }
+
 
             //Input
             Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -65,6 +99,26 @@ namespace Player
 
             //Animations
             ManageAnimations(input);
+        }
+
+        public void SetPaused(bool p)
+        {
+            paused = p;
+        }
+
+        public void LeaveGame()
+        {
+            StartCoroutine("DisconnectPlayer");
+        }
+
+        IEnumerator DisconnectPlayer()
+        {
+            print("wtf");
+            PhotonNetwork.LeaveRoom();
+            while (PhotonNetwork.InRoom)
+                yield return null;
+            print("wtf2");
+            SceneManager.LoadScene(0);
         }
 
         [PunRPC]

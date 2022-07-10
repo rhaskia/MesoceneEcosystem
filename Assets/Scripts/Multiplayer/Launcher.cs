@@ -36,7 +36,6 @@ public class Launcher : MonoBehaviourPunCallbacks
         Instance = this;
     }
 
-
     void Start()
     {
         PhotonNetwork.ConnectUsingSettings();
@@ -116,12 +115,6 @@ public class Launcher : MonoBehaviourPunCallbacks
     public void JoinRoom(RoomInfo info)
     {
         PhotonNetwork.JoinRoom(info.Name);
-        MenuManager.Instance.OpenMenu("Loading");
-    }
-
-    public void LeaveRoom()
-    {
-        PhotonNetwork.LeaveRoom();
         MenuManager.Instance.OpenMenu("Loading");
     }
 

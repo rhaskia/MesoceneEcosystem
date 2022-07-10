@@ -38,7 +38,7 @@ public class TextChange : MonoBehaviour
     void ChangeSprite()
     {
         currentSprite++;
-        if (currentSprite == sprites.Length) currentSprite = 0;
+        if (currentSprite >= sprites.Length) currentSprite = 0;
 
         image.sprite = sprites[currentSprite];
 
@@ -48,7 +48,7 @@ public class TextChange : MonoBehaviour
     void ChangeText()
     {
         current++;
-        if (current == text.Length) current = 0;
+        if (current >= text.Length) current = 0;
 
         textmesh.text = text[current];
 
