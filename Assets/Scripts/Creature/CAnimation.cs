@@ -94,7 +94,7 @@ namespace Creature
             currentFrame = frame;
         }
 
-        void AnimationSet(AnimationBundle anim)
+        public void AnimationSet(AnimationBundle anim)
         {
             currentFrame++;
 
@@ -123,7 +123,7 @@ namespace Creature
             }
         }
 
-        void AnimationOneTime(AnimationBundle anim)
+        public void AnimationOneTime(AnimationBundle anim)
         {
             switch (currentDir)
             {
