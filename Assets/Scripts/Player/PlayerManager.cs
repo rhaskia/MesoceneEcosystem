@@ -40,20 +40,25 @@ namespace Player
         {
             pv = GetComponent<PhotonView>();
 
-            if (pv.IsMine)
-            {
-                creature = RoomManager.Instance.creatures[PlayerPrefs.GetInt("Creature")];
-                pv.RPC("UpdateCreature", RpcTarget.All, PlayerPrefs.GetInt("Creature"));
-            }
-
-            animator.current = creature;
+            UpdateCreature();
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
 
+        public void UpdateCreature()
+        {
+            if (pv.IsMine)
+            {
+                creature = RoomManager.Instance.creatures[PlayerPrefs.GetInt("Creature")];
+                pv.RPC("UpdateCreatureRPC", RpcTarget.All, PlayerPrefs.GetInt("Creature"));
+            }
+
+            animator.current = creature;
+        }
+
         [PunRPC]
-        void UpdateCreature(int c)
+        void UpdateCreatureRPC(int c)
         {
             creature = RoomManager.Instance.creatures[c];
         }
@@ -99,6 +104,11 @@ namespace Player
 
             //Animations
             ManageAnimations(input);
+        }
+
+        private void OnPlayerConnected()
+        {
+            UpdateCreature();
         }
 
         public void SetPaused(bool p)
@@ -164,6 +174,11 @@ namespace Player
             {
                 animator.currentAnim = Creature.CAnimation.Animations.idle;
             }
+        }
+
+        private void OnDestroy()
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }
