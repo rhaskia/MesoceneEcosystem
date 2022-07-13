@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
   m_Name: Shuuvia
   m_EditorClassIdentifier: 
-  size: 1
+  ppu: 32
   sneakSpeed:
     speed: 1
     staminaUse: -0.1
@@ -34,6 +34,12 @@ MonoBehaviour:
   runSpeed:
     speed: 8
     staminaUse: 2.5
+    minStamina: 10
+    disturbance: 0
+    can: 1
+  jumpForce:
+    speed: 1
+    staminaUse: 0
     minStamina: 10
     disturbance: 0
     can: 1
@@ -79,7 +85,17 @@ MonoBehaviour:
     back: []
     speed: 0.15
   jump:
-    side: []
+    side:
+    - {fileID: -11154737, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
+    - {fileID: 412939164, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
+    - {fileID: 1197777211, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
+    - {fileID: -658588975, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
+    - {fileID: -1935913034, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
+    - {fileID: 225399809, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
+    - {fileID: 1331235020, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
+    - {fileID: 409701210, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
+    - {fileID: 1846931901, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
+    - {fileID: 1049860778, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
     front: []
     back: []
     speed: 0.15

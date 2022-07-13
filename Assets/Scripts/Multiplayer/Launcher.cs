@@ -6,6 +6,7 @@ using TMPro;
 using Photon.Realtime;
 using DiscordPresence;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
@@ -30,6 +31,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     [SerializeField] TMP_Dropdown dropdown;
     [SerializeField] TMP_InputField nickname;
+    [SerializeField] Toggle fs;
 
     void Awake()
     {
@@ -40,6 +42,8 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.ConnectUsingSettings();
         PresenceManager.UpdatePresence(detail: "In Menu", largeKey: "mesocene_logo_may_2021", state: "");
+
+        fs.isOn = System.Convert.ToBoolean(PlayerPrefs.GetString("FullScreen"));
     }
 
     public override void OnConnectedToMaster()
@@ -138,6 +142,9 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
 
         PlayerPrefs.SetInt("Creature", dropdown.value);
+
+        PlayerPrefs.SetString("FullScreen", fs.isOn.ToString());
+        Screen.fullScreen = fs.isOn;
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
