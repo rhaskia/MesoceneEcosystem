@@ -43,6 +43,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
         PresenceManager.UpdatePresence(detail: "In Menu", largeKey: "mesocene_logo_may_2021", state: "");
 
+        if (PlayerPrefs.GetString("FullScreen") == null) PlayerPrefs.SetString("FullScreen", "True");
         fs.isOn = System.Convert.ToBoolean(PlayerPrefs.GetString("FullScreen"));
     }
 
