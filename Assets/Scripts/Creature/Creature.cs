@@ -25,7 +25,8 @@ namespace Creature
     [CreateAssetMenu(fileName = "Critter")]
     public class Creature : ScriptableObject
     {
-        public float ppu = 32;
+        public float mass;
+        public float length;
 
         public MoveType sneakSpeed, walkSpeed, trotSpeed, runSpeed, jumpForce, glideSpeed, flySpeed;
 

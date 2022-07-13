@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
   m_Name: Tarbosaurus
   m_EditorClassIdentifier: 
-  ppu: 10
+  mass: 4500
+  length: 11
   sneakSpeed:
     speed: 1
     staminaUse: 0

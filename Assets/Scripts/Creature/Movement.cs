@@ -83,11 +83,21 @@ namespace Creature
             waveLength = water.GetWaveLength();
             waterSpeed = water.GetWaveSpeed();
             directions = water.GetWaveDirections();
+
+            rb.mass = creature.mass;
+
+            pv.RPC("UpdateSizesRPC", RpcTarget.All, creature.mass);
         }
 
         private void OnDestroy()
         {
             GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
+        }
+
+        [PunRPC]
+        void UpdateSizesRPC(float mass)
+        {
+            rb.mass = mass;
         }
 
         private void FixedUpdate()
@@ -165,8 +175,6 @@ namespace Creature
         }
         void Update()
         {
-
-
             if (moveInput == null || !playerM.pv.IsMine)
                 return;
 
@@ -250,6 +258,11 @@ namespace Creature
                 rb.drag = airDrag;
                 rb.angularDrag = airAngularDrag;
             }
+        }
+
+        private void OnPlayerConnected()
+        {
+            pv.RPC("UpdateSizesRPC", RpcTarget.All, creature.mass);
         }
     }
 }

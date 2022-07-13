@@ -18,6 +18,7 @@ namespace Creature
         public Creature current;
 
         public MeshRenderer material;
+        public MeshRenderer back;
         public Transform sprite;
 
         public bool flip;
@@ -33,7 +34,7 @@ namespace Creature
         void Start()
         {
             pv = GetComponent<PhotonView>();
-            ppu = current.ppu;
+            ppu = current.idle.side[0].rect.width / current.length;
             ManageAnimation();
         }
 
@@ -57,6 +58,9 @@ namespace Creature
             //Flipping
             if (flip) material.material.mainTextureScale = new Vector2(-1, 1);
             else material.material.mainTextureScale = new Vector2(1, 1);
+
+            back.material = material.material;
+            back.material.mainTextureScale = new Vector2(-back.material.mainTextureScale.x, 1);
         }
 
         void ManageAnimation()
@@ -64,7 +68,7 @@ namespace Creature
             var allAnims = new AnimationBundle[] { current.idle, current.walk, current.run, current.jump, current.glide, current.fly, current.rest, current.sleep, current.eat, current.drink, current.lmb, current.rmb, current.limp, current.death };
             AnimationSet(allAnims[((int)currentAnim)]);
 
-            pv.RPC("UpdateAnimations", RpcTarget.All, currentAnim, currentDir, currentFrame);
+            pv.RPC("UpdateAnimations", RpcTarget.All, currentAnim, currentDir, currentFrame, ppu);
 
             Invoke("ManageAnimation", allAnims[((int)currentAnim)].speed);
         }
@@ -87,11 +91,12 @@ namespace Creature
         }
 
         [PunRPC]
-        void UpdateAnimations(Animations anim, Directions dir, int frame)
+        void UpdateAnimations(Animations anim, Directions dir, int frame, float _ppu)
         {
             currentAnim = anim;
             currentDir = dir;
             currentFrame = frame;
+            ppu = _ppu;
         }
 
         public void AnimationSet(AnimationBundle anim)

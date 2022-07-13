@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
   m_Name: Shuuvia
   m_EditorClassIdentifier: 
-  ppu: 32
+  mass: 2
+  length: 0.6
   sneakSpeed:
     speed: 1
     staminaUse: -0.1
