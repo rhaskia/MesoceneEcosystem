@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Manages a menu
 public class Menu : MonoBehaviour
 {
     public string menuName;

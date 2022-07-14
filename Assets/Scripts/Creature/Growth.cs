@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 namespace Creature
 {
+    //Manages creature growth
     public class Growth : MonoBehaviour
     {
         public enum GS { hatchling, baby, juvenile, subadult, adult, elder }

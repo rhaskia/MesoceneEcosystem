@@ -3,6 +3,7 @@ using Photon.Pun;
 
 namespace Player
 {
+    //Manages all player input and feeds it to movement script
     public class PlayerInput : MonoBehaviour
     {
         [Header("Keys")]
@@ -25,7 +26,7 @@ namespace Player
             //Input
             Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-            if (manager.paused) move.moveInput = null;
+            if (GameStateManager.Instance.paused) move.moveInput = null;
             else move.moveInput = GetInput();
         }
 

@@ -8,6 +8,8 @@ using DiscordPresence;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//Launcher for multiplayer
+//Most voids are self explanatory
 public class Launcher : MonoBehaviourPunCallbacks
 {
     public static Launcher Instance;
@@ -33,6 +35,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField] TMP_InputField nickname;
     [SerializeField] Toggle fs;
 
+    //Singleton
     void Awake()
     {
         Instance = this;

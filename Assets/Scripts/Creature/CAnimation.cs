@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Creature
 {
+    //Creature Animation Manager
     public class CAnimation : MonoBehaviour
     {
         public enum Animations { idle, walk, run, jump, glide, fly, rest, sleep, eat, drink, LMB, RMB, limp, death }

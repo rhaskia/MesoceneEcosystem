@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace Creature
 {
+    //Manages AI
+    //Still in progress
     public class AIManager : MonoBehaviour
     {
         public Creature creature;

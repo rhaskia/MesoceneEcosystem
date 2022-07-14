@@ -58,7 +58,8 @@ namespace Creature
         StylizedWaterURP water;
         float airDrag = 0;
         float airAngularDrag = 0.05f;
-        bool underwater;
+        bool inWater;
+        bool underWater;
 
         float steepness;
         float waveLength;
@@ -72,7 +73,6 @@ namespace Creature
             pv = GetComponentInParent<PhotonView>();
             if (!pv.IsMine) return;
 
-            GameStateManager.Instance.OnGameStateChanged += OnGameStateChanged;
             playerM = FindObjectOfType<Player.PlayerManager>();
             creature = playerM.creature;
 
@@ -89,11 +89,6 @@ namespace Creature
             pv.RPC("UpdateSizesRPC", RpcTarget.All, creature.mass);
         }
 
-        private void OnDestroy()
-        {
-            GameStateManager.Instance.OnGameStateChanged -= OnGameStateChanged;
-        }
-
         [PunRPC]
         void UpdateSizesRPC(float mass)
         {
@@ -104,7 +99,7 @@ namespace Creature
         {
             //heaigfght
 
-            if (moveInput == null || !playerM.pv.IsMine)
+            if (moveInput == null || !playerM.pv.IsMine || GameStateManager.Instance.paused)
                 return;
 
             Vector3 speed = new Vector3(moveInput.movement.normalized.x, 0, moveInput.movement.normalized.y);
@@ -116,7 +111,7 @@ namespace Creature
             Vector3 s = transform.right * moveInput.movement.normalized.x * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
             Vector3 f = transform.forward * moveInput.movement.normalized.y * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
 
-            if (onGround || flying || underwater) rb.velocity = new Vector3(s.x + f.x, rb.velocity.y, s.z + f.z);
+            if (onGround || flying || inWater) rb.velocity = new Vector3(s.x + f.x, rb.velocity.y, s.z + f.z);
 
             //Stamina
             stamina += 2;
@@ -148,11 +143,12 @@ namespace Creature
             float waveHeight = wave.y;
             float effectorHeight = pos.y;
 
-            if (effectorHeight < waveHeight) // submerged
+            if (effectorHeight < waveHeight) //In Water
             {
                 float submersion = Mathf.Clamp01(waveHeight - effectorHeight) / depth;
                 float buoyancy = Mathf.Abs(Physics.gravity.y) * submersion * strength;
 
+                //Buoyancy
                 if (stamina > 10)
                 {
                     rb.AddForceAtPosition(Vector3.up * buoyancy, pos, ForceMode.Acceleration);
@@ -168,11 +164,14 @@ namespace Creature
                 gliding = false;
                 flying = false;
 
-                if (!underwater) SwitchState(true);
+                if (!inWater) SwitchState(true);
             }
-            else if (underwater) SwitchState(false);
+            else if (inWater) SwitchState(false);
+
+            underWater = transform.position.y + (transform.lossyScale.y / 2) < waveHeight;
 
         }
+
         void Update()
         {
             if (moveInput == null || !playerM.pv.IsMine)
@@ -212,10 +211,11 @@ namespace Creature
             if (onGround && moveInput.crouch) crouching = !crouching;
         }
 
+        //Gets player movement speed
         public float GetSpeed()
         {
             var mult = 1f;
-            if (underwater) mult = 0.7f;
+            if (inWater) mult = 0.7f;
 
             //Trotting
             if (moveInput.trot)
@@ -240,15 +240,11 @@ namespace Creature
             return creature.walkSpeed.speed * mult;
         }
 
-        private void OnGameStateChanged(GameState newGameState)
-        {
-            enabled = newGameState == GameState.GamePlay;
-        }
-
+        //Switches between underwater and not
         void SwitchState(bool u)
         {
-            underwater = u;
-            if (underwater)
+            inWater = u;
+            if (inWater)
             {
                 rb.drag = underwaterDrag;
                 rb.angularDrag = underwaterAngularDrag;
@@ -260,6 +256,7 @@ namespace Creature
             }
         }
 
+        //Updates mass
         private void OnPlayerConnected()
         {
             pv.RPC("UpdateSizesRPC", RpcTarget.All, creature.mass);

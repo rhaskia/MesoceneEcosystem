@@ -79,7 +79,7 @@ public class ScriptBatch
         {
             if (!RunRpcBuildScript())
             {
-                UnityEngine.Debug.LogError("Build failed");
+                //UnityEngine.Debug.LogError("Build failed");
                 return;
             }
         }

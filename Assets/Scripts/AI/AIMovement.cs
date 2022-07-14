@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AIMovement : MonoBehaviour
 {
+    //Need to ask breezy about this
     public enum State
     {
         sleeping, wander, agressive, resting, fighting, fleeing, curious,

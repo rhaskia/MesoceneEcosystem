@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 namespace Player
 {
-
+    //Manages most player stuff
     public class PlayerManager : MonoBehaviour
     {
         [Header("Relations")]
@@ -32,7 +32,6 @@ namespace Player
         public PhotonView pv;
 
         public KeyCode pauseButton;
-        public bool paused;
         public GameObject pauseMenu;
 
 
@@ -74,9 +73,9 @@ namespace Player
                 return;
 
             //Pause Menu
-            if (Input.GetKeyDown(pauseButton)) paused = !paused;
+            if (Input.GetKeyDown(pauseButton)) SwitchPause();
 
-            if (paused)
+            if (GameStateManager.Instance.paused)
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
@@ -111,14 +110,14 @@ namespace Player
             UpdateCreature();
         }
 
-        public void SetPaused(bool p)
-        {
-            paused = p;
-        }
-
         public void LeaveGame()
         {
             StartCoroutine("DisconnectPlayer");
+        }
+
+        public void SwitchPause()
+        {
+            GameStateManager.Instance.SwitchState();
         }
 
         IEnumerator DisconnectPlayer()

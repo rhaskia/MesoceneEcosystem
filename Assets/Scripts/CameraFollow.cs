@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Makes the camera follow the player
 public class CameraFollow : MonoBehaviour
 {
     [Header("CameraMove")]

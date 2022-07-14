@@ -1,9 +1,3 @@
-public enum GameState
-{
-    GamePlay,
-    Paused
-}
-
 public class GameStateManager
 {
     private static GameStateManager _instance;
@@ -18,17 +12,23 @@ public class GameStateManager
         }
     }
 
-    public GameState currentGameState { get; private set; }
+    public bool paused;
 
-    public delegate void GameStateChangeHandler(GameState newGameState);
+    public delegate void GameStateChangeHandler(bool newGameState);
     public event GameStateChangeHandler OnGameStateChanged;
 
-    public void SetState(GameState newGameState)
+    public void SetState(bool newGameState)
     {
-        if (newGameState == currentGameState)
+        if (newGameState == paused)
             return;
 
-        currentGameState = newGameState;
+        paused = newGameState;
         OnGameStateChanged?.Invoke(newGameState);
+    }
+
+    public void SwitchState()
+    {
+        paused = !paused;
+        OnGameStateChanged?.Invoke(paused);
     }
 }

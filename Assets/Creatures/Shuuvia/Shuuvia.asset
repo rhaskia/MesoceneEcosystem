@@ -39,7 +39,7 @@ MonoBehaviour:
     disturbance: 0
     can: 1
   jumpForce:
-    speed: 1
+    speed: 10
     staminaUse: 0
     minStamina: 10
     disturbance: 0

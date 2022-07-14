@@ -29,7 +29,7 @@ namespace Creature
         public UnityEvent DeathFunction = new UnityEvent();
         PhotonView pv;
 
-        private void Start()
+        void Start()
         {
             pv = GetComponentInParent<PhotonView>();
         }
