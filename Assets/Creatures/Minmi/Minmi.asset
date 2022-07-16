@@ -12,48 +12,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
   m_Name: Minmi
   m_EditorClassIdentifier: 
-  ppu: 28
+  mass: 1600
+  length: 3
   sneakSpeed:
     speed: 1
     staminaUse: 0
     minStamina: 10
-    disturbance: 0
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
     can: 1
   walkSpeed:
     speed: 3
     staminaUse: 0
     minStamina: 10
-    disturbance: 0
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
     can: 1
   trotSpeed:
     speed: 4
     staminaUse: 0
     minStamina: 10
-    disturbance: 0
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
     can: 1
   runSpeed:
     speed: 5
     staminaUse: 0
     minStamina: 10
-    disturbance: 0
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
     can: 1
   jumpForce:
     speed: 1
     staminaUse: 0
     minStamina: 10
-    disturbance: 0
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
     can: 1
   glideSpeed:
     speed: 1
     staminaUse: 0
     minStamina: 10
-    disturbance: 0
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
     can: 1
   flySpeed:
     speed: 1
     staminaUse: 0
     minStamina: 10
-    disturbance: 0
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
     can: 1
   idle:
     side:
@@ -62,6 +98,7 @@ MonoBehaviour:
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   walk:
     side:
     - {fileID: 784620419, guid: 53a48a00778a1af429479a0f5e34a05c, type: 3}
@@ -73,6 +110,7 @@ MonoBehaviour:
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   run:
     side:
     - {fileID: 1308588346, guid: 24df2226ee34fd04eb5f555a7dcb2937, type: 3}
@@ -83,59 +121,71 @@ MonoBehaviour:
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   jump:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   glide:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   fly:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   rest:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   sleep:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   eat:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   drink:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   lmb:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   rmb:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   limp:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   death:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   dead: {fileID: 0}
