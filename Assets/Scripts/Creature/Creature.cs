@@ -10,6 +10,7 @@ namespace Creature
         public Sprite[] front;
         public Sprite[] back;
         public float speed = 0.15f;
+        public bool oneTime;
     }
 
     //Move type; holds speeds, stamina use, etc

@@ -23,7 +23,7 @@ public class CreatureSelector : MonoBehaviour
         UpdateSelector();
     }
 
-    // Update is called once per frame
+    
     void UpdateSelector()
     {
         for (int i = 0; i < images.Length; i++)

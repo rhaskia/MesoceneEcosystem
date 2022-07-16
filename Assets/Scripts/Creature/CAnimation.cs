@@ -5,12 +5,12 @@ using UnityEngine;
 
 namespace Creature
 {
+    public enum Animations { idle, walk, run, jump, glide, fly, rest, sleep, eat, drink, LMB, RMB, limp, death }
+    public enum Directions { Side, Front, Back }
+
     //Creature Animation Manager
     public class CAnimation : MonoBehaviour
     {
-        public enum Animations { idle, walk, run, jump, glide, fly, rest, sleep, eat, drink, LMB, RMB, limp, death }
-        public enum Directions { Side, Front, Back }
-
         [Header("Info")]
         public Animations currentAnim;
         public Directions currentDir;
@@ -64,6 +64,11 @@ namespace Creature
             back.material.mainTextureScale = new Vector2(-back.material.mainTextureScale.x, 1);
         }
 
+        public void SetCurrent(Animations an)
+        {
+            currentAnim = an;
+        }
+
         void ManageAnimation()
         {
             var allAnims = new AnimationBundle[] { current.idle, current.walk, current.run, current.jump, current.glide, current.fly, current.rest, current.sleep, current.eat, current.drink, current.lmb, current.rmb, current.limp, current.death };
@@ -74,7 +79,7 @@ namespace Creature
             Invoke("ManageAnimation", allAnims[((int)currentAnim)].speed);
         }
 
-        public Texture2D textureFromSprite(Sprite sprite)
+        Texture2D textureFromSprite(Sprite sprite)
         {
             if (sprite.rect.width != sprite.texture.width)
             {
@@ -100,59 +105,35 @@ namespace Creature
             ppu = _ppu;
         }
 
-        public void AnimationSet(AnimationBundle anim)
+        void AnimationSet(AnimationBundle anim)
         {
             currentFrame++;
 
             switch (currentDir)
             {
                 case Directions.Side:
-                    if (currentFrame >= anim.side.Length)
-                    { currentFrame = 0; }
-
-                    material.material.mainTexture = textureFromSprite(anim.side[currentFrame]);
+                    AnimationCase(anim.side, anim);
                     break;
 
                 case Directions.Front:
-                    if (currentFrame >= anim.front.Length)
-                    { currentFrame = 0; }
-
-                    material.material.mainTexture = textureFromSprite(anim.front[currentFrame]);
+                    AnimationCase(anim.front, anim);
                     break;
 
                 case Directions.Back:
-                    if (currentFrame >= anim.back.Length)
-                    { currentFrame = 0; }
-
-                    material.material.mainTexture = textureFromSprite(anim.back[currentFrame]);
+                    AnimationCase(anim.front, anim);
                     break;
             }
         }
 
-        public void AnimationOneTime(AnimationBundle anim)
+        void AnimationCase(Sprite[] set, AnimationBundle anim)
         {
-            switch (currentDir)
+            if (currentFrame >= set.Length)
             {
-                case Directions.Side:
-                    if (currentFrame >= anim.side.Length)
-                    { currentAnim = Animations.idle; currentFrame = 0; }
-                    material.material.mainTexture = textureFromSprite(anim.front[currentFrame]);
-                    break;
-
-                case Directions.Front:
-                    if (currentFrame >= anim.front.Length)
-                    { currentAnim = Animations.idle; currentFrame = 0; }
-                    material.material.mainTexture = textureFromSprite(anim.front[currentFrame]);
-                    break;
-
-                case Directions.Back:
-                    if (currentFrame >= anim.back.Length)
-                    { currentAnim = Animations.idle; currentFrame = 0; }
-                    material.material.mainTexture = textureFromSprite(anim.front[currentFrame]);
-                    break;
+                currentFrame = 0;
+                if (anim.oneTime) currentAnim = Animations.idle;
             }
-            currentFrame++;
 
+            material.material.mainTexture = textureFromSprite(set[currentFrame]);
         }
     }
 }

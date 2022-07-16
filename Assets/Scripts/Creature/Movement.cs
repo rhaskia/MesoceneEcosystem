@@ -108,10 +108,10 @@ namespace Creature
             if (Mathf.Abs(speed.x) + Mathf.Abs(speed.z) > 0.75f) glideDir = speed;
 
             //Applying Input If On Ground
-            Vector3 s = transform.right * moveInput.movement.normalized.x * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
-            Vector3 f = transform.forward * moveInput.movement.normalized.y * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
+            Vector3 side = transform.right * moveInput.movement.normalized.x * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
+            Vector3 forward = transform.forward * moveInput.movement.normalized.y * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
 
-            if (onGround || flying || inWater) rb.velocity = new Vector3(s.x + f.x, rb.velocity.y, s.z + f.z);
+            if (onGround || flying || inWater) rb.velocity = new Vector3(side.x + forward.x, rb.velocity.y, side.z + forward.z);
 
             //Stamina
             stamina += 2;

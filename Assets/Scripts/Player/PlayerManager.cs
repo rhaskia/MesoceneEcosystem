@@ -152,9 +152,9 @@ namespace Player
         {
             //idk
             bool movingAnims =
-                animator.currentAnim == Creature.CAnimation.Animations.idle ||
-                animator.currentAnim == Creature.CAnimation.Animations.run ||
-                animator.currentAnim == Creature.CAnimation.Animations.walk;
+                animator.currentAnim == Creature.Animations.idle ||
+                animator.currentAnim == Creature.Animations.run ||
+                animator.currentAnim == Creature.Animations.walk;
 
             //If not animating movement
             if (!movingAnims)
@@ -163,15 +163,15 @@ namespace Player
             //Animations
             if (rb.velocity.x + rb.velocity.z > creature.walkSpeed.speed + 0.01f || rb.velocity.x + rb.velocity.z < -creature.walkSpeed.speed + 0.01f)
             {
-                animator.currentAnim = Creature.CAnimation.Animations.run;
+                animator.currentAnim = Creature.Animations.run;
             }
             else if (rb.velocity.x + rb.velocity.z > creature.walkSpeed.speed / 8f || rb.velocity.x + rb.velocity.z < -creature.walkSpeed.speed / 8f)
             {
-                animator.currentAnim = Creature.CAnimation.Animations.walk;
+                animator.currentAnim = Creature.Animations.walk;
             }
             else
             {
-                animator.currentAnim = Creature.CAnimation.Animations.idle;
+                animator.currentAnim = Creature.Animations.idle;
             }
         }
 
