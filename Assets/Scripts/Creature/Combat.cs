@@ -20,6 +20,7 @@ namespace Creature
             if (Input.GetKeyDown(attackKey))
             {
                 Attack1();
+                animation.SetCurrent(Animations.LMB);
             }
 
             if (Input.GetMouseButtonDown(0))

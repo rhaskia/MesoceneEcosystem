@@ -43,6 +43,9 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
         PhotonNetwork.ConnectUsingSettings();
         PresenceManager.UpdatePresence(detail: "In Menu", largeKey: "mesocene_logo_may_2021", state: "");
 

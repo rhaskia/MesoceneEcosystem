@@ -133,6 +133,9 @@ namespace Creature
                 if (anim.oneTime) currentAnim = Animations.idle;
             }
 
+            if (set.Length == 0) Debug.LogError("Missing sprite sheet for the " + currentAnim.ToString() + " animation");
+            if (set.Length == 0) return;
+
             material.material.mainTexture = textureFromSprite(set[currentFrame]);
         }
     }
