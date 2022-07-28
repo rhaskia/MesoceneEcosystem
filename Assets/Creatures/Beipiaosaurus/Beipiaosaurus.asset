@@ -164,13 +164,29 @@ MonoBehaviour:
     speed: 0.15
     oneTime: 0
   lmb:
-    side: []
+    side:
+    - {fileID: -1309796355, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
+    - {fileID: 51310591, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
+    - {fileID: -541216779, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
+    - {fileID: -847862859, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
+    - {fileID: -800805714, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
+    - {fileID: -848475071, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
+    - {fileID: -701156430, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
+    - {fileID: -729266194, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   rmb:
-    side: []
+    side:
+    - {fileID: -903337594, guid: 51fa28db261366d48968002122200eaa, type: 3}
+    - {fileID: 330749226, guid: 51fa28db261366d48968002122200eaa, type: 3}
+    - {fileID: -1092121519, guid: 51fa28db261366d48968002122200eaa, type: 3}
+    - {fileID: -1154879638, guid: 51fa28db261366d48968002122200eaa, type: 3}
+    - {fileID: -1542840950, guid: 51fa28db261366d48968002122200eaa, type: 3}
+    - {fileID: 312208256, guid: 51fa28db261366d48968002122200eaa, type: 3}
+    - {fileID: 1659965086, guid: 51fa28db261366d48968002122200eaa, type: 3}
+    - {fileID: -1405493419, guid: 51fa28db261366d48968002122200eaa, type: 3}
     front: []
     back: []
     speed: 0.15
@@ -187,4 +203,4 @@ MonoBehaviour:
     back: []
     speed: 0.15
     oneTime: 0
-  dead: {fileID: 0}
+  dead: {fileID: 21300000, guid: 3efd9a33be8d67649b3cde60b5396e81, type: 3}

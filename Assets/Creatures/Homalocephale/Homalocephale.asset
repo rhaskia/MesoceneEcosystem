@@ -170,13 +170,13 @@ MonoBehaviour:
     front: []
     back: []
     speed: 0.15
-    oneTime: 0
+    oneTime: 1
   rmb:
     side: []
     front: []
     back: []
     speed: 0.15
-    oneTime: 0
+    oneTime: 1
   limp:
     side: []
     front: []

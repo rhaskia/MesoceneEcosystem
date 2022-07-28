@@ -98,8 +98,9 @@ namespace Creature
         private void FixedUpdate()
         {
             //heaigfght
+            BuoyancyManager();
 
-            if (moveInput == null || !playerM.pv.IsMine || GameStateManager.Instance.paused)
+            if (moveInput == null || !pv.IsMine || GameStateManager.Instance.paused)
                 return;
 
             Vector3 speed = new Vector3(moveInput.movement.normalized.x, 0, moveInput.movement.normalized.y);
@@ -135,46 +136,13 @@ namespace Creature
                 rb.velocity = glideDir;
             }
 
-            //Swimming
-            var pos = transform.position;
-            var wave = transform.position;
-            wave.y = water.transform.position.y + GerstnerWaveDisplacement.GetWaveDisplacement(pos, steepness, waveLength, waterSpeed, directions).y;
 
-            float waveHeight = wave.y;
-            float effectorHeight = pos.y;
-
-            if (effectorHeight < waveHeight) //In Water
-            {
-                float submersion = Mathf.Clamp01(waveHeight - effectorHeight) / depth;
-                float buoyancy = Mathf.Abs(Physics.gravity.y) * submersion * strength;
-
-                //Buoyancy
-                if (stamina > 10)
-                {
-                    rb.AddForceAtPosition(Vector3.up * buoyancy, pos, ForceMode.Acceleration);
-                }
-                else
-                {
-                    rb.AddForceAtPosition(Vector3.up * buoyancy / 3, pos, ForceMode.Acceleration);
-
-                }
-
-                stamina -= 10 * Time.deltaTime;
-
-                gliding = false;
-                flying = false;
-
-                if (!inWater) SwitchState(true);
-            }
-            else if (inWater) SwitchState(false);
-
-            underWater = transform.position.y + (transform.lossyScale.y / 2) < waveHeight;
 
         }
 
         void Update()
         {
-            if (moveInput == null || !playerM.pv.IsMine)
+            if (moveInput == null || !pv.IsMine)
                 return;
 
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, RoomManager.Instance.rotation, transform.rotation.z));
@@ -210,6 +178,45 @@ namespace Creature
             //Crouching
             if (onGround && moveInput.crouch) crouching = !crouching;
         }
+
+        void BuoyancyManager()
+        {
+            //Swimming
+            var pos = transform.position;
+            var wave = transform.position;
+            wave.y = water.transform.position.y + GerstnerWaveDisplacement.GetWaveDisplacement(pos, steepness, waveLength, waterSpeed, directions).y;
+
+            float waveHeight = wave.y;
+            float effectorHeight = pos.y;
+
+            if (effectorHeight < waveHeight) //In Water
+            {
+                float submersion = Mathf.Clamp01(waveHeight - effectorHeight) / depth;
+                float buoyancy = Mathf.Abs(Physics.gravity.y) * submersion * strength;
+
+                //Buoyancy
+                if (stamina > 10)
+                {
+                    rb.AddForceAtPosition(Vector3.up * buoyancy, pos, ForceMode.Acceleration);
+                }
+                else
+                {
+                    rb.AddForceAtPosition(Vector3.up * buoyancy / 3, pos, ForceMode.Acceleration);
+
+                }
+
+                stamina -= 10 * Time.deltaTime;
+
+                gliding = false;
+                flying = false;
+
+                if (!inWater) SwitchState(true);
+            }
+            else if (inWater) SwitchState(false);
+
+            underWater = transform.position.y + (transform.lossyScale.y / 2) < waveHeight;
+        }
+
 
         //Gets player movement speed
         public float GetSpeed()
