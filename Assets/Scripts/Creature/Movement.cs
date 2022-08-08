@@ -24,6 +24,8 @@ namespace Creature
 
     public class Movement : MonoBehaviour
     {
+        public Cinemachine.CinemachineFreeLook cam;
+
         [Header("Relations")]
         Player.PlayerManager playerM;
         public Rigidbody rb;
@@ -145,6 +147,7 @@ namespace Creature
             if (moveInput == null || !pv.IsMine)
                 return;
 
+            RoomManager.Instance.rotation = cam.m_XAxis.Value;
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, RoomManager.Instance.rotation, transform.rotation.z));
 
             //Groundcheck
