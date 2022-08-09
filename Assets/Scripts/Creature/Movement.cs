@@ -147,6 +147,7 @@ namespace Creature
             if (moveInput == null || !pv.IsMine)
                 return;
 
+            //Rotation
             RoomManager.Instance.rotation = cam.m_XAxis.Value;
             transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, RoomManager.Instance.rotation, transform.rotation.z));
 

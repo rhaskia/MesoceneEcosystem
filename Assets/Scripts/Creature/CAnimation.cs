@@ -21,6 +21,7 @@ namespace Creature
         public MeshRenderer material;
         public MeshRenderer back;
         public Transform sprite;
+        public Transform AttackHolder;
 
         public bool flip;
 
@@ -62,6 +63,8 @@ namespace Creature
 
             back.material = material.material;
             back.material.mainTextureScale = new Vector2(-back.material.mainTextureScale.x, 1);
+
+            AttackHolder.localRotation = Quaternion.Euler(new Vector3(transform.rotation.x, flip ? 180 : 0, transform.rotation.z));
         }
 
         public void SetCurrent(Animations an)
