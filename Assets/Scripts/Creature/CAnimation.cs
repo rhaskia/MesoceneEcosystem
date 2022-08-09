@@ -74,7 +74,7 @@ namespace Creature
             var allAnims = new AnimationBundle[] { current.idle, current.walk, current.run, current.jump, current.glide, current.fly, current.rest, current.sleep, current.eat, current.drink, current.lmb, current.rmb, current.limp, current.death };
             AnimationSet(allAnims[((int)currentAnim)]);
 
-            pv.RPC("UpdateAnimations", RpcTarget.All, currentAnim, currentDir, currentFrame, ppu);
+            //pv.RPC("UpdateAnimations", RpcTarget.All, currentAnim, currentDir, currentFrame, ppu);
 
             Invoke("ManageAnimation", allAnims[((int)currentAnim)].speed);
         }
@@ -120,7 +120,7 @@ namespace Creature
                     break;
 
                 case Directions.Back:
-                    AnimationCase(anim.front, anim);
+                    AnimationCase(anim.back, anim);
                     break;
             }
         }
