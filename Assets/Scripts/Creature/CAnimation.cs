@@ -33,6 +33,8 @@ namespace Creature
         Vector3 size;
         Vector3 centre = new Vector3();
 
+        public AnimationBundle[] allAnims;
+
         void Start()
         {
             pv = GetComponent<PhotonView>();
@@ -74,7 +76,7 @@ namespace Creature
 
         void ManageAnimation()
         {
-            var allAnims = new AnimationBundle[] { current.idle, current.walk, current.run, current.jump, current.glide, current.fly, current.rest, current.sleep, current.eat, current.drink, current.lmb, current.rmb, current.limp, current.death };
+            allAnims = new AnimationBundle[] { current.idle, current.walk, current.run, current.jump, current.glide, current.fly, current.rest, current.sleep, current.eat, current.drink, current.lmb, current.rmb, current.limp, current.death };
             AnimationSet(allAnims[((int)currentAnim)]);
 
             //pv.RPC("UpdateAnimations", RpcTarget.All, currentAnim, currentDir, currentFrame, ppu);

@@ -31,6 +31,7 @@ namespace Creature
         public Rigidbody rb;
         public MoveInput moveInput;
         public Creature creature;
+        public CAnimation anim;
 
         [Header("Variables")]
         public float stamina;
@@ -102,7 +103,7 @@ namespace Creature
             //heaigfght
             BuoyancyManager();
 
-            if (moveInput == null || !pv.IsMine || GameStateManager.Instance.paused)
+            if (moveInput == null || !pv.IsMine || GameStateManager.Instance.paused || anim.allAnims[((int)anim.currentAnim)].oneTime)
                 return;
 
             Vector3 speed = new Vector3(moveInput.movement.normalized.x, 0, moveInput.movement.normalized.y);
@@ -137,14 +138,11 @@ namespace Creature
                 glideDir = new Vector3(Mathf.Clamp(glideDir.x * mult, -maxGlideSpeed, maxGlideSpeed), -0.1f, Mathf.Clamp(glideDir.z * mult, -maxGlideSpeed, maxGlideSpeed));
                 rb.velocity = glideDir;
             }
-
-
-
         }
 
         void Update()
         {
-            if (moveInput == null || !pv.IsMine)
+            if (moveInput == null || !pv.IsMine || GameStateManager.Instance.paused || anim.allAnims[((int)anim.currentAnim)].oneTime)
                 return;
 
             //Rotation

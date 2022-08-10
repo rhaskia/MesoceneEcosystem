@@ -8,6 +8,9 @@ namespace Creature
     {
         public KeyCode attackKey;
         public CAnimation animation;
+
+        public GameObject attackHitBox;
+
         public bool isAtacking;
         public bool isBlocking;
 
@@ -27,6 +30,7 @@ namespace Creature
             {
                 isBlocking = true;
                 animation.SetCurrent(Animations.LMB);
+                Physics.OverlapBox(attackHitBox.transform.position, attackHitBox.transform.lossyScale.x / 2, atta)
             }
 
             if (Input.GetMouseButtonDown(1))
@@ -35,6 +39,7 @@ namespace Creature
                 animation.SetCurrent(Animations.RMB);
             }
 
+            attackHitBox.SetActive(animation.currentAnim == Animations.LMB);
         }
 
         [ContextMenu("Attack 01")]
