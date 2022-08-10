@@ -166,10 +166,12 @@ MonoBehaviour:
     speed: 0.15
     oneTime: 0
   lmb:
-    side: []
+    side:
+    - {fileID: 683575879, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
+    - {fileID: 683575879, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
     front: []
     back: []
-    speed: 0.15
+    speed: 2
     oneTime: 1
   rmb:
     side: []
