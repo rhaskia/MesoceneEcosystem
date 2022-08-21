@@ -35,11 +35,14 @@ namespace Creature
 
         public AnimationBundle[] allAnims;
 
-        void Start()
+        public void StartAnim()
         {
             pv = GetComponent<PhotonView>();
             ppu = current.idle.side[0].rect.width / current.length;
             ManageAnimation();
+
+            allAnims = new AnimationBundle[] { current.idle, current.walk, current.run, current.jump, current.glide, current.fly, current.rest, current.sleep,
+                current.eat, current.drink, current.lmb, current.rmb, current.limp, current.death };
         }
 
         void Update()
@@ -71,7 +74,14 @@ namespace Creature
 
         public void SetCurrent(Animations an)
         {
+            if (currentAnim == an)
+                return;
+
             currentAnim = an;
+            CancelInvoke("ManageAnimation");
+            currentFrame = 0;
+            print(currentAnim);
+            Invoke("ManageAnimation", allAnims[((int)currentAnim)].speed);
         }
 
         void ManageAnimation()
@@ -79,7 +89,7 @@ namespace Creature
             allAnims = new AnimationBundle[] { current.idle, current.walk, current.run, current.jump, current.glide, current.fly, current.rest, current.sleep, current.eat, current.drink, current.lmb, current.rmb, current.limp, current.death };
             AnimationSet(allAnims[((int)currentAnim)]);
 
-            //pv.RPC("UpdateAnimations", RpcTarget.All, currentAnim, currentDir, currentFrame, ppu);
+            pv.RPC("UpdateAnimations", RpcTarget.All, currentAnim, currentDir, currentFrame, ppu);
 
             Invoke("ManageAnimation", allAnims[((int)currentAnim)].speed);
         }

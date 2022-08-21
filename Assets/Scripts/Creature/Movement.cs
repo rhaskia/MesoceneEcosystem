@@ -32,6 +32,7 @@ namespace Creature
         public MoveInput moveInput;
         public Creature creature;
         public CAnimation anim;
+        public Combat combat;
 
         [Header("Variables")]
         public float stamina;
@@ -103,7 +104,7 @@ namespace Creature
             //heaigfght
             BuoyancyManager();
 
-            if (moveInput == null || !pv.IsMine || GameStateManager.Instance.paused || anim.allAnims[((int)anim.currentAnim)].oneTime)
+            if (moveInput == null || !pv.IsMine || GameStateManager.Instance.paused)
                 return;
 
             Vector3 speed = new Vector3(moveInput.movement.normalized.x, 0, moveInput.movement.normalized.y);
@@ -142,7 +143,7 @@ namespace Creature
 
         void Update()
         {
-            if (moveInput == null || !pv.IsMine || GameStateManager.Instance.paused || anim.allAnims[((int)anim.currentAnim)].oneTime)
+            if (moveInput == null || !pv.IsMine || GameStateManager.Instance.paused)
                 return;
 
             //Rotation
@@ -183,6 +184,8 @@ namespace Creature
 
         void BuoyancyManager()
         {
+            if (water == null) return;
+
             //Swimming
             var pos = transform.position;
             var wave = transform.position;

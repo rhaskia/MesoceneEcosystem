@@ -53,6 +53,11 @@ namespace Creature
             health += Mathf.Clamp(heal, 0, maxHealth);
         }
 
+        public void UpdateHealth()
+        {
+
+        }
+
         public void GiveAilment(Ailment ailment)
         {
             List<Ailment> ailments = Ailments.ToList();

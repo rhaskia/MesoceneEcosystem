@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Water
+  - Creature
   layers:
   - Default
   - TransparentFX

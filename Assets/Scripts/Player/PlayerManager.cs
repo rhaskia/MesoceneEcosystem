@@ -5,11 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
+using Cinemachine;
 
 namespace Player
 {
     //Manages most player stuff
-    public class PlayerManager : MonoBehaviour
+    public class PlayerManager : MonoBehaviourPunCallbacks
     {
         [Header("Relations")]
         public Creature.Creature creature;
@@ -18,9 +19,9 @@ namespace Player
         public Creature.Health health;
         public Creature.Growth growth;
         public CameraFollow follow;
+        public GameObject cam;
 
         public Rigidbody rb;
-        public SpriteRenderer render;
 
         [Header("Variables")]
         public Canvas canvas;
@@ -35,11 +36,12 @@ namespace Player
         public GameObject pauseMenu;
 
 
-        void Awake()
+        void Start()
         {
             pv = GetComponent<PhotonView>();
 
-            UpdateCreature();
+            if (!pv.IsMine) Destroy(cam);
+            if (pv.IsMine) UpdateCreature();
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -54,12 +56,14 @@ namespace Player
             }
 
             animator.current = creature;
+            animator.StartAnim();
         }
 
         [PunRPC]
         void UpdateCreatureRPC(int c)
         {
             creature = RoomManager.Instance.creatures[c];
+
         }
 
         void Update()
@@ -105,7 +109,7 @@ namespace Player
             ManageAnimations(input);
         }
 
-        private void OnPlayerConnected()
+        public void OnPlayerConnected()
         {
             UpdateCreature();
         }
@@ -163,15 +167,15 @@ namespace Player
             //Animations
             if (rb.velocity.x + rb.velocity.z > creature.walkSpeed.speed + 0.01f || rb.velocity.x + rb.velocity.z < -creature.walkSpeed.speed + 0.01f)
             {
-                animator.currentAnim = Creature.Animations.run;
+                animator.SetCurrent(Creature.Animations.run);
             }
             else if (rb.velocity.x + rb.velocity.z > creature.walkSpeed.speed / 8f || rb.velocity.x + rb.velocity.z < -creature.walkSpeed.speed / 8f)
             {
-                animator.currentAnim = Creature.Animations.walk;
+                animator.SetCurrent(Creature.Animations.walk);
             }
             else
             {
-                animator.currentAnim = Creature.Animations.idle;
+                animator.SetCurrent(Creature.Animations.idle);
             }
         }
 

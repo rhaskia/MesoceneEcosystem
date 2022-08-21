@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,61 +8,77 @@ namespace Creature
     public class Combat : MonoBehaviour
     {
         public KeyCode attackKey;
-        public CAnimation animation;
+        public CAnimation animator;
 
         public GameObject attackHitBox;
 
-        public bool isAtacking;
-        public bool isBlocking;
+        public bool isAttacking;
+
+        PhotonView pv;
+
+        void Start()
+        {
+            pv = GetComponent<PhotonView>();
+        }
 
         // Update is called once per frame
         void Update()
         {
-            if (GameStateManager.Instance.paused)
+            if (GameStateManager.Instance.paused || !pv.IsMine)
                 return;
 
             if (Input.GetKeyDown(attackKey))
             {
                 Attack1();
-                animation.SetCurrent(Animations.LMB);
+                animator.SetCurrent(Animations.LMB);
             }
 
             if (Input.GetMouseButtonDown(0))
             {
-                isBlocking = true;
-                animation.SetCurrent(Animations.LMB);
-                Physics.OverlapBox(attackHitBox.transform.position, attackHitBox.transform.lossyScale.x / 2, atta)
+                //isBlocking = true;
+                animator.SetCurrent(Animations.LMB);
+                var collisions = Physics.OverlapBox(attackHitBox.transform.position, attackHitBox.transform.lossyScale / 2, attackHitBox.transform.rotation);
+
+                foreach (var item in collisions)
+                {
+                    if (item.tag == "Creature" && item != gameObject)
+                    {
+                        print("amongus");
+                        item.GetComponent<Health>().TakeDamage(20);
+                    }
+                }
             }
 
             if (Input.GetMouseButtonDown(1))
             {
-                isBlocking = false;
-                animation.SetCurrent(Animations.RMB);
+                //isBlocking = false;
+                animator.SetCurrent(Animations.RMB);
             }
 
-            attackHitBox.SetActive(animation.currentAnim == Animations.LMB);
+            isAttacking = animator.currentAnim == Animations.LMB;
+            attackHitBox.SetActive(animator.currentAnim == Animations.LMB);
         }
 
         [ContextMenu("Attack 01")]
         public void Attack1()
         {
             //controllerANIM.SetTrigger("Biting");
-            isBlocking = false;
+            //isBlocking = false;
             //controllerANIM.SetBool("Atacking", isBlocking);
         }
 
-        public void SetBlocking()
-        {
-            if (isBlocking)
-            {
-                isAtacking = false;
-            }
-            else if (!isBlocking)
-            {
-                isAtacking = true;
-            }
+        //public void setblocking()
+        //{
+        //    if (isblocking)
+        //    {
+        //        isatacking = false;
+        //    }
+        //    else if (!isblocking)
+        //    {
+        //        isatacking = true;
+        //    }
 
-            //controllerANIM.SetBool("Atacking", isAtacking);
-        }
+        //    //controlleranim.setbool("atacking", isatacking);
+        //}
     }
 }
