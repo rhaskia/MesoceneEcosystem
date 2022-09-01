@@ -48,7 +48,7 @@ MonoBehaviour:
       type: 0
     can: 1
   runSpeed:
-    speed: 20
+    speed: 40
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -59,7 +59,7 @@ MonoBehaviour:
       type: 0
     can: 1
   jumpForce:
-    speed: 1
+    speed: 150
     staminaUse: 0
     minStamina: 10
     disturbance:

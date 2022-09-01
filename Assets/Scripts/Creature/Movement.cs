@@ -80,12 +80,13 @@ namespace Creature
             if (!pv.IsMine) return;
 
             // Get wave properties from water
-            water = FindObjectOfType<StylizedWaterURP>();
+            //water = FindObjectOfType<StylizedWaterURP>();
 
-            steepness = water.GetWaveSteepness();
-            waveLength = water.GetWaveLength();
-            waterSpeed = water.GetWaveSpeed();
-            directions = water.GetWaveDirections();
+            //
+            //steepness = water.GetWaveSteepness();
+            //waveLength = water.GetWaveLength();
+            //waterSpeed = water.GetWaveSpeed();
+            //directions = water.GetWaveDirections();
 
             rb.mass = creature.mass;
         }
@@ -99,7 +100,7 @@ namespace Creature
         private void FixedUpdate()
         {
             //heaigfght
-            BuoyancyManager();
+            //BuoyancyManager();
 
             if (moveInput == null || !pv.IsMine || GameStateManager.Instance.paused)
                 return;
