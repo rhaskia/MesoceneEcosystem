@@ -14,8 +14,7 @@ namespace Player
     {
         [Header("Relations")]
         public Creature.Creature creature;
-        public Creature.Movement movement;
-        public Creature.CAnimation animator;
+        public Creature.CreatureInfo info;
         public Creature.Health health;
         public Creature.Growth growth;
         public CameraFollow follow;
@@ -40,8 +39,10 @@ namespace Player
         {
             pv = GetComponent<PhotonView>();
 
+            UpdateCreature();
+
             if (!pv.IsMine) Destroy(cam);
-            if (pv.IsMine) UpdateCreature();
+
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -55,20 +56,18 @@ namespace Player
                 pv.RPC("UpdateCreatureRPC", RpcTarget.All, PlayerPrefs.GetInt("Creature"));
             }
 
-            animator.current = creature;
-            animator.StartAnim();
+            info.creature = creature;
         }
 
         [PunRPC]
         void UpdateCreatureRPC(int c)
         {
             creature = RoomManager.Instance.creatures[c];
-
+            print(c);
         }
 
         void Update()
         {
-            animator.current = creature;
 
             if (!pv.IsMine)
                 canvas.gameObject.SetActive(false);
@@ -98,7 +97,7 @@ namespace Player
 
             //UI
             healthSlider.value = health.health / (health.maxHealth * 1f);
-            staminaSlider.value = movement.stamina / (movement.maxStamina * 1f);
+            staminaSlider.value = info.movement.stamina / (info.movement.maxStamina * 1f);
             thirstSlider.value = health.thirst / (health.maxThirst * 1f);
             hungerSlider.value = health.hunger / (health.maxHunger * 1f);
 
@@ -138,11 +137,11 @@ namespace Player
         {
             if (input.x > 0.01)
             {
-                animator.flip = true;
+                info.canimation.flip = true;
             }
             else if (input.x < -0.01)
             {
-                animator.flip = false;
+                info.canimation.flip = false;
             }
         }
 
@@ -156,9 +155,9 @@ namespace Player
         {
             //idk
             bool movingAnims =
-                animator.currentAnim == Creature.Animations.idle ||
-                animator.currentAnim == Creature.Animations.run ||
-                animator.currentAnim == Creature.Animations.walk;
+                info.canimation.currentAnim == Creature.Animations.idle ||
+                info.canimation.currentAnim == Creature.Animations.run ||
+                info.canimation.currentAnim == Creature.Animations.walk;
 
             //If not animating movement
             if (!movingAnims)
@@ -167,15 +166,15 @@ namespace Player
             //Animations
             if (rb.velocity.x + rb.velocity.z > creature.walkSpeed.speed + 0.01f || rb.velocity.x + rb.velocity.z < -creature.walkSpeed.speed + 0.01f)
             {
-                animator.SetCurrent(Creature.Animations.run);
+                info.canimation.SetCurrent(Creature.Animations.run);
             }
             else if (rb.velocity.x + rb.velocity.z > creature.walkSpeed.speed / 8f || rb.velocity.x + rb.velocity.z < -creature.walkSpeed.speed / 8f)
             {
-                animator.SetCurrent(Creature.Animations.walk);
+                info.canimation.SetCurrent(Creature.Animations.walk);
             }
             else
             {
-                animator.SetCurrent(Creature.Animations.idle);
+                info.canimation.SetCurrent(Creature.Animations.idle);
             }
         }
 
@@ -185,4 +184,3 @@ namespace Player
         }
     }
 }
-

@@ -43,7 +43,6 @@ namespace Creature
                 {
                     if (item.tag == "Creature" && item != gameObject)
                     {
-                        print("amongus");
                         item.GetComponent<Health>().TakeDamage(20);
                     }
                 }

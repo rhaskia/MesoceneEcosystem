@@ -27,7 +27,7 @@ namespace Creature
         public Cinemachine.CinemachineFreeLook cam;
 
         [Header("Relations")]
-        Player.PlayerManager playerM;
+        CreatureInfo info;
         public Rigidbody rb;
         public MoveInput moveInput;
         public Creature creature;
@@ -72,13 +72,12 @@ namespace Creature
 
         PhotonView pv;
 
-        private void Awake()
+        private void Start()
         {
             pv = GetComponentInParent<PhotonView>();
-            if (!pv.IsMine) return;
+            info = GetComponent<CreatureInfo>();
 
-            playerM = FindObjectOfType<Player.PlayerManager>();
-            creature = playerM.creature;
+            if (!pv.IsMine) return;
 
             // Get wave properties from water
             water = FindObjectOfType<StylizedWaterURP>();
@@ -89,14 +88,12 @@ namespace Creature
             directions = water.GetWaveDirections();
 
             rb.mass = creature.mass;
-
-            pv.RPC("UpdateSizesRPC", RpcTarget.All, creature.mass);
         }
 
         [PunRPC]
-        void UpdateSizesRPC(float mass)
+        void UpdateSizesRPC()
         {
-            rb.mass = mass;
+            rb.mass = creature.mass;
         }
 
         private void FixedUpdate()
@@ -113,8 +110,8 @@ namespace Creature
             if (Mathf.Abs(speed.x) + Mathf.Abs(speed.z) > 0.75f) glideDir = speed;
 
             //Applying Input If On Ground
-            Vector3 side = transform.right * moveInput.movement.normalized.x * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
-            Vector3 forward = transform.forward * moveInput.movement.normalized.y * speedMult * ((playerM.growth.currentPercent / 2f) + 50f) / 100f;
+            Vector3 side = transform.right * moveInput.movement.normalized.x * speedMult * ((info.growth.currentPercent / 2f) + 50f) / 100f;
+            Vector3 forward = transform.forward * moveInput.movement.normalized.y * speedMult * ((info.growth.currentPercent / 2f) + 50f) / 100f;
 
             if (onGround || flying || inWater) rb.velocity = new Vector3(side.x + forward.x, rb.velocity.y, side.z + forward.z);
 

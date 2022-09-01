@@ -46,6 +46,7 @@ namespace Creature
         public void TakeDamage(int damage)
         {
             health -= Mathf.Clamp(damage, 0, health);
+            pv.RPC("UpdateHealth", RpcTarget.All, health);
         }
 
         public void HealDamage(int heal)
@@ -53,9 +54,10 @@ namespace Creature
             health += Mathf.Clamp(heal, 0, maxHealth);
         }
 
-        public void UpdateHealth()
+        [PunRPC]
+        public void UpdateHealth(int _h)
         {
-
+            health = _h;
         }
 
         public void GiveAilment(Ailment ailment)

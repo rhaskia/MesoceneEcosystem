@@ -26,7 +26,7 @@ MonoBehaviour:
       type: 0
     can: 1
   walkSpeed:
-    speed: 3
+    speed: 7
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -37,7 +37,7 @@ MonoBehaviour:
       type: 0
     can: 1
   trotSpeed:
-    speed: 4
+    speed: 12
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -48,7 +48,7 @@ MonoBehaviour:
       type: 0
     can: 1
   runSpeed:
-    speed: 5
+    speed: 20
     staminaUse: 0
     minStamina: 10
     disturbance:
