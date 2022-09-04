@@ -83,6 +83,17 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.Disconnect();
         PhotonNetwork.ConnectUsingSettings();
+        MenuManager.Instance.OpenMenu("Loading");
+    }
+
+    private void OnDisconnectedFromMasterServer()
+    {
+        ReloadClient();
+    }
+
+    private void OnDisconnectedFromServer()
+    {
+        ReloadClient();
     }
 
     public void CreateRoom()

@@ -7,6 +7,7 @@ using TMPro;
 public class CodeEntry : MonoBehaviour
 {
     public TextMeshProUGUI placeholder;
+    public TMP_InputField input;
     public CreatureSelector selector;
 
     public string[] codes;
@@ -25,8 +26,12 @@ public class CodeEntry : MonoBehaviour
             if (text.ToLower() == code)
             {
                 ManageCodes(text.ToLower());
+
+                //Setting text to accepted
+                input.text = "";
+                input.interactable = false;
                 placeholder.text = "Accepted";
-                Invoke("ResetText", 1f);
+                Invoke("ResetText", 1.5f);
             }
         }
     }
@@ -36,5 +41,5 @@ public class CodeEntry : MonoBehaviour
         if (code == codes[0]) selector.current = 5;
     }
 
-    void ResetText() { placeholder.text = "Enter Code..."; }
+    void ResetText() { placeholder.text = "Enter Code..."; input.interactable = true; }
 }

@@ -75,6 +75,12 @@ public class CreatureSelector : MonoBehaviour
 
     public void MoveRight()
     {
+        if (current + offset >= RoomManager.Instance.publicCreatures)
+        {
+            current = RoomManager.Instance.publicCreatures - offset * 2 + 1;
+            return;
+        }
+
         current = Mathf.Clamp(current + 1, -offset, RoomManager.Instance.publicCreatures - offset * 2 + 1);
     }
 }
