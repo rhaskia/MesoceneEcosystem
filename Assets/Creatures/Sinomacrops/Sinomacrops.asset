@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
-  m_Name: Euoplocephalus
+  m_Name: Sinomacrops
   m_EditorClassIdentifier: 
-  mass: 2500
-  length: 6
+  mass: 2
+  length: 1
   sneakSpeed:
     speed: 1
     staminaUse: 0
@@ -93,14 +93,10 @@ MonoBehaviour:
     can: 1
   idle:
     side:
-    - {fileID: 21300000, guid: 760ba6bd211fd884db59630fe9051cb4, type: 3}
-    - {fileID: 21300000, guid: 760ba6bd211fd884db59630fe9051cb4, type: 3}
-    front:
-    - {fileID: 21300000, guid: ef39c0b9db622ea4280b63905f7e6c2c, type: 3}
-    - {fileID: 21300000, guid: ef39c0b9db622ea4280b63905f7e6c2c, type: 3}
-    back:
-    - {fileID: 21300000, guid: 441346b012ca0c14cb3a46c40cf96c0e, type: 3}
-    - {fileID: 21300000, guid: 441346b012ca0c14cb3a46c40cf96c0e, type: 3}
+    - {fileID: 21300000, guid: 2c58103697083d64f9f93d303fdabaec, type: 3}
+    - {fileID: 21300000, guid: 2c58103697083d64f9f93d303fdabaec, type: 3}
+    front: []
+    back: []
     speed: 0.15
     oneTime: 0
   walk:
