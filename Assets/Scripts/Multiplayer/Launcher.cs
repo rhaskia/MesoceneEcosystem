@@ -114,7 +114,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         foreach (Transform child in playerListContent)
         {
-            Destroy(child);
+            Destroy(child.gameObject);
         }
 
         foreach (var player in PhotonNetwork.PlayerList)

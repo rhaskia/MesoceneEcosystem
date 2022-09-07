@@ -164,11 +164,11 @@ namespace Player
                 return;
 
             //Animations
-            if (rb.velocity.x + rb.velocity.z > creature.walkSpeed.speed + 0.01f || rb.velocity.x + rb.velocity.z < -creature.walkSpeed.speed + 0.01f)
+            if (rb.velocity.magnitude > creature.walkSpeed.speed + 0.01f || rb.velocity.magnitude < -creature.walkSpeed.speed + 0.01f)
             {
                 info.canimation.SetCurrent(Creature.Animations.run);
             }
-            else if (rb.velocity.x + rb.velocity.z > creature.walkSpeed.speed / 8f || rb.velocity.x + rb.velocity.z < -creature.walkSpeed.speed / 8f)
+            else if (rb.velocity.magnitude > creature.walkSpeed.speed / 8f || rb.velocity.magnitude < -creature.walkSpeed.speed / 8f)
             {
                 info.canimation.SetCurrent(Creature.Animations.walk);
             }
