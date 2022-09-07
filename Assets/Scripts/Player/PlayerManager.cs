@@ -46,6 +46,8 @@ namespace Player
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+
+            pauseMenu.SetActive(false);
         }
 
         public void UpdateCreature()
@@ -129,6 +131,7 @@ namespace Player
             while (PhotonNetwork.InRoom)
                 yield return null;
 
+            RoomManager.Instance.disconnected = false;
             SceneManager.LoadScene(0);
         }
 
@@ -180,6 +183,7 @@ namespace Player
 
         private void OnDestroy()
         {
+            RoomManager.Instance.disconnected = true;
             SceneManager.LoadScene(0);
         }
     }

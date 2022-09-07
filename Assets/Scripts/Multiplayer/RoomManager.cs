@@ -12,6 +12,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
     public int publicCreatures;
     public float rotation;
 
+    public bool disconnected;
+
     void Awake()
     {
         if (Instance)
@@ -38,6 +40,13 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     void OnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode)
     {
+        if (scene.buildIndex == 0 && disconnected)
+        {
+            MenuManager.Instance.OpenMenu("Error");
+            FindObjectOfType<Launcher>().SetErrorText("You have disconnected from the game");
+            disconnected = false;
+        }
+
         if (scene.buildIndex == 1)
         {
             PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);

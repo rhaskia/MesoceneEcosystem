@@ -117,7 +117,7 @@ namespace Creature
             if (onGround || flying || inWater) rb.velocity = new Vector3(side.x + forward.x, rb.velocity.y, side.z + forward.z);
 
             //Stamina
-            stamina += 2;
+            stamina += creature.staminaRegen * Time.deltaTime;
             stamina = Mathf.Clamp(stamina, 0, maxStamina);
 
             //Flying

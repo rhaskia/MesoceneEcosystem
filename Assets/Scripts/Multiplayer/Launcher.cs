@@ -93,6 +93,11 @@ public class Launcher : MonoBehaviourPunCallbacks
         ReloadClient();
     }
 
+    public void SetErrorText(string str)
+    {
+        errorText.text = str;
+    }
+
     private void OnDisconnectedFromServer()
     {
         ReloadClient();
@@ -180,7 +185,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         foreach (Transform trans in roomListContent)
         {
-            Destroy(trans);
+            Destroy(trans.gameObject);
         }
 
         foreach (var item in roomList)

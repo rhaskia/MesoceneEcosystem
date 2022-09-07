@@ -18,43 +18,78 @@ MonoBehaviour:
     speed: 1
     staminaUse: 0
     minStamina: 10
-    disturbance: 0
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
     can: 1
   walkSpeed:
     speed: 3
     staminaUse: 0
     minStamina: 10
-    disturbance: 0
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
     can: 1
   trotSpeed:
     speed: 4
     staminaUse: 0
     minStamina: 10
-    disturbance: 0
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
     can: 1
   runSpeed:
-    speed: 5
+    speed: 50
     staminaUse: 0
     minStamina: 10
-    disturbance: 0
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
     can: 1
   jumpForce:
     speed: 10
     staminaUse: 0
     minStamina: 10
-    disturbance: 0
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
     can: 1
   glideSpeed:
     speed: 1
     staminaUse: 0
     minStamina: 10
-    disturbance: 0
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
     can: 1
   flySpeed:
     speed: 1
     staminaUse: 0
     minStamina: 10
-    disturbance: 0
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
     can: 1
   idle:
     side:
@@ -63,6 +98,7 @@ MonoBehaviour:
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   walk:
     side:
     - {fileID: 281764625, guid: c4f888623dd921945bc03355ef4573f4, type: 3}
@@ -76,6 +112,7 @@ MonoBehaviour:
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   run:
     side:
     - {fileID: 281764625, guid: c4f888623dd921945bc03355ef4573f4, type: 3}
@@ -89,59 +126,71 @@ MonoBehaviour:
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   jump:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   glide:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   fly:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   rest:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   sleep:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   eat:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   drink:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   lmb:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   rmb:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   limp:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   death:
     side: []
     front: []
     back: []
     speed: 0.15
+    oneTime: 0
   dead: {fileID: 0}

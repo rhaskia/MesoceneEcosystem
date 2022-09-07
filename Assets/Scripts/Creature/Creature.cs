@@ -31,6 +31,8 @@ namespace Creature
         public float mass;
         public float length;
 
+        public float staminaRegen, healthRegen;
+
         [Space]
 
         public MoveType sneakSpeed;
