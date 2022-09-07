@@ -41,7 +41,7 @@ namespace Creature
 
                 foreach (var item in collisions)
                 {
-                    if (item.tag == "Creature" && item != gameObject)
+                    if (item.tag == "Creature" && item.gameObject != gameObject)
                     {
                         item.GetComponent<Health>().TakeDamage(20);
                     }

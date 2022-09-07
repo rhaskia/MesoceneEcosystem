@@ -35,6 +35,8 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField] TMP_InputField nickname;
     [SerializeField] Toggle fs;
 
+    [SerializeField] float gameStartDelay = 1f;
+
     //Singleton
     void Awake()
     {
@@ -148,7 +150,16 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public void StartGame()
     {
-        PhotonNetwork.LoadLevel(1);
+        MenuManager.Instance.OpenMenu("Loading");
+        Invoke("LoadLevel", gameStartDelay);
+    }
+
+    void LoadLevel() { PhotonNetwork.LoadLevel(1); }
+
+
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
     }
 
     public void SaveOptions()
