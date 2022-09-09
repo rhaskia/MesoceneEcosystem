@@ -24,10 +24,14 @@ namespace Creature
         public bool can = true;
     }
 
+    public enum Diet { omnivore, herbivore, carnivore, piscivore, insectivore }
+
     //Creature info and animation holder
     [CreateAssetMenu(fileName = "Critter")]
     public class Creature : ScriptableObject
     {
+        public Diet diet;
+
         public float mass;
         public float length;
 
