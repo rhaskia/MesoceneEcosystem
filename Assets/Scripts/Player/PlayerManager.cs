@@ -39,7 +39,8 @@ namespace Player
         {
             pv = GetComponent<PhotonView>();
 
-            UpdateCreature();
+            creature = RoomManager.Instance.creatures[(int)pv.Owner.CustomProperties["Creature"]];
+            info.creature = creature;
 
             if (!pv.IsMine) Destroy(cam);
 
@@ -50,16 +51,16 @@ namespace Player
             pauseMenu.SetActive(false);
         }
 
-        public void UpdateCreature()
-        {
-            if (pv.IsMine)
-            {
-                creature = RoomManager.Instance.creatures[PlayerPrefs.GetInt("Creature")];
-                pv.RPC("UpdateCreatureRPC", RpcTarget.All, PlayerPrefs.GetInt("Creature"));
-            }
+        //public void UpdateCreature()
+        //{
+        //    if (pv.IsMine)
+        //    {
+        //        creature = RoomManager.Instance.creatures[PlayerPrefs.GetInt("Creature")];
+        //        pv.RPC("UpdateCreatureRPC", RpcTarget.All, PlayerPrefs.GetInt("Creature"));
+        //    }
 
-            info.creature = creature;
-        }
+        //    info.creature = creature;
+        //}
 
         [PunRPC]
         void UpdateCreatureRPC(int c)
@@ -112,7 +113,7 @@ namespace Player
 
         public void OnPlayerConnected()
         {
-            UpdateCreature();
+            //UpdateCreature();
         }
 
         public void LeaveGame()

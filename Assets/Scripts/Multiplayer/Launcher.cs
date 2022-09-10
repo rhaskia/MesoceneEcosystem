@@ -31,7 +31,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField] string[] adject;
     [SerializeField] string[] dinosaurs;
 
-    [SerializeField] CreatureSelector selector;
+    [SerializeField] CreatureSelection selector;
     [SerializeField] TMP_InputField nickname;
     [SerializeField] Toggle fs;
 
@@ -72,8 +72,6 @@ public class Launcher : MonoBehaviourPunCallbacks
             nickname.text = PlayerPrefs.GetString("Nickname");
         }
         else PhotonNetwork.NickName = "Player#" + Random.Range(10, 99);
-
-        selector.current = PlayerPrefs.GetInt("Creature") - selector.offset;
     }
 
     public override void OnLeftLobby()
@@ -174,8 +172,6 @@ public class Launcher : MonoBehaviourPunCallbacks
             PlayerPrefs.SetString("Nickname", nickname.text);
             PhotonNetwork.NickName = PlayerPrefs.GetString("Nickname");
         }
-
-        PlayerPrefs.SetInt("Creature", selector.current + selector.offset);
 
         PlayerPrefs.SetString("FullScreen", fs.isOn.ToString());
         Screen.fullScreen = fs.isOn;

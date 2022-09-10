@@ -245,18 +245,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 784383503}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CreatureSelect
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 251594281}
         m_TargetAssemblyTypeName: CreatureSelection, Assembly-CSharp
         m_MethodName: ChoseDiet
@@ -841,18 +829,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 784383503}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CreatureSelect
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 251594281}
         m_TargetAssemblyTypeName: CreatureSelection, Assembly-CSharp
         m_MethodName: ChoseDiet
@@ -1470,7 +1446,6 @@ GameObject:
   - component: {fileID: 135264818}
   - component: {fileID: 135264820}
   - component: {fileID: 135264819}
-  - component: {fileID: 135264821}
   m_Layer: 5
   m_Name: Creature Selection
   m_TagString: Untagged
@@ -1491,6 +1466,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 704197940}
+  - {fileID: 1409720055}
   m_Father: {fileID: 251594279}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1537,20 +1513,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135264817}
   m_CullTransparentMesh: 1
---- !u!114 &135264821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135264817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc36f0389d8f9b4448b37dd4493bfc75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuName: CreatureSelect
-  open: 0
 --- !u!1 &141872934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,7 +2439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -1080}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &251594281
@@ -2493,6 +2455,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chosenDiet: 0
+  speed: 1000
+  minHeight: -1080
+  maxHeight: 0
+  dietObject: {fileID: 1407638696}
+  selectObject: {fileID: 135264817}
+  infoObject: {fileID: 1176603653}
 --- !u!1 &283913268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2940,18 +2908,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 784383503}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CreatureSelect
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 251594281}
         m_TargetAssemblyTypeName: CreatureSelection, Assembly-CSharp
         m_MethodName: ChoseDiet
@@ -3829,16 +3785,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 784383503}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
+      - m_Target: {fileID: 251594281}
+        m_TargetAssemblyTypeName: CreatureSelection, Assembly-CSharp
+        m_MethodName: ChooseCreature
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: CreatureInfo
+          m_StringArgument: Homalocephale
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &710558520
@@ -4364,7 +4320,7 @@ MonoBehaviour:
   - Player
   dinosaurs:
   - '#'
-  selector: {fileID: 1836873095}
+  selector: {fileID: 0}
   nickname: {fileID: 733237758}
   fs: {fileID: 37056988}
   gameStartDelay: 1
@@ -4388,9 +4344,6 @@ MonoBehaviour:
   - {fileID: 1523792938}
   - {fileID: 1335251954}
   - {fileID: 1970955321}
-  - {fileID: 1407638700}
-  - {fileID: 135264821}
-  - {fileID: 1176603657}
 --- !u!1 &817893307
 GameObject:
   m_ObjectHideFlags: 0
@@ -5665,7 +5618,6 @@ GameObject:
   - component: {fileID: 1176603654}
   - component: {fileID: 1176603656}
   - component: {fileID: 1176603655}
-  - component: {fileID: 1176603657}
   m_Layer: 5
   m_Name: Creature Info
   m_TagString: Untagged
@@ -5733,20 +5685,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1176603653}
   m_CullTransparentMesh: 1
---- !u!114 &1176603657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1176603653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc36f0389d8f9b4448b37dd4493bfc75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuName: CreatureInfo
-  open: 0
 --- !u!1 &1183502777
 GameObject:
   m_ObjectHideFlags: 0
@@ -7123,17 +7061,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 784383503}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
-        m_Mode: 5
+      - m_Target: {fileID: 251594281}
+        m_TargetAssemblyTypeName: CreatureSelection, Assembly-CSharp
+        m_MethodName: Slide
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: DietSelect
-          m_BoolArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1367761250
 MonoBehaviour:
@@ -7454,14 +7392,13 @@ GameObject:
   - component: {fileID: 1407638697}
   - component: {fileID: 1407638699}
   - component: {fileID: 1407638698}
-  - component: {fileID: 1407638700}
   m_Layer: 5
   m_Name: Diet Selection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1407638697
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7525,20 +7462,181 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407638696}
   m_CullTransparentMesh: 1
---- !u!114 &1407638700
+--- !u!1001 &1409720054
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 135264818}
+    m_Modifications:
+    - target: {fileID: 74494466825544450, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_Name
+      value: Image (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -349
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5776247420039651052, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+--- !u!224 &1409720055 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 74494466825544453, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+  m_PrefabInstance: {fileID: 1409720054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1409720056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 74494466825544450, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+  m_PrefabInstance: {fileID: 1409720054}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1409720057 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 74494466825544452, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
+  m_PrefabInstance: {fileID: 1409720054}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409720056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1409720058
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1407638696}
+  m_GameObject: {fileID: 1409720056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc36f0389d8f9b4448b37dd4493bfc75, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuName: DietSelect
-  open: 0
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1409720057}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 251594281}
+        m_TargetAssemblyTypeName: CreatureSelection, Assembly-CSharp
+        m_MethodName: ChooseCreature
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Irritator
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1453692440
 GameObject:
   m_ObjectHideFlags: 0
@@ -8584,18 +8682,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 784383503}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CreatureSelect
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 251594281}
         m_TargetAssemblyTypeName: CreatureSelection, Assembly-CSharp
         m_MethodName: ChoseDiet
@@ -8692,10 +8778,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 784383502}
-        m_TargetAssemblyTypeName: Launcher, Assembly-CSharp
-        m_MethodName: StartGame
-        m_Mode: 1
+      - m_Target: {fileID: 251594281}
+        m_TargetAssemblyTypeName: CreatureSelection, Assembly-CSharp
+        m_MethodName: Slide
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -9008,7 +9094,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a8052a8430865a34da83535a7668d162, type: 2}
   - {fileID: 11400000, guid: bfff1ca9dd9a6bd489c059836a55e20c, type: 2}
   - {fileID: 11400000, guid: 4714e40d64763d34481c998ce7967a37, type: 2}
-  publicCreatures: 7
   rotation: 7
   disconnected: 0
 --- !u!1 &1738378150
@@ -9133,18 +9218,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 784383503}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: CreatureSelect
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 251594281}
         m_TargetAssemblyTypeName: CreatureSelection, Assembly-CSharp
         m_MethodName: ChoseDiet
@@ -10986,5 +11059,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5776247420039651052, guid: 017412447461f5d4286681bc2fd9a289, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 017412447461f5d4286681bc2fd9a289, type: 3}

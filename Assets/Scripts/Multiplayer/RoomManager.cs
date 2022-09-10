@@ -9,8 +9,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
 {
     public static RoomManager Instance;
     public Creature.Creature[] creatures;
-    public int publicCreatures;
     public float rotation;
+
+    public ExitGames.Client.Photon.Hashtable customProperties = new ExitGames.Client.Photon.Hashtable();
 
     public bool disconnected;
 
@@ -24,6 +25,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         DontDestroyOnLoad(gameObject);
         Instance = this;
+
+        customProperties["Creature"] = 0;
+        PhotonNetwork.SetPlayerCustomProperties(RoomManager.Instance.customProperties);
     }
 
     public override void OnEnable()
