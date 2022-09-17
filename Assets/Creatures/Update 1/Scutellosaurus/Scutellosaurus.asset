@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
-  m_Name: Homalocephale
+  m_Name: Scutellosaurus
   m_EditorClassIdentifier: 
-  diet: 0
-  mass: 43
-  length: 1.5
-  staminaRegen: 10
+  diet: 1
+  mass: 10
+  length: 1.2
+  staminaRegen: 0
   healthRegen: 0
   sneakSpeed:
-    speed: 1
+    speed: 2
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -27,9 +27,9 @@ MonoBehaviour:
       strength: 0
       decrease: 0
       type: 0
-    can: 1
+    can: 0
   walkSpeed:
-    speed: 7
+    speed: 3
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -40,7 +40,7 @@ MonoBehaviour:
       type: 0
     can: 1
   trotSpeed:
-    speed: 12
+    speed: 0
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -49,10 +49,10 @@ MonoBehaviour:
       strength: 0
       decrease: 0
       type: 0
-    can: 1
+    can: 0
   runSpeed:
-    speed: 40
-    staminaUse: 10
+    speed: 0
+    staminaUse: 0
     minStamina: 10
     disturbance:
       position: {x: 0, y: 0, z: 0}
@@ -60,9 +60,9 @@ MonoBehaviour:
       strength: 0
       decrease: 0
       type: 0
-    can: 1
+    can: 0
   jumpForce:
-    speed: 150
+    speed: 1
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -73,7 +73,7 @@ MonoBehaviour:
       type: 0
     can: 1
   glideSpeed:
-    speed: 1
+    speed: 0
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -82,9 +82,9 @@ MonoBehaviour:
       strength: 0
       decrease: 0
       type: 0
-    can: 1
+    can: 0
   flySpeed:
-    speed: 1
+    speed: 0
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -93,105 +93,89 @@ MonoBehaviour:
       strength: 0
       decrease: 0
       type: 0
-    can: 1
+    can: 0
   idle:
-    side:
-    - {fileID: -1377155626, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: -1377155626, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
+    side: []
     front: []
     back: []
-    speed: 0.15
+    speed: 0
     oneTime: 0
   walk:
-    side:
-    - {fileID: -2033707805, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: 678559058, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: 1960373504, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: -1377155626, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: 683575879, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: -1196931441, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
+    side: []
     front: []
     back: []
-    speed: 0.15
+    speed: 0
     oneTime: 0
   run:
-    side:
-    - {fileID: -2033707805, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: 678559058, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: 1960373504, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: -1377155626, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: 683575879, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: -1196931441, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
+    side: []
     front: []
     back: []
-    speed: 0.15
+    speed: 0
     oneTime: 0
   jump:
     side: []
     front: []
     back: []
-    speed: 0.15
+    speed: 0
     oneTime: 0
   glide:
     side: []
     front: []
     back: []
-    speed: 0.15
+    speed: 0
     oneTime: 0
   fly:
     side: []
     front: []
     back: []
-    speed: 0.15
+    speed: 0
     oneTime: 0
   rest:
     side: []
     front: []
     back: []
-    speed: 0.15
+    speed: 0
     oneTime: 0
   sleep:
     side: []
     front: []
     back: []
-    speed: 0.15
+    speed: 0
     oneTime: 0
   eat:
     side: []
     front: []
     back: []
-    speed: 0.15
+    speed: 0
     oneTime: 0
   drink:
     side: []
     front: []
     back: []
-    speed: 0.15
+    speed: 0
     oneTime: 0
   lmb:
-    side:
-    - {fileID: 683575879, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: 683575879, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
+    side: []
     front: []
     back: []
-    speed: 0.5
-    oneTime: 1
+    speed: 0
+    oneTime: 0
   rmb:
     side: []
     front: []
     back: []
-    speed: 0.15
-    oneTime: 1
+    speed: 0
+    oneTime: 0
   limp:
     side: []
     front: []
     back: []
-    speed: 0.15
+    speed: 0
     oneTime: 0
   death:
     side: []
     front: []
     back: []
-    speed: 0.15
+    speed: 0
     oneTime: 0
   dead: {fileID: 0}

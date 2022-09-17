@@ -23,7 +23,11 @@ public class PlayerListItem : MonoBehaviourPunCallbacks
     {
         while (PhotonNetwork.IsConnected)
         {
-            cText.text = RoomManager.Instance.creatures[(int)player.CustomProperties["Creature"]].name;
+            int creature = (int)player.CustomProperties["Creature"];
+
+            if (creature != -1) cText.text = RoomManager.Instance.creatures[creature].name;
+            else cText.text = "Not Chosen";
+
             yield return new WaitForSeconds(0.5f);
         }
     }

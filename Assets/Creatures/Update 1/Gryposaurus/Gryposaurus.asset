@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
-  m_Name: Shuuvia
+  m_Name: Gryposaurus
   m_EditorClassIdentifier: 
-  mass: 2
-  length: 0.6
+  diet: 1
+  mass: 3500
+  length: 12
+  staminaRegen: 0
+  healthRegen: 0
   sneakSpeed:
     speed: 1
-    staminaUse: -0.1
+    staminaUse: 0
     minStamina: 10
     disturbance:
       position: {x: 0, y: 0, z: 0}
@@ -26,8 +29,8 @@ MonoBehaviour:
       type: 0
     can: 1
   walkSpeed:
-    speed: 3
-    staminaUse: 0.1
+    speed: 1
+    staminaUse: 0
     minStamina: 10
     disturbance:
       position: {x: 0, y: 0, z: 0}
@@ -37,8 +40,8 @@ MonoBehaviour:
       type: 0
     can: 1
   trotSpeed:
-    speed: 5
-    staminaUse: 5
+    speed: 1
+    staminaUse: 0
     minStamina: 10
     disturbance:
       position: {x: 0, y: 0, z: 0}
@@ -48,8 +51,8 @@ MonoBehaviour:
       type: 0
     can: 1
   runSpeed:
-    speed: 8
-    staminaUse: 2.5
+    speed: 1
+    staminaUse: 0
     minStamina: 10
     disturbance:
       position: {x: 0, y: 0, z: 0}
@@ -59,7 +62,7 @@ MonoBehaviour:
       type: 0
     can: 1
   jumpForce:
-    speed: 10
+    speed: 1
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -92,49 +95,25 @@ MonoBehaviour:
       type: 0
     can: 1
   idle:
-    side:
-    - {fileID: -4694900183344169440, guid: eac22cd40a3c1ca42a3227d97b494563, type: 3}
-    - {fileID: -4694900183344169440, guid: eac22cd40a3c1ca42a3227d97b494563, type: 3}
+    side: []
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   walk:
-    side:
-    - {fileID: -3438722704629742150, guid: eac22cd40a3c1ca42a3227d97b494563, type: 3}
-    - {fileID: -2263154123531494436, guid: eac22cd40a3c1ca42a3227d97b494563, type: 3}
-    - {fileID: 6244399042342554306, guid: eac22cd40a3c1ca42a3227d97b494563, type: 3}
-    - {fileID: 6186869487695364483, guid: eac22cd40a3c1ca42a3227d97b494563, type: 3}
-    - {fileID: -7382263076503587546, guid: eac22cd40a3c1ca42a3227d97b494563, type: 3}
-    - {fileID: -4694900183344169440, guid: eac22cd40a3c1ca42a3227d97b494563, type: 3}
+    side: []
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   run:
-    side:
-    - {fileID: 4947507831401748037, guid: a4a5c985590a6484aba3d163b197a9de, type: 3}
-    - {fileID: 7306227098132467823, guid: a4a5c985590a6484aba3d163b197a9de, type: 3}
-    - {fileID: -2328768178166601624, guid: a4a5c985590a6484aba3d163b197a9de, type: 3}
-    - {fileID: 890188283767071193, guid: a4a5c985590a6484aba3d163b197a9de, type: 3}
-    - {fileID: 6232836619608914569, guid: a4a5c985590a6484aba3d163b197a9de, type: 3}
-    - {fileID: 7095938537742439337, guid: a4a5c985590a6484aba3d163b197a9de, type: 3}
+    side: []
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   jump:
-    side:
-    - {fileID: -11154737, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
-    - {fileID: 412939164, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
-    - {fileID: 1197777211, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
-    - {fileID: -658588975, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
-    - {fileID: -1935913034, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
-    - {fileID: 225399809, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
-    - {fileID: 1331235020, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
-    - {fileID: 409701210, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
-    - {fileID: 1846931901, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
-    - {fileID: 1049860778, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
+    side: []
     front: []
     back: []
     speed: 0.15
@@ -176,21 +155,17 @@ MonoBehaviour:
     speed: 0.15
     oneTime: 0
   lmb:
-    side:
-    - {fileID: -754969085, guid: 1299ad38d97bb9c438968a6944ffb86b, type: 3}
-    - {fileID: -1987053102, guid: 1299ad38d97bb9c438968a6944ffb86b, type: 3}
+    side: []
     front: []
     back: []
     speed: 0.15
-    oneTime: 1
+    oneTime: 0
   rmb:
-    side:
-    - {fileID: -2033707805, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: -1377155626, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
+    side: []
     front: []
     back: []
     speed: 0.15
-    oneTime: 1
+    oneTime: 0
   limp:
     side: []
     front: []

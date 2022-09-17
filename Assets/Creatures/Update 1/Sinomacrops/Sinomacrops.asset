@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
-  m_Name: Leanellynasaura
+  m_Name: Sinomacrops
   m_EditorClassIdentifier: 
-  mass: 5
-  length: 0.9
+  diet: 4
+  mass: 2
+  length: 0.33
+  staminaRegen: 0
+  healthRegen: 0
   sneakSpeed:
     speed: 1
     staminaUse: 0
@@ -26,7 +29,7 @@ MonoBehaviour:
       type: 0
     can: 1
   walkSpeed:
-    speed: 3
+    speed: 1
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -37,7 +40,7 @@ MonoBehaviour:
       type: 0
     can: 1
   trotSpeed:
-    speed: 4
+    speed: 1
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -48,7 +51,7 @@ MonoBehaviour:
       type: 0
     can: 1
   runSpeed:
-    speed: 5
+    speed: 1
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -93,50 +96,20 @@ MonoBehaviour:
     can: 1
   idle:
     side:
-    - {fileID: 1810502085, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -1910371613, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 21300000, guid: 2c58103697083d64f9f93d303fdabaec, type: 3}
+    - {fileID: 21300000, guid: 2c58103697083d64f9f93d303fdabaec, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   walk:
-    side:
-    - {fileID: -1073909164, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: 1810502085, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -1910371613, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -597834954, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -1306705954, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -210399776, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -1774200367, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: 188258951, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -2101476150, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -277472841, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -548148126, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: 183659963, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: 1591385251, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: 1717728453, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: 1936991240, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    side: []
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   run:
-    side:
-    - {fileID: -1073909164, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: 1810502085, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -1910371613, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -597834954, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -1306705954, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -210399776, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -1774200367, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: 188258951, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -2101476150, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -277472841, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: -548148126, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: 183659963, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: 1591385251, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: 1717728453, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
-    - {fileID: 1936991240, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    side: []
     front: []
     back: []
     speed: 0.15

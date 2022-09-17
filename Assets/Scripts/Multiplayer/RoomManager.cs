@@ -26,8 +26,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
         DontDestroyOnLoad(gameObject);
         Instance = this;
 
-        customProperties["Creature"] = 0;
-        PhotonNetwork.SetPlayerCustomProperties(RoomManager.Instance.customProperties);
+        customProperties["Creature"] = -1;
+        PhotonNetwork.SetPlayerCustomProperties(customProperties);
     }
 
     public override void OnEnable()

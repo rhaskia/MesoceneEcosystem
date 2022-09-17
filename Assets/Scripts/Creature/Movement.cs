@@ -246,7 +246,7 @@ namespace Creature
             //Crouching
             if (crouching) return creature.sneakSpeed.speed;
 
-            stamina -= creature.walkSpeed.staminaUse;
+            stamina -= creature.walkSpeed.staminaUse * Time.fixedDeltaTime;
             return creature.walkSpeed.speed * mult;
         }
 

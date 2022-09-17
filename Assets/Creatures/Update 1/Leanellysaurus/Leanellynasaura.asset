@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
-  m_Name: Homalocephale
+  m_Name: Leanellynasaura
   m_EditorClassIdentifier: 
-  diet: 0
-  mass: 43
-  length: 1.5
-  staminaRegen: 10
+  diet: 1
+  mass: 5
+  length: 0.9
+  staminaRegen: 0
   healthRegen: 0
   sneakSpeed:
     speed: 1
@@ -29,7 +29,7 @@ MonoBehaviour:
       type: 0
     can: 1
   walkSpeed:
-    speed: 7
+    speed: 3
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -40,7 +40,7 @@ MonoBehaviour:
       type: 0
     can: 1
   trotSpeed:
-    speed: 12
+    speed: 4
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -51,8 +51,8 @@ MonoBehaviour:
       type: 0
     can: 1
   runSpeed:
-    speed: 40
-    staminaUse: 10
+    speed: 5
+    staminaUse: 0
     minStamina: 10
     disturbance:
       position: {x: 0, y: 0, z: 0}
@@ -62,7 +62,7 @@ MonoBehaviour:
       type: 0
     can: 1
   jumpForce:
-    speed: 150
+    speed: 1
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -96,32 +96,50 @@ MonoBehaviour:
     can: 1
   idle:
     side:
-    - {fileID: -1377155626, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: -1377155626, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
+    - {fileID: 1810502085, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -1910371613, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   walk:
     side:
-    - {fileID: -2033707805, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: 678559058, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: 1960373504, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: -1377155626, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: 683575879, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: -1196931441, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
+    - {fileID: -1073909164, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1810502085, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -1910371613, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -597834954, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -1306705954, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -210399776, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -1774200367, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 188258951, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -2101476150, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -277472841, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -548148126, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 183659963, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1591385251, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1717728453, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1936991240, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   run:
     side:
-    - {fileID: -2033707805, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: 678559058, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: 1960373504, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: -1377155626, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: 683575879, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: -1196931441, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
+    - {fileID: -1073909164, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1810502085, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -1910371613, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -597834954, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -1306705954, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -210399776, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -1774200367, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 188258951, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -2101476150, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -277472841, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: -548148126, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 183659963, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1591385251, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1717728453, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
+    - {fileID: 1936991240, guid: f9b7f27249bcf9d4da8a960bd0bd93ac, type: 3}
     front: []
     back: []
     speed: 0.15
@@ -169,19 +187,17 @@ MonoBehaviour:
     speed: 0.15
     oneTime: 0
   lmb:
-    side:
-    - {fileID: 683575879, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
-    - {fileID: 683575879, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}
+    side: []
     front: []
     back: []
-    speed: 0.5
-    oneTime: 1
+    speed: 0.15
+    oneTime: 0
   rmb:
     side: []
     front: []
     back: []
     speed: 0.15
-    oneTime: 1
+    oneTime: 0
   limp:
     side: []
     front: []

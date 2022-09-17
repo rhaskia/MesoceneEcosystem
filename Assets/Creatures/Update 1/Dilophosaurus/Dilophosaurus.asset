@@ -10,10 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
-  m_Name: Sinomacrops
+  m_Name: Dilophosaurus
   m_EditorClassIdentifier: 
-  mass: 2
-  length: 1
+  diet: 2
+  mass: 400
+  length: 7
+  staminaRegen: 0
+  healthRegen: 0
   sneakSpeed:
     speed: 1
     staminaUse: 0
@@ -92,9 +95,7 @@ MonoBehaviour:
       type: 0
     can: 1
   idle:
-    side:
-    - {fileID: 21300000, guid: 2c58103697083d64f9f93d303fdabaec, type: 3}
-    - {fileID: 21300000, guid: 2c58103697083d64f9f93d303fdabaec, type: 3}
+    side: []
     front: []
     back: []
     speed: 0.15
