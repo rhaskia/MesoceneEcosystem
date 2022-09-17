@@ -1284,7 +1284,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4392484317176524593}
-  m_LocalRotation: {x: 0.13021342, y: 0.7622699, z: -0.161921, w: 0.61300135}
+  m_LocalRotation: {x: 0.13021341, y: 0.76227, z: -0.16192101, w: 0.6130013}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1497,17 +1497,15 @@ MonoBehaviour:
     m_Bits: 64
   groundcheck: {fileID: 4167863376945178540}
   onGround: 0
+  crouching: 0
+  gliding: 0
+  flying: 0
   maxGlideSpeed: 2
   glideEfficieny: 3
   glideDir: {x: 0, y: 0, z: 0}
   waterLayer:
     serializedVersion: 2
     m_Bits: 16
-  strength: 1
-  underwaterDrag: 3
-  underwaterAngularDrag: 1
-  depth: 0.15
-  swimStaminaUse: 2.5
 --- !u!114 &4822458901375794341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,7 +1591,7 @@ Rigidbody:
   m_GameObject: {fileID: 4822458901375794363}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -2053,12 +2051,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 708c7a18193c93d4ca244a6af0e2606d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trot: 306
-  run: 304
+  trot: 120
+  run: 122
   jump: 32
-  crouch: 99
-  glide: 120
-  fly: 122
+  crouch: 306
+  glide: 118
+  fly: 118
   move: {fileID: 4822458901375794343}
   manager: {fileID: 4822458902514857151}
 --- !u!114 &4822458902514857151
@@ -2770,7 +2768,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5301471039205607153}
-  m_LocalRotation: {x: 0.13002834, y: 0.7623188, z: -0.16169086, w: 0.6130407}
+  m_LocalRotation: {x: 0.13002834, y: 0.76231885, z: -0.16169088, w: 0.61304057}
   m_LocalPosition: {x: -2.9299104, y: 1.4675865, z: 0.64359266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

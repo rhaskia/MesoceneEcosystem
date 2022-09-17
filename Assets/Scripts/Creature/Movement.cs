@@ -38,6 +38,7 @@ namespace Creature
         public float stamina;
         public float maxStamina;
         public float jumpForce;
+        Vector3 totalInput;
 
         [Header("GroundCheck")]
         public float groundcheckRadius = 0.1f;
@@ -45,7 +46,7 @@ namespace Creature
         public Transform groundcheck;
         public bool onGround;
 
-        bool crouching, gliding, flying;
+        public bool crouching, gliding, flying;
 
         [Header("Gliding")]
         public float maxGlideSpeed;
@@ -54,21 +55,6 @@ namespace Creature
 
         [Header("Swimming")]
         public LayerMask waterLayer;
-        public float strength;
-        public float underwaterDrag = 3;
-        public float underwaterAngularDrag = 1;
-        public float depth = 1;
-        public float swimStaminaUse;
-        StylizedWaterURP water;
-        float airDrag = 0;
-        float airAngularDrag = 0.05f;
-        bool inWater;
-        bool underWater;
-
-        float steepness;
-        float waveLength;
-        float waterSpeed;
-        float[] directions;
 
         PhotonView pv;
 
@@ -78,15 +64,6 @@ namespace Creature
             info = GetComponent<CreatureInfo>();
 
             if (!pv.IsMine) return;
-
-            // Get wave properties from water
-            //water = FindObjectOfType<StylizedWaterURP>();
-
-            //
-            //steepness = water.GetWaveSteepness();
-            //waveLength = water.GetWaveLength();
-            //waterSpeed = water.GetWaveSpeed();
-            //directions = water.GetWaveDirections();
 
             rb.mass = creature.mass;
         }
@@ -113,8 +90,9 @@ namespace Creature
             //Applying Input If On Ground
             Vector3 side = transform.right * moveInput.movement.normalized.x * speedMult * ((info.growth.currentPercent / 2f) + 50f) / 100f;
             Vector3 forward = transform.forward * moveInput.movement.normalized.y * speedMult * ((info.growth.currentPercent / 2f) + 50f) / 100f;
+            totalInput = side + forward;
 
-            if (onGround || flying || inWater) rb.velocity = new Vector3(side.x + forward.x, rb.velocity.y, side.z + forward.z);
+            if (onGround || flying) rb.velocity = new Vector3(totalInput.x, rb.velocity.y, totalInput.z);
 
             //Stamina
             stamina += creature.staminaRegen * Time.deltaTime;
@@ -123,10 +101,8 @@ namespace Creature
             //Flying
             if (flying)
             {
-                rb.velocity = Vector3.Lerp(rb.velocity, Vector3.one * -0.01f, 0.99f);
-
-                if (moveInput.flyUp) rb.AddForce(new Vector3(0, 0.1f, 0), ForceMode.Impulse);
-                if (moveInput.flyDown) rb.AddForce(new Vector3(0, -0.1f, 0), ForceMode.Impulse);
+                if (moveInput.flyUp) rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+                if (moveInput.flyDown) rb.AddForce(new Vector3(0, -jumpForce, 0), ForceMode.Impulse);
             }
             rb.useGravity = !flying;
 
@@ -163,13 +139,13 @@ namespace Creature
             {
                 crouching = false;
 
-                if (moveInput.glide)
+                if (moveInput.glide && creature.glideSpeed.can)
                 {
                     gliding = !gliding;
                     flying = false;
                 }
 
-                if (moveInput.fly)
+                if (moveInput.fly && creature.flySpeed.can)
                 {
                     flying = !flying;
                     gliding = false;
@@ -178,54 +154,57 @@ namespace Creature
 
             //Crouching
             if (onGround && moveInput.crouch) crouching = !crouching;
+
+            //Animations
+            ManageAnimations();
         }
 
-        void BuoyancyManager()
-        {
-            if (water == null) return;
+        //void BuoyancyManager()
+        //{
+        //    if (water == null) return;
 
-            //Swimming
-            var pos = transform.position;
-            var wave = transform.position;
-            wave.y = water.transform.position.y + GerstnerWaveDisplacement.GetWaveDisplacement(pos, steepness, waveLength, waterSpeed, directions).y;
+        //    //Swimming
+        //    var pos = transform.position;
+        //    var wave = transform.position;
+        //    wave.y = water.transform.position.y + GerstnerWaveDisplacement.GetWaveDisplacement(pos, steepness, waveLength, waterSpeed, directions).y;
 
-            float waveHeight = wave.y;
-            float effectorHeight = pos.y;
+        //    float waveHeight = wave.y;
+        //    float effectorHeight = pos.y;
 
-            if (effectorHeight < waveHeight) //In Water
-            {
-                float submersion = Mathf.Clamp01(waveHeight - effectorHeight) / depth;
-                float buoyancy = Mathf.Abs(Physics.gravity.y) * submersion * strength;
+        //    if (effectorHeight < waveHeight) //In Water
+        //    {
+        //        float submersion = Mathf.Clamp01(waveHeight - effectorHeight) / depth;
+        //        float buoyancy = Mathf.Abs(Physics.gravity.y) * submersion * strength;
 
-                //Buoyancy
-                if (stamina > 10)
-                {
-                    rb.AddForceAtPosition(Vector3.up * buoyancy, pos, ForceMode.Acceleration);
-                }
-                else
-                {
-                    rb.AddForceAtPosition(Vector3.up * buoyancy / 3, pos, ForceMode.Acceleration);
+        //        //Buoyancy
+        //        if (stamina > 10)
+        //        {
+        //            rb.AddForceAtPosition(Vector3.up * buoyancy, pos, ForceMode.Acceleration);
+        //        }
+        //        else
+        //        {
+        //            rb.AddForceAtPosition(Vector3.up * buoyancy / 3, pos, ForceMode.Acceleration);
 
-                }
+        //        }
 
-                stamina -= 10 * Time.deltaTime;
+        //        stamina -= 10 * Time.deltaTime;
 
-                gliding = false;
-                flying = false;
+        //        gliding = false;
+        //        flying = false;
 
-                if (!inWater) SwitchState(true);
-            }
-            else if (inWater) SwitchState(false);
+        //        if (!inWater) SwitchState(true);
+        //    }
+        //    else if (inWater) SwitchState(false);
 
-            underWater = transform.position.y + (transform.lossyScale.y / 2) < waveHeight;
-        }
+        //    underWater = transform.position.y + (transform.lossyScale.y / 2) < waveHeight;
+        //}
 
 
         //Gets player movement speed
         public float GetSpeed()
         {
             var mult = 1f;
-            if (inWater) mult = 0.7f;
+            //if (inWater) mult = 0.7f;
 
             //Trotting
             if (moveInput.trot)
@@ -250,26 +229,56 @@ namespace Creature
             return creature.walkSpeed.speed * mult;
         }
 
-        //Switches between underwater and not
-        void SwitchState(bool u)
-        {
-            inWater = u;
-            if (inWater)
-            {
-                rb.drag = underwaterDrag;
-                rb.angularDrag = underwaterAngularDrag;
-            }
-            else
-            {
-                rb.drag = airDrag;
-                rb.angularDrag = airAngularDrag;
-            }
-        }
+        ////Switches between underwater and not
+        //void SwitchState(bool u)
+        //{
+        //    inWater = u;
+        //    if (inWater)
+        //    {
+        //        rb.drag = underwaterDrag;
+        //        rb.angularDrag = underwaterAngularDrag;
+        //    }
+        //    else
+        //    {
+        //        rb.drag = airDrag;
+        //        rb.angularDrag = airAngularDrag;
+        //    }
+        //}
 
         //Updates mass
         private void OnPlayerConnected()
         {
             pv.RPC("UpdateSizesRPC", RpcTarget.All, creature.mass);
+        }
+
+        void ManageAnimations()
+        {
+            //idk
+            bool movingAnims =
+                info.canimation.currentAnim == Animations.idle ||
+                info.canimation.currentAnim == Animations.run ||
+                info.canimation.currentAnim == Animations.walk;
+
+            //If not animating movement
+            if (!movingAnims)
+                return;
+
+            //Normal Anims
+            if (totalInput.magnitude > 0.1f)
+            {
+                if (moveInput.trot || moveInput.run) info.canimation.SetCurrent(Animations.run);
+                else info.canimation.SetCurrent(Animations.walk);
+            }
+            else info.canimation.SetCurrent(Animations.idle);
+
+            //Crouching animations
+            if (crouching)
+            {
+                if (info.canimation.currentAnim == Animations.idle) info.canimation.SetCurrent(Animations.crouch);
+                else info.canimation.SetCurrent(Animations.crouchwalk);
+            }
+
+
         }
     }
 }

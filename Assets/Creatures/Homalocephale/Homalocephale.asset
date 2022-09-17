@@ -82,9 +82,9 @@ MonoBehaviour:
       strength: 0
       decrease: 0
       type: 0
-    can: 1
+    can: 0
   flySpeed:
-    speed: 1
+    speed: 10
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -127,6 +127,18 @@ MonoBehaviour:
     speed: 0.15
     oneTime: 0
   jump:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouch:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouchwalk:
     side: []
     front: []
     back: []

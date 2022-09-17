@@ -106,9 +106,6 @@ namespace Player
 
             //Flipping
             pv.RPC("SetFlip", RpcTarget.All, input);
-
-            //Animations
-            ManageAnimations(input);
         }
 
         public void OnPlayerConnected()
@@ -153,33 +150,6 @@ namespace Player
         {
             //YOU DIED
             Debug.LogError("YOU DIED");
-        }
-
-        void ManageAnimations(Vector2 _input)
-        {
-            //idk
-            bool movingAnims =
-                info.canimation.currentAnim == Creature.Animations.idle ||
-                info.canimation.currentAnim == Creature.Animations.run ||
-                info.canimation.currentAnim == Creature.Animations.walk;
-
-            //If not animating movement
-            if (!movingAnims)
-                return;
-
-            //Animations
-            if (rb.velocity.magnitude > creature.walkSpeed.speed + 0.01f || rb.velocity.magnitude < -creature.walkSpeed.speed + 0.01f)
-            {
-                info.canimation.SetCurrent(Creature.Animations.run);
-            }
-            else if (rb.velocity.magnitude > creature.walkSpeed.speed / 8f || rb.velocity.magnitude < -creature.walkSpeed.speed / 8f)
-            {
-                info.canimation.SetCurrent(Creature.Animations.walk);
-            }
-            else
-            {
-                info.canimation.SetCurrent(Creature.Animations.idle);
-            }
         }
 
         private void OnDestroy()

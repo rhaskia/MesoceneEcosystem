@@ -45,7 +45,7 @@ namespace Creature
         [Space]
 
         public AnimationBundle idle;
-        public AnimationBundle walk, run, jump, glide, fly, rest, sleep, eat, drink, lmb, rmb, limp, death;
+        public AnimationBundle walk, run, jump, crouch, crouchwalk, glide, fly, rest, sleep, eat, drink, lmb, rmb, limp, death;
 
         public Sprite dead;
     }

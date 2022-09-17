@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Creature
 {
-    public enum Animations { idle, walk, run, jump, glide, fly, rest, sleep, eat, drink, LMB, RMB, limp, death }
+    public enum Animations { idle, walk, run, crouch, crouchwalk, jump, glide, fly, rest, sleep, eat, drink, LMB, RMB, limp, death }
     public enum Directions { Side, Front, Back }
 
     //Creature Animation Manager
@@ -41,7 +41,7 @@ namespace Creature
             ppu = current.idle.side[0].rect.width / current.length;
             ManageAnimation();
 
-            allAnims = new AnimationBundle[] { current.idle, current.walk, current.run, current.jump, current.glide, current.fly, current.rest, current.sleep,
+            allAnims = new AnimationBundle[] { current.idle, current.walk, current.run,current.crouch, current.crouchwalk, current.jump, current.glide, current.fly, current.rest, current.sleep,
                 current.eat, current.drink, current.lmb, current.rmb, current.limp, current.death };
         }
 
