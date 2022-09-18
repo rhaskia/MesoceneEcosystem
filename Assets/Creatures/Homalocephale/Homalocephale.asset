@@ -94,6 +94,18 @@ MonoBehaviour:
       decrease: 0
       type: 0
     can: 1
+  buoyancy: 2.3
+  swimSpeed:
+    speed: 0.5
+    staminaUse: 0.5
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
   idle:
     side:
     - {fileID: -1377155626, guid: aa1836797fea8e7449f96475ae2f3bab, type: 3}

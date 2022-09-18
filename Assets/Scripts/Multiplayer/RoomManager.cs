@@ -49,6 +49,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
             MenuManager.Instance.OpenMenu("Error");
             FindObjectOfType<Launcher>().SetErrorText("You have disconnected from the game");
             disconnected = false;
+
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
 
         if (scene.buildIndex == 1)

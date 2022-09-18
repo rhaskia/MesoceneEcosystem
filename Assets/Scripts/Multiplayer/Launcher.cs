@@ -53,12 +53,13 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         if (PlayerPrefs.GetString("FullScreen") == "") PlayerPrefs.SetString("FullScreen", "True");
         fs.isOn = System.Convert.ToBoolean(PlayerPrefs.GetString("FullScreen"));
+
+        PhotonNetwork.AutomaticallySyncScene = false;
     }
 
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
-        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     public override void OnJoinedLobby()
@@ -115,6 +116,8 @@ public class Launcher : MonoBehaviourPunCallbacks
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
         PresenceManager.UpdatePresence(detail: "In Room: " + PhotonNetwork.CurrentRoom.Name);
 
+        PhotonNetwork.AutomaticallySyncScene = false;
+
         foreach (Transform child in playerListContent)
         {
             Destroy(child.gameObject);
@@ -125,7 +128,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             Instantiate(playerListItem, playerListContent).GetComponent<PlayerListItem>().SetUp(player);
         }
 
-        startGameButton.SetActive(PhotonNetwork.IsMasterClient);
+        //startGameButton.SetActive(PhotonNetwork.IsMasterClient);
     }
 
     public override void OnMasterClientSwitched(Photon.Realtime.Player newMasterClient)

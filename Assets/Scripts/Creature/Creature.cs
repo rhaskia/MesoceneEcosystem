@@ -41,6 +41,8 @@ namespace Creature
 
         public MoveType sneakSpeed;
         public MoveType walkSpeed, trotSpeed, runSpeed, jumpForce, glideSpeed, flySpeed;
+        public float buoyancy;
+        public MoveType swimSpeed;
 
         [Space]
 

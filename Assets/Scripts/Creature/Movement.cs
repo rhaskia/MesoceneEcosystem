@@ -46,7 +46,7 @@ namespace Creature
         public Transform groundcheck;
         public bool onGround;
 
-        public bool crouching, gliding, flying;
+        bool crouching, gliding, flying;
 
         [Header("Gliding")]
         public float maxGlideSpeed;
@@ -54,7 +54,21 @@ namespace Creature
         public Vector3 glideDir;
 
         [Header("Swimming")]
-        public LayerMask waterLayer;
+        LayerMask waterLayer;
+        bool inWater;
+        public float submergence;
+        public float submergenceOffset = 0.5f;
+        public float submergenceRange = 1f;
+
+        public float airDrag = 0.75f;
+        public float waterDrag = 2f;
+
+        public float buoyancy = 1f;
+        public float swimThreshold;
+
+        //StylizedWater.wa water;
+
+        bool swimming => submergence >= swimThreshold;
 
         PhotonView pv;
 
@@ -157,54 +171,40 @@ namespace Creature
 
             //Animations
             ManageAnimations();
+
+            //Swimmming
+            if (inWater)
+            {
+
+                if (swimming && stamina > creature.swimSpeed.minStamina && creature.swimSpeed.can)
+                {
+                    buoyancy = creature.buoyancy;
+
+                    if (moveInput.flyUp) buoyancy = creature.buoyancy + creature.swimSpeed.speed;
+                    if (moveInput.flyDown) buoyancy = creature.buoyancy - creature.swimSpeed.speed;
+
+                    stamina -= creature.swimSpeed.staminaUse;
+                }
+                else buoyancy = 0.5f;
+
+                EvaluateSubmergence();
+                rb.drag = waterDrag * submergence;
+                rb.velocity += -9.81f * ((1f - buoyancy * submergence) * Time.deltaTime) * Vector3.up;
+            }
+            else rb.drag = airDrag;
+
+            //
+
         }
-
-        //void BuoyancyManager()
-        //{
-        //    if (water == null) return;
-
-        //    //Swimming
-        //    var pos = transform.position;
-        //    var wave = transform.position;
-        //    wave.y = water.transform.position.y + GerstnerWaveDisplacement.GetWaveDisplacement(pos, steepness, waveLength, waterSpeed, directions).y;
-
-        //    float waveHeight = wave.y;
-        //    float effectorHeight = pos.y;
-
-        //    if (effectorHeight < waveHeight) //In Water
-        //    {
-        //        float submersion = Mathf.Clamp01(waveHeight - effectorHeight) / depth;
-        //        float buoyancy = Mathf.Abs(Physics.gravity.y) * submersion * strength;
-
-        //        //Buoyancy
-        //        if (stamina > 10)
-        //        {
-        //            rb.AddForceAtPosition(Vector3.up * buoyancy, pos, ForceMode.Acceleration);
-        //        }
-        //        else
-        //        {
-        //            rb.AddForceAtPosition(Vector3.up * buoyancy / 3, pos, ForceMode.Acceleration);
-
-        //        }
-
-        //        stamina -= 10 * Time.deltaTime;
-
-        //        gliding = false;
-        //        flying = false;
-
-        //        if (!inWater) SwitchState(true);
-        //    }
-        //    else if (inWater) SwitchState(false);
-
-        //    underWater = transform.position.y + (transform.lossyScale.y / 2) < waveHeight;
-        //}
-
 
         //Gets player movement speed
         public float GetSpeed()
         {
             var mult = 1f;
-            //if (inWater) mult = 0.7f;
+            if (inWater) mult = 0.75f;
+
+            //Crouching
+            if (crouching) return creature.sneakSpeed.speed;
 
             //Trotting
             if (moveInput.trot)
@@ -222,28 +222,9 @@ namespace Creature
                 crouching = false;
             }
 
-            //Crouching
-            if (crouching) return creature.sneakSpeed.speed;
-
             stamina -= creature.walkSpeed.staminaUse * Time.fixedDeltaTime;
             return creature.walkSpeed.speed * mult;
         }
-
-        ////Switches between underwater and not
-        //void SwitchState(bool u)
-        //{
-        //    inWater = u;
-        //    if (inWater)
-        //    {
-        //        rb.drag = underwaterDrag;
-        //        rb.angularDrag = underwaterAngularDrag;
-        //    }
-        //    else
-        //    {
-        //        rb.drag = airDrag;
-        //        rb.angularDrag = airAngularDrag;
-        //    }
-        //}
 
         //Updates mass
         private void OnPlayerConnected()
@@ -279,6 +260,46 @@ namespace Creature
             }
 
 
+        }
+
+        //Swimming Stuff
+        void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag("Water"))
+            {
+                inWater = true;
+            }
+        }
+
+        void OnTriggerStay(Collider other)
+        {
+            if (other.gameObject.CompareTag("Water"))
+            {
+                inWater = true;
+            }
+        }
+
+        void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject.CompareTag("Water"))
+            {
+                inWater = false;
+            }
+        }
+
+        void EvaluateSubmergence()
+        {
+            if (Physics.Raycast(
+            transform.position + Vector3.up * submergenceOffset,
+            -Vector3.up, out RaycastHit hit, submergenceRange + 1,
+            waterLayer, QueryTriggerInteraction.Collide))
+            {
+                submergence = 1f - hit.distance / submergenceRange;
+            }
+            else
+            {
+                submergence = 1f;
+            }
         }
     }
 }
