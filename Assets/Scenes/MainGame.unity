@@ -477,17 +477,17 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 0}
   shallowColor: {r: 0, g: 0.6313726, b: 1, a: 1}
-  deepColor: {r: 0, g: 0.4274329, b: 0.6784314, a: 1}
+  deepColor: {r: 0, g: 0.42743284, b: 0.6784314, a: 1}
   colorDepth: 2.59
-  horizonColor: {r: 0, g: 0.2274329, b: 0.8, a: 1}
+  horizonColor: {r: 0, g: 0.22743285, b: 0.8, a: 1}
   horizonDistance: 20
   shoreFade: 0
-  shoreColor: {r: 0, g: 0.98039216, b: 0.30194268, a: 0}
+  shoreColor: {r: 0, g: 0.98039216, b: 0.30194262, a: 0}
   shoreStrength: 0
   shoreBlend: 0
   shoreDepth: 0
   waveColor: {r: 0, g: 0, b: 0, a: 0}
-  underwaterColor: {r: 0.20390454, g: 0.3097859, b: 0.517647, a: 0}
+  underwaterColor: {r: 0.20390448, g: 0.30978584, b: 0.517647, a: 0}
   underwaterColorStrength: 0
   underwaterRefractionStrength: 0.099
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
@@ -992,6 +992,10 @@ PrefabInstance:
     - target: {fileID: 662255431088426400, guid: 641c882fbea7ac94783e91abf71d3048, type: 3}
       propertyPath: m_Name
       value: Square Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 662255431088426400, guid: 641c882fbea7ac94783e91abf71d3048, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1228387322648295804, guid: 641c882fbea7ac94783e91abf71d3048, type: 3}
       propertyPath: m_Materials.Array.data[0]
