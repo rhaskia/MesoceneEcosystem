@@ -1,0 +1,205 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
+  m_Name: Coelophysis
+  m_EditorClassIdentifier: 
+  diet: 0
+  mass: 0
+  length: 0
+  staminaRegen: 0
+  healthRegen: 0
+  sneakSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
+  walkSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
+  trotSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
+  runSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
+  jumpForce:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
+  glideSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
+  flySpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
+  buoyancy: 0
+  swimSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
+  idle:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  walk:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  run:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  jump:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouch:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouchwalk:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  glide:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  fly:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  rest:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  sleep:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  eat:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  drink:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  lmb:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  rmb:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  limp:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  death:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  dead: {fileID: 0}
