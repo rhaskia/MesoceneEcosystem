@@ -19,6 +19,7 @@ namespace Player
         public Creature.Growth growth;
         public CameraFollow follow;
         public GameObject cam;
+        public CinemachineFreeLook freeLook;
 
         public Rigidbody rb;
 
@@ -33,6 +34,7 @@ namespace Player
 
         public KeyCode pauseButton;
         public GameObject pauseMenu;
+        bool menuOpen;
 
 
         void Start()
@@ -43,6 +45,7 @@ namespace Player
             info.creature = creature;
 
             if (!pv.IsMine) Destroy(cam);
+            //if (!pv.IsMine) Destroy(canvas);
 
 
             Cursor.lockState = CursorLockMode.Locked;
@@ -85,15 +88,16 @@ namespace Player
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                pauseMenu.SetActive(true);
+                freeLook.enabled = false;
             }
             else
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
-                pauseMenu.SetActive(false);
+                freeLook.enabled = true;
             }
 
+            pauseMenu.SetActive(menuOpen);
 
             //Input
             Vector2 input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
@@ -121,6 +125,7 @@ namespace Player
         public void SwitchPause()
         {
             GameStateManager.Instance.SwitchState();
+            menuOpen = !menuOpen;
         }
 
         IEnumerator DisconnectPlayer()

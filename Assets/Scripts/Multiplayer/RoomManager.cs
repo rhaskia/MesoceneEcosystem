@@ -27,6 +27,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
         Instance = this;
 
         customProperties["Creature"] = -1;
+        customProperties["Permissions"] = PlayerPrefs.GetString("Permissions", "None");
         PhotonNetwork.SetPlayerCustomProperties(customProperties);
     }
 
@@ -49,9 +50,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
             MenuManager.Instance.OpenMenu("Error");
             FindObjectOfType<Launcher>().SetErrorText("You have disconnected from the game");
             disconnected = false;
-
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
         }
 
         if (scene.buildIndex == 1)

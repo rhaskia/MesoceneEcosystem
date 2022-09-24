@@ -15,11 +15,11 @@ MonoBehaviour:
   AppSettings:
     AppIdRealtime: 68c447f3-f2e7-4c2a-b797-fa802b567324
     AppIdFusion: 
-    AppIdChat: 
+    AppIdChat: eb7d3f0b-6afe-4c2b-80b7-3e9130ff31ea
     AppIdVoice: 
     AppVersion: 
     UseNameServer: 1
-    FixedRegion: 
+    FixedRegion: au
     Server: 
     Port: 0
     ProxyServer: 
@@ -45,6 +45,7 @@ MonoBehaviour:
   - UpdateCreatureRPC
   - UpdateSizesRPC
   - UpdateHealth
+  - SendMessagePUN
   DisableAutoOpenWizard: 1
-  ShowSettings: 0
+  ShowSettings: 1
   DevRegionSetOnce: 1

@@ -231,6 +231,9 @@ namespace Photon.Chat
             this.PublicChannelsUnsubscribing = new HashSet<string>();
         }
 
+        public ChatClient()
+        {
+        }
 
         public bool ConnectUsingSettings(ChatAppSettings appSettings)
         {
