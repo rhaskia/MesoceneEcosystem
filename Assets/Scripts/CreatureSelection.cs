@@ -11,6 +11,7 @@ public class CreatureSelection : MonoBehaviour
     public float minHeight, maxHeight;
 
     public GameObject saveObject, dietObject, selectObject, infoObject;
+    public GameObject[] diets;
     int current;
 
     RectTransform rect;
@@ -30,6 +31,12 @@ public class CreatureSelection : MonoBehaviour
     public void ChoseDiet(int d)
     {
         chosenDiet = (Creature.Diet)d;
+
+        foreach (var diet in diets)
+        {
+            if (diet.name == chosenDiet.ToString()) diet.SetActive(true);
+            else diet.SetActive(false);
+        }
 
         OpenSelect();
     }

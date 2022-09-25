@@ -13454,14 +13454,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   creatures:
+  - {fileID: 11400000, guid: a95d833e0d8f55d449d1bc9cdef33da2, type: 2}
+  - {fileID: 11400000, guid: 0affaf4a5adee484383985537d6181ff, type: 2}
   - {fileID: 11400000, guid: ad19c25b87136554dbfe77237c877d91, type: 2}
-  - {fileID: 11400000, guid: 4e655c86c5cb01044914f699a1512ede, type: 2}
-  - {fileID: 11400000, guid: 4b363b3f3b46b5341a846b63f6c91495, type: 2}
+  - {fileID: 11400000, guid: 921d9f3f36cfd904fad523abedbd2d0c, type: 2}
+  - {fileID: 11400000, guid: a3ff214395114b148a483128e8cc5d4a, type: 2}
+  - {fileID: 11400000, guid: 998b14c1740248d46be4b55904fb6e2d, type: 2}
+  - {fileID: 11400000, guid: c7b5392aac9e6f449ba954cd38779e86, type: 2}
   - {fileID: 11400000, guid: 3b8c2212ebfae854abd11dc347ee4fbf, type: 2}
+  - {fileID: 11400000, guid: 6bf1c288cdcc56745b4582b2213953f3, type: 2}
   - {fileID: 11400000, guid: 2db2d956c4a47044881b75adf3bb4d2b, type: 2}
+  - {fileID: 11400000, guid: adf19816ff9da3345865b3a921b3051b, type: 2}
+  - {fileID: 11400000, guid: 4e447538858e46242955b0f50c64e974, type: 2}
+  - {fileID: 11400000, guid: 8a227625f5bc9914ebed351a8a49b39b, type: 2}
   - {fileID: 11400000, guid: a8052a8430865a34da83535a7668d162, type: 2}
-  - {fileID: 11400000, guid: bfff1ca9dd9a6bd489c059836a55e20c, type: 2}
   - {fileID: 11400000, guid: 4714e40d64763d34481c998ce7967a37, type: 2}
+  - {fileID: 11400000, guid: bfff1ca9dd9a6bd489c059836a55e20c, type: 2}
+  - {fileID: 11400000, guid: ac325443609187241b53cdcca6f654ba, type: 2}
   rotation: 7
   disconnected: 0
 --- !u!1 &1738378150
