@@ -54,7 +54,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         if (PlayerPrefs.GetString("FullScreen") == "") PlayerPrefs.SetString("FullScreen", "True");
         fs.isOn = System.Convert.ToBoolean(PlayerPrefs.GetString("FullScreen"));
 
-        PhotonNetwork.AutomaticallySyncScene = false;
+        PhotonNetwork.AutomaticallySyncScene = true;
     }
 
     public override void OnConnectedToMaster()
@@ -66,13 +66,6 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         Debug.Log("Joined Lobby");
         MenuManager.Instance.OpenMenu("Title");
-
-        if (PlayerPrefs.GetString("Nickname") != "")
-        {
-            PhotonNetwork.NickName = PlayerPrefs.GetString("Nickname");
-            nickname.text = PlayerPrefs.GetString("Nickname");
-        }
-        else PhotonNetwork.NickName = "Player#" + Random.Range(10, 99);
     }
 
     public override void OnLeftLobby()
@@ -172,7 +165,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         if (nickname.text != "")
         {
-            PlayerPrefs.SetString("Nickname", nickname.text);
+            PlayerPrefs.SetString("Nickname", SaveManager.Instance.saves[SaveManager.Instance.chosenSave].name);
             PhotonNetwork.NickName = PlayerPrefs.GetString("Nickname");
         }
 

@@ -27,6 +27,7 @@ namespace Creature
     public enum Diet { omnivore, herbivore, carnivore, piscivore, insectivore }
 
     //Creature info and animation holder
+    [System.Serializable]
     [CreateAssetMenu(fileName = "Critter")]
     public class Creature : ScriptableObject
     {
@@ -35,7 +36,10 @@ namespace Creature
         public float mass;
         public float length;
 
+        public int maxHealth = 100;
         public float staminaRegen, healthRegen;
+
+        public string description;
 
         [Space]
 

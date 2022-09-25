@@ -2,7 +2,7 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 
 public class CreatureSelection : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class CreatureSelection : MonoBehaviour
     public float speed;
     public float minHeight, maxHeight;
 
-    public GameObject dietObject, selectObject, infoObject;
+    public GameObject saveObject, dietObject, selectObject, infoObject;
     int current;
 
     RectTransform rect;
@@ -41,8 +41,7 @@ public class CreatureSelection : MonoBehaviour
             if (name == RoomManager.Instance.creatures[i].name) current = i;
         }
 
-        RoomManager.Instance.customProperties["Creature"] = current;
-        PhotonNetwork.SetPlayerCustomProperties(RoomManager.Instance.customProperties);
+        SaveManager.Instance.chosenC = current;
 
         OpenInfo();
     }
@@ -66,7 +65,7 @@ public class CreatureSelection : MonoBehaviour
     //Slides Menu Up
     IEnumerator SlideUp()
     {
-        OpenDiet();
+        OpenSave();
 
         while (transform.localPosition.y < maxHeight)
         {
@@ -75,11 +74,12 @@ public class CreatureSelection : MonoBehaviour
         }
     }
 
-    public void OpenDiet() { OpenMenu(true, false, false); }
-    public void OpenSelect() { OpenMenu(false, true, false); }
-    public void OpenInfo() { OpenMenu(false, false, true); }
+    public void OpenSave() { OpenMenu(false, false, false, true); }
+    public void OpenDiet() { OpenMenu(true, false, false, false); }
+    public void OpenSelect() { OpenMenu(false, true, false, false); }
+    public void OpenInfo() { OpenMenu(false, false, true, false); }
 
-    public void OpenMenu(bool a, bool b, bool c)
-    { dietObject.SetActive(a); selectObject.SetActive(b); infoObject.SetActive(c); }
+    public void OpenMenu(bool a, bool b, bool c, bool d)
+    { dietObject.SetActive(a); selectObject.SetActive(b); infoObject.SetActive(c); saveObject.SetActive(d); }
 }
 

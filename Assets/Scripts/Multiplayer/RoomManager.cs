@@ -54,7 +54,8 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         if (scene.buildIndex == 1)
         {
-            PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
+            int[] pos = SaveManager.Instance.saves[SaveManager.Instance.chosenSave].position;
+            PhotonNetwork.Instantiate("Player", new Vector3(pos[0], pos[1], pos[2]), Quaternion.identity);
         }
     }
 }

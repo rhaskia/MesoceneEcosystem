@@ -9,6 +9,7 @@ namespace Creature
     //Manages creature growth
     public class Growth : MonoBehaviour
     {
+        [Serializable]
         public enum GS { hatchling, baby, juvenile, subadult, adult, elder }
         public GS stage;
         public int currentPercent = 10;
@@ -26,6 +27,8 @@ namespace Creature
 
         public void Start()
         {
+            stage = SaveManager.Instance.saves[SaveManager.Instance.chosenSave].growth;
+
             switch (stage)
             {
                 case GS.hatchling: currentPercent = hatchling; break;
@@ -51,6 +54,7 @@ namespace Creature
                 case GS.elder: DieFunction.Invoke(); break;
             }
 
+            SaveManager.Instance.saves[SaveManager.Instance.chosenSave].growth = stage;
         }
 
     }

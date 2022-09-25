@@ -53,6 +53,8 @@ public class ChatManager : MonoBehaviour
             textInput.text = "";
         }
 
+        if (GameStateManager.Instance.paused && Input.GetMouseButtonDown(0)) GameStateManager.Instance.SetState(false);
+
     }
 
     void ManageMessage(string message)

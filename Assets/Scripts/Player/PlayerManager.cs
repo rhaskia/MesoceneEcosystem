@@ -52,6 +52,11 @@ namespace Player
             Cursor.visible = false;
 
             pauseMenu.SetActive(false);
+
+            //Loading Save
+            if (pv.IsMine) health.UpdateHealth(SaveManager.Instance.saves[SaveManager.Instance.chosenSave].health);
+
+
         }
 
         //public void UpdateCreature()
@@ -110,6 +115,11 @@ namespace Player
 
             //Flipping
             pv.RPC("SetFlip", RpcTarget.All, input);
+
+            //Saving
+            SaveManager.Instance.saves[SaveManager.Instance.chosenSave].health = health.health;
+            SaveManager.Instance.saves[SaveManager.Instance.chosenSave].position = new int[]
+            { (int)info.movement.transform.position.x, (int)info.movement.transform.position.y, (int)info.movement.transform.position.z };
         }
 
         public void OnPlayerConnected()
