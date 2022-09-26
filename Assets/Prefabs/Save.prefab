@@ -470,6 +470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   save: 0
   text: {fileID: 1482662167211073758}
+  image: {fileID: 3213169742688853620}
 --- !u!1 &3213169742688853622
 GameObject:
   m_ObjectHideFlags: 0

@@ -57,6 +57,11 @@ public class Launcher : MonoBehaviourPunCallbacks
         PhotonNetwork.AutomaticallySyncScene = true;
     }
 
+    void Update()
+    {
+        print(PhotonNetwork.AutomaticallySyncScene);
+    }
+
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.JoinLobby();
@@ -109,7 +114,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         roomNameText.text = PhotonNetwork.CurrentRoom.Name;
         PresenceManager.UpdatePresence(detail: "In Room: " + PhotonNetwork.CurrentRoom.Name);
 
-        PhotonNetwork.AutomaticallySyncScene = false;
+        PhotonNetwork.AutomaticallySyncScene = true;
 
         foreach (Transform child in playerListContent)
         {
@@ -121,7 +126,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             Instantiate(playerListItem, playerListContent).GetComponent<PlayerListItem>().SetUp(player);
         }
 
-        //startGameButton.SetActive(PhotonNetwork.IsMasterClient);
+        startGameButton.SetActive(PhotonNetwork.IsMasterClient);
     }
 
     public override void OnMasterClientSwitched(Photon.Realtime.Player newMasterClient)
@@ -133,6 +138,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         MenuManager.Instance.OpenMenu("Error");
         errorText.text = "Room Creation Failed: \n" + message;
+        print("fasiled");
     }
 
     public void JoinRoom(RoomInfo info)

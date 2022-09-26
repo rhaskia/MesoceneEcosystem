@@ -15,8 +15,10 @@ MonoBehaviour:
   diet: 2
   mass: 400
   length: 7
+  maxHealth: 100
   staminaRegen: 0
   healthRegen: 0
+  description: 
   sneakSpeed:
     speed: 1
     staminaUse: 0
@@ -94,25 +96,65 @@ MonoBehaviour:
       decrease: 0
       type: 0
     can: 1
+  buoyancy: 0
+  swimSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
   idle:
-    side: []
+    side:
+    - {fileID: -5916120, guid: 2ebe2f1af5cab8d48b60215529c133c6, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   walk:
-    side: []
+    side:
+    - {fileID: -1713922442, guid: 374b63533a9e94c449a919d6db73654f, type: 3}
+    - {fileID: 1012196661, guid: 374b63533a9e94c449a919d6db73654f, type: 3}
+    - {fileID: -2103742138, guid: 374b63533a9e94c449a919d6db73654f, type: 3}
+    - {fileID: 1824532950, guid: 374b63533a9e94c449a919d6db73654f, type: 3}
+    - {fileID: -628962224, guid: 374b63533a9e94c449a919d6db73654f, type: 3}
+    - {fileID: 1418795678, guid: 374b63533a9e94c449a919d6db73654f, type: 3}
+    - {fileID: -850694616, guid: 374b63533a9e94c449a919d6db73654f, type: 3}
+    - {fileID: -897504545, guid: 374b63533a9e94c449a919d6db73654f, type: 3}
+    - {fileID: -1480899478, guid: 374b63533a9e94c449a919d6db73654f, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   run:
-    side: []
+    side:
+    - {fileID: -1815413116, guid: 2ebe2f1af5cab8d48b60215529c133c6, type: 3}
+    - {fileID: -805374255, guid: 2ebe2f1af5cab8d48b60215529c133c6, type: 3}
+    - {fileID: -5916120, guid: 2ebe2f1af5cab8d48b60215529c133c6, type: 3}
+    - {fileID: 1223201635, guid: 2ebe2f1af5cab8d48b60215529c133c6, type: 3}
+    - {fileID: -510398351, guid: 2ebe2f1af5cab8d48b60215529c133c6, type: 3}
+    - {fileID: -1949508254, guid: 2ebe2f1af5cab8d48b60215529c133c6, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   jump:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouch:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouchwalk:
     side: []
     front: []
     back: []

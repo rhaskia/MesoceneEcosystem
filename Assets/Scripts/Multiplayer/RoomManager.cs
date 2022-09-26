@@ -56,6 +56,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
         {
             int[] pos = SaveManager.Instance.saves[SaveManager.Instance.chosenSave].position;
             PhotonNetwork.Instantiate("Player", new Vector3(pos[0], pos[1], pos[2]), Quaternion.identity);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }

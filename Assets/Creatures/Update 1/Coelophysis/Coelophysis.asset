@@ -15,8 +15,10 @@ MonoBehaviour:
   diet: 0
   mass: 0
   length: 0
+  maxHealth: 100
   staminaRegen: 0
   healthRegen: 0
+  description: 
   sneakSpeed:
     speed: 1
     staminaUse: 0
@@ -113,13 +115,32 @@ MonoBehaviour:
     speed: 0.15
     oneTime: 0
   walk:
-    side: []
+    side:
+    - {fileID: 1519773875, guid: 2dc03d756cfbc9846a40d9e35bb0f5fb, type: 3}
+    - {fileID: -1796432249, guid: 2dc03d756cfbc9846a40d9e35bb0f5fb, type: 3}
+    - {fileID: 1435008475, guid: 2dc03d756cfbc9846a40d9e35bb0f5fb, type: 3}
+    - {fileID: 244557358, guid: 2dc03d756cfbc9846a40d9e35bb0f5fb, type: 3}
+    - {fileID: -1134113665, guid: 2dc03d756cfbc9846a40d9e35bb0f5fb, type: 3}
+    - {fileID: 745465727, guid: 2dc03d756cfbc9846a40d9e35bb0f5fb, type: 3}
+    - {fileID: 1906617272, guid: 2dc03d756cfbc9846a40d9e35bb0f5fb, type: 3}
+    - {fileID: 849786568, guid: 2dc03d756cfbc9846a40d9e35bb0f5fb, type: 3}
+    - {fileID: 1302573809, guid: 2dc03d756cfbc9846a40d9e35bb0f5fb, type: 3}
+    - {fileID: -606352319, guid: 2dc03d756cfbc9846a40d9e35bb0f5fb, type: 3}
+    - {fileID: 944870746, guid: 2dc03d756cfbc9846a40d9e35bb0f5fb, type: 3}
+    - {fileID: -316297450, guid: 2dc03d756cfbc9846a40d9e35bb0f5fb, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   run:
-    side: []
+    side:
+    - {fileID: -1669559426, guid: 8e9405ecc0ca0764b8e083a4018ed9d4, type: 3}
+    - {fileID: 1476594103, guid: 8e9405ecc0ca0764b8e083a4018ed9d4, type: 3}
+    - {fileID: 938939291, guid: 8e9405ecc0ca0764b8e083a4018ed9d4, type: 3}
+    - {fileID: 1576731665, guid: 8e9405ecc0ca0764b8e083a4018ed9d4, type: 3}
+    - {fileID: -476352587, guid: 8e9405ecc0ca0764b8e083a4018ed9d4, type: 3}
+    - {fileID: -150567109, guid: 8e9405ecc0ca0764b8e083a4018ed9d4, type: 3}
+    - {fileID: -220850123, guid: 8e9405ecc0ca0764b8e083a4018ed9d4, type: 3}
     front: []
     back: []
     speed: 0.15

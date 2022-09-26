@@ -15,8 +15,10 @@ MonoBehaviour:
   diet: 4
   mass: 2
   length: 0.33
+  maxHealth: 100
   staminaRegen: 0
   healthRegen: 0
+  description: 
   sneakSpeed:
     speed: 1
     staminaUse: 0
@@ -40,7 +42,7 @@ MonoBehaviour:
       type: 0
     can: 1
   trotSpeed:
-    speed: 1
+    speed: 3
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -51,7 +53,7 @@ MonoBehaviour:
       type: 0
     can: 1
   runSpeed:
-    speed: 1
+    speed: 5
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -62,7 +64,7 @@ MonoBehaviour:
       type: 0
     can: 1
   jumpForce:
-    speed: 1
+    speed: 10
     staminaUse: 0
     minStamina: 10
     disturbance:
@@ -94,27 +96,67 @@ MonoBehaviour:
       decrease: 0
       type: 0
     can: 1
+  buoyancy: 0
+  swimSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
   idle:
     side:
-    - {fileID: 21300000, guid: 2c58103697083d64f9f93d303fdabaec, type: 3}
+    - {fileID: -481684176, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
     - {fileID: 21300000, guid: 2c58103697083d64f9f93d303fdabaec, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   walk:
-    side: []
+    side:
+    - {fileID: -481684176, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
+    - {fileID: -1639262767, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
+    - {fileID: 2077482282, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
+    - {fileID: -2094304338, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
+    - {fileID: 921218465, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
+    - {fileID: 1377495136, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
+    - {fileID: 992126408, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
+    - {fileID: -447479386, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   run:
-    side: []
+    side:
+    - {fileID: -481684176, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
+    - {fileID: -1639262767, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
+    - {fileID: 2077482282, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
+    - {fileID: -2094304338, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
+    - {fileID: 921218465, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
+    - {fileID: 1377495136, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
+    - {fileID: 992126408, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
+    - {fileID: -447479386, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   jump:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouch:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouchwalk:
     side: []
     front: []
     back: []
@@ -127,7 +169,13 @@ MonoBehaviour:
     speed: 0.15
     oneTime: 0
   fly:
-    side: []
+    side:
+    - {fileID: 218409399, guid: 9a18918339753d549b7e1a0bdf0bac61, type: 3}
+    - {fileID: 1805080039, guid: 9a18918339753d549b7e1a0bdf0bac61, type: 3}
+    - {fileID: 699900567, guid: 9a18918339753d549b7e1a0bdf0bac61, type: 3}
+    - {fileID: 1032136353, guid: 9a18918339753d549b7e1a0bdf0bac61, type: 3}
+    - {fileID: -1183280469, guid: 9a18918339753d549b7e1a0bdf0bac61, type: 3}
+    - {fileID: 1272656406, guid: 9a18918339753d549b7e1a0bdf0bac61, type: 3}
     front: []
     back: []
     speed: 0.15

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using ExitGames.Client.Photon;
+using UnityEngine.EventSystems;
 using Photon.Pun;
 
 public class ChatManager : MonoBehaviour
@@ -10,6 +10,7 @@ public class ChatManager : MonoBehaviour
     public int maxLength;
     public TMP_InputField textInput;
     public TextMeshProUGUI messages;
+    public Player.PlayerManager plr;
     string playerType;
     PhotonView pv;
 
@@ -53,7 +54,8 @@ public class ChatManager : MonoBehaviour
             textInput.text = "";
         }
 
-        if (GameStateManager.Instance.paused && Input.GetMouseButtonDown(0)) GameStateManager.Instance.SetState(false);
+        if (GameStateManager.Instance.paused && Input.GetMouseButtonDown(0) &&
+            !plr.menuOpen) GameStateManager.Instance.SetState(false);
 
     }
 
@@ -61,6 +63,8 @@ public class ChatManager : MonoBehaviour
     {
         string time = System.DateTime.Now.Hour.ToString("00") + ":" + System.DateTime.Now.Minute.ToString("00");
 
-        messages.text = messages.text + "\n[" + time + "]" + message;
+        messages.text = messages.text + "\n[" + time + "] " + message;
     }
+
+    bool IsMouseOverUI() { return EventSystem.current.IsPointerOverGameObject(); }
 }

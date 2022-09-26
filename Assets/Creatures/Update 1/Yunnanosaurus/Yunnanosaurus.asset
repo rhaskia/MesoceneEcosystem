@@ -15,8 +15,10 @@ MonoBehaviour:
   diet: 1
   mass: 2000
   length: 7
+  maxHealth: 100
   staminaRegen: 0
   healthRegen: 0
+  description: 
   sneakSpeed:
     speed: 1
     staminaUse: 0
@@ -94,6 +96,18 @@ MonoBehaviour:
       decrease: 0
       type: 0
     can: 1
+  buoyancy: 0
+  swimSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
   idle:
     side: []
     front: []
@@ -107,12 +121,32 @@ MonoBehaviour:
     speed: 0.15
     oneTime: 0
   run:
-    side: []
+    side:
+    - {fileID: -800093536, guid: 80b48cf6921809a48955a7281f894794, type: 3}
+    - {fileID: 217426686, guid: 80b48cf6921809a48955a7281f894794, type: 3}
+    - {fileID: 630216785, guid: 80b48cf6921809a48955a7281f894794, type: 3}
+    - {fileID: -1419122942, guid: 80b48cf6921809a48955a7281f894794, type: 3}
+    - {fileID: 445864716, guid: 80b48cf6921809a48955a7281f894794, type: 3}
+    - {fileID: 2122423477, guid: 80b48cf6921809a48955a7281f894794, type: 3}
+    - {fileID: -2118940842, guid: 80b48cf6921809a48955a7281f894794, type: 3}
+    - {fileID: 895455523, guid: 80b48cf6921809a48955a7281f894794, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   jump:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouch:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouchwalk:
     side: []
     front: []
     back: []

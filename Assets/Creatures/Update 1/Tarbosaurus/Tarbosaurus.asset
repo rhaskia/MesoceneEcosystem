@@ -15,8 +15,10 @@ MonoBehaviour:
   diet: 2
   mass: 4500
   length: 11
+  maxHealth: 100
   staminaRegen: 0
   healthRegen: 0
+  description: 
   sneakSpeed:
     speed: 1
     staminaUse: 0
@@ -94,6 +96,18 @@ MonoBehaviour:
       decrease: 0
       type: 0
     can: 1
+  buoyancy: 0
+  swimSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
   idle:
     side:
     - {fileID: 202405268, guid: e00182ad1670a0840a8b6095909bd292, type: 3}
@@ -150,6 +164,18 @@ MonoBehaviour:
     back: []
     speed: 0.15
     oneTime: 0
+  crouch:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouchwalk:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
   glide:
     side: []
     front: []
@@ -163,7 +189,15 @@ MonoBehaviour:
     speed: 0.15
     oneTime: 0
   rest:
-    side: []
+    side:
+    - {fileID: 483451660, guid: 79965aef3a549ce47a91f50f129d7e84, type: 3}
+    - {fileID: -1447149151, guid: 79965aef3a549ce47a91f50f129d7e84, type: 3}
+    - {fileID: -598988766, guid: 79965aef3a549ce47a91f50f129d7e84, type: 3}
+    - {fileID: -1675559240, guid: 79965aef3a549ce47a91f50f129d7e84, type: 3}
+    - {fileID: 1621597394, guid: 79965aef3a549ce47a91f50f129d7e84, type: 3}
+    - {fileID: 12619932, guid: 79965aef3a549ce47a91f50f129d7e84, type: 3}
+    - {fileID: 1348299096, guid: 79965aef3a549ce47a91f50f129d7e84, type: 3}
+    - {fileID: -1845687044, guid: 79965aef3a549ce47a91f50f129d7e84, type: 3}
     front: []
     back: []
     speed: 0.15

@@ -115,6 +115,7 @@ public class SaveManager : MonoBehaviour
     public void Save()
     {
         string jsonString = JsonUtility.ToJson(new SaveList(saves));
+        if (jsonString == null) jsonString = "";
 
         File.WriteAllText(path, jsonString);
 

@@ -34,7 +34,7 @@ public class CreatureSelection : MonoBehaviour
 
         foreach (var diet in diets)
         {
-            if (diet.name == chosenDiet.ToString()) diet.SetActive(true);
+            if (diet.name.ToLower() == chosenDiet.ToString()) diet.SetActive(true);
             else diet.SetActive(false);
         }
 

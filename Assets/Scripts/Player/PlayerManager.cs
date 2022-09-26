@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using TMPro;
 
 namespace Player
 {
@@ -17,9 +18,10 @@ namespace Player
         public Creature.CreatureInfo info;
         public Creature.Health health;
         public Creature.Growth growth;
-        public CameraFollow follow;
+
         public GameObject cam;
         public CinemachineFreeLook freeLook;
+        public CinemachineFreeLookZoom zoom;
 
         public Rigidbody rb;
 
@@ -34,7 +36,10 @@ namespace Player
 
         public KeyCode pauseButton;
         public GameObject pauseMenu;
-        bool menuOpen;
+        public Slider sensX, sensY;
+        public TextMeshProUGUI textX, textY;
+        //public Slider sfx, music;
+        public bool menuOpen;
 
 
         void Start()
@@ -56,7 +61,8 @@ namespace Player
             //Loading Save
             if (pv.IsMine) health.UpdateHealth(SaveManager.Instance.saves[SaveManager.Instance.chosenSave].health);
 
-
+            sensX.value = PlayerPrefs.GetInt("SensX", 10);
+            sensY.value = PlayerPrefs.GetInt("SensY", 10);
         }
 
         //public void UpdateCreature()
@@ -79,12 +85,24 @@ namespace Player
 
         void Update()
         {
-
             if (!pv.IsMine)
                 canvas.gameObject.SetActive(false);
 
             if (!pv.IsMine)
                 return;
+
+            //Sliders
+            freeLook.m_XAxis.m_AccelTime = 1 / Mathf.Abs(sensX.value);
+            freeLook.m_XAxis.m_InvertInput = sensX.value < 0;
+
+            freeLook.m_YAxis.m_AccelTime = 1 / Mathf.Abs(sensY.value);
+            freeLook.m_YAxis.m_InvertInput = sensY.value < 0;
+
+            textX.text = (sensX.value / 10).ToString("0.0");
+            textY.text = (sensY.value / 10).ToString("0.0");
+
+            PlayerPrefs.SetInt("SensX", (int)sensX.value);
+            PlayerPrefs.SetInt("SensY", (int)sensY.value);
 
             //Pause Menu
             if (Input.GetKeyDown(pauseButton)) SwitchPause();

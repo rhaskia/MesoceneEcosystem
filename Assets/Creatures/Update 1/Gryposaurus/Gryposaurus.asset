@@ -15,8 +15,10 @@ MonoBehaviour:
   diet: 1
   mass: 3500
   length: 12
+  maxHealth: 100
   staminaRegen: 0
   healthRegen: 0
+  description: 
   sneakSpeed:
     speed: 1
     staminaUse: 0
@@ -94,6 +96,18 @@ MonoBehaviour:
       decrease: 0
       type: 0
     can: 1
+  buoyancy: 0
+  swimSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
   idle:
     side: []
     front: []
@@ -101,18 +115,52 @@ MonoBehaviour:
     speed: 0.15
     oneTime: 0
   walk:
-    side: []
+    side:
+    - {fileID: -1240206171, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
+    - {fileID: 371433672, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
+    - {fileID: 138893041, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
+    - {fileID: -2015008741, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
+    - {fileID: 930678830, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
+    - {fileID: 1440514301, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
+    - {fileID: -699892272, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
+    - {fileID: 285628574, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
+    - {fileID: -1454740847, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
+    - {fileID: -993790796, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
+    - {fileID: -863717618, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
+    - {fileID: 1376698314, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
+    - {fileID: -1791194617, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
+    - {fileID: -1891596045, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   run:
-    side: []
+    side:
+    - {fileID: -475212034, guid: d1151b87a45d0734299bfb743deda247, type: 3}
+    - {fileID: -2042347959, guid: d1151b87a45d0734299bfb743deda247, type: 3}
+    - {fileID: -1484644834, guid: d1151b87a45d0734299bfb743deda247, type: 3}
+    - {fileID: -413745911, guid: d1151b87a45d0734299bfb743deda247, type: 3}
+    - {fileID: 784660384, guid: d1151b87a45d0734299bfb743deda247, type: 3}
+    - {fileID: -1717535881, guid: d1151b87a45d0734299bfb743deda247, type: 3}
+    - {fileID: 1306283432, guid: d1151b87a45d0734299bfb743deda247, type: 3}
+    - {fileID: 539936063, guid: d1151b87a45d0734299bfb743deda247, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   jump:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouch:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouchwalk:
     side: []
     front: []
     back: []

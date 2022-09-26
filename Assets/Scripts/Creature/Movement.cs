@@ -116,6 +116,8 @@ namespace Creature
             {
                 if (moveInput.flyUp) rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
                 if (moveInput.flyDown) rb.AddForce(new Vector3(0, -jumpForce, 0), ForceMode.Impulse);
+
+
             }
             rb.useGravity = !flying;
 
@@ -258,6 +260,10 @@ namespace Creature
                 else info.canimation.SetCurrent(Animations.crouchwalk);
             }
 
+            if (flying)
+            {
+                info.canimation.SetCurrent(Animations.fly);
+            }
 
         }
 

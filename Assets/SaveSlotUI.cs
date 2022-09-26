@@ -28,7 +28,14 @@ public class SaveSlotUI : MonoBehaviour
         if (save < SaveManager.Instance.saves.Count)
         {
             text.text = SaveManager.Instance.saves[save].name;
-            image.sprite = RoomManager.Instance.creatures[SaveManager.Instance.saves[save].creature].idle.front[0];
+
+            var sprite = RoomManager.Instance.creatures[SaveManager.Instance.saves[save].creature].idle.side;
+            if (sprite.Length != 0)
+            {
+                image.sprite = sprite[0];
+                image.rectTransform.sizeDelta = new Vector2(330, (330 / sprite[0].rect.width) * sprite[0].rect.height);
+            }
+            else image.rectTransform.sizeDelta = new Vector2(330, 206.8f);
         }
     }
 
