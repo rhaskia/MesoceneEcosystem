@@ -2653,7 +2653,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4392484317176524593}
-  m_LocalRotation: {x: 0.0025734287, y: 0.9771951, z: -0.21199639, w: 0.011862192}
+  m_LocalRotation: {x: 0.0025734361, y: 0.9771951, z: -0.21199639, w: 0.011862226}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3450,6 +3450,7 @@ MonoBehaviour:
   cam: {fileID: 5803230690422336830}
   freeLook: {fileID: 3837609640083104896}
   zoom: {fileID: 8493492717174325904}
+  chat: {fileID: 8281247219108041508}
   rb: {fileID: 4822458901375794342}
   canvas: {fileID: 4822458901953056671}
   healthSlider: {fileID: 4822458902188149590}
@@ -4106,7 +4107,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5301471039205607153}
-  m_LocalRotation: {x: 0.0025734287, y: 0.9771951, z: -0.2119964, w: 0.011862192}
+  m_LocalRotation: {x: 0.0025734364, y: 0.9771951, z: -0.2119964, w: 0.011862226}
   m_LocalPosition: {x: -0.0728235, y: 1.5, z: 2.999116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6472,7 +6473,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1767.1068}
+  m_AnchoredPosition: {x: 0, y: 1767.1072}
   m_SizeDelta: {x: 0, y: 2297.1067}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &7363509428455471039
@@ -6499,7 +6500,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7363509428455471039}
-  m_LocalRotation: {x: 0.0027887772, y: 0.9731774, z: -0.22973597, w: 0.011813452}
+  m_LocalRotation: {x: 0.0027887754, y: 0.9731774, z: -0.22973599, w: 0.011813445}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6675,7 +6676,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2396838538544226799}
   m_Direction: 2
   m_Value: -0.000000172698
-  m_Size: 0.23072502
+  m_Size: 0.23072426
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

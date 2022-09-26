@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 using Photon.Pun;
+using System;
 
 public class ChatManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class ChatManager : MonoBehaviour
     PhotonView pv;
 
     [PunRPC]
-    public void SendMessagePUN(string message)
+    void SendMessagePUN(string message)
     {
         ManageMessage(message);
     }
@@ -67,4 +68,21 @@ public class ChatManager : MonoBehaviour
     }
 
     bool IsMouseOverUI() { return EventSystem.current.IsPointerOverGameObject(); }
+
+    public void JoinMessage(Photon.Realtime.Player newPlayer)
+    {
+        string time = System.DateTime.Now.Hour.ToString("00") + ":" + System.DateTime.Now.Minute.ToString("00");
+
+        string nameColor = "#83FFD4";
+
+        switch (newPlayer.CustomProperties["Permissions"])
+        {
+            case "Developer": nameColor = "#4C83FF"; break;
+            case "Admin": nameColor = "#FFFF84"; break;
+            case "Paleotuber": nameColor = "#B085FF"; break;
+        }
+
+        string message = "<color=" + nameColor + ">" + newPlayer.NickName + "<color=white> joined the server";
+        pv.RPC("SendMessagePUN", RpcTarget.All, message);
+    }
 }

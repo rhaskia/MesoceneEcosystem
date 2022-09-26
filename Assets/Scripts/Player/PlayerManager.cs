@@ -23,6 +23,8 @@ namespace Player
         public CinemachineFreeLook freeLook;
         public CinemachineFreeLookZoom zoom;
 
+        public ChatManager chat;
+
         public Rigidbody rb;
 
         [Header("Variables")]
@@ -142,9 +144,10 @@ namespace Player
             { (int)info.movement.transform.position.x, (int)info.movement.transform.position.y, (int)info.movement.transform.position.z };
         }
 
-        public void OnPlayerConnected()
+        public override void OnPlayerEnteredRoom(Photon.Realtime.Player newPlayer)
         {
-            //UpdateCreature();
+            base.OnPlayerEnteredRoom(newPlayer);
+            chat.JoinMessage(newPlayer);
         }
 
         public void LeaveGame()
