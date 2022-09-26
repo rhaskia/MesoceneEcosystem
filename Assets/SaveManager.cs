@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using System.Security.Cryptography;
+using UnityEngine.UI;
 using System.IO;
 
 [Serializable]
@@ -53,6 +53,8 @@ public class SaveManager : MonoBehaviour
     public List<Save> saves;
     public SaveSlotUI[] slots;
     public GameObject newButton;
+    public Button find, create;
+    public GameObject menu, options;
 
     public int chosenSave;
     public int chosenC;
@@ -81,6 +83,17 @@ public class SaveManager : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        bool hasSave = saves.Count > 0;
+
+        find.interactable = hasSave;
+        create.interactable = hasSave;
+
+        menu.SetActive(!hasSave);
+        options.SetActive(!hasSave);
+    }
+
     void ReloadSaves()
     {
         foreach (var item in slots)
@@ -100,8 +113,10 @@ public class SaveManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void ChooseSave(int s)
     {
+        chosenSave = s;
+        Save();
 
     }
 
@@ -140,6 +155,7 @@ public class SaveManager : MonoBehaviour
     public void RemoveSave(int a)
     {
         saves.RemoveAt(a);
+        chosenSave = 0;
         ReloadSaves();
         Save();
     }
@@ -148,7 +164,7 @@ public class SaveManager : MonoBehaviour
     {
         if (saves.Count == 0) return;
 
-        if (saves.Count != 0) RoomManager.Instance.customProperties["Creature"] = saves[chosenSave].creature;
+        RoomManager.Instance.customProperties["Creature"] = saves[chosenSave].creature;
         PhotonNetwork.SetPlayerCustomProperties(RoomManager.Instance.customProperties);
         PhotonNetwork.NickName = saves[chosenSave].name;
     }

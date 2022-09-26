@@ -30,13 +30,12 @@ namespace Creature
             if (Input.GetKeyDown(attackKey))
             {
                 Attack1();
-                animator.SetCurrent(Animations.LMB);
+                animator.SetCurrent(Animations.lmb);
             }
 
             if (Input.GetMouseButtonDown(0))
             {
-                //isBlocking = true;
-                animator.SetCurrent(Animations.LMB);
+                animator.SetCurrent(Animations.lmb);
                 var collisions = Physics.OverlapBox(attackHitBox.transform.position, attackHitBox.transform.lossyScale / 2, attackHitBox.transform.rotation);
 
                 foreach (var item in collisions)
@@ -51,11 +50,11 @@ namespace Creature
             if (Input.GetMouseButtonDown(1))
             {
                 //isBlocking = false;
-                animator.SetCurrent(Animations.RMB);
+                animator.SetCurrent(Animations.rmb);
             }
 
-            isAttacking = animator.currentAnim == Animations.LMB;
-            attackHitBox.SetActive(animator.currentAnim == Animations.LMB);
+            isAttacking = animator.currentAnim == Animations.lmb || animator.currentAnim == Animations.rmb;
+            attackHitBox.SetActive(isAttacking);
         }
 
         [ContextMenu("Attack 01")]

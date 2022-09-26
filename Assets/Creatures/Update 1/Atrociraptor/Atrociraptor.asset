@@ -15,8 +15,10 @@ MonoBehaviour:
   diet: 2
   mass: 15
   length: 2
+  maxHealth: 100
   staminaRegen: 0
   healthRegen: 0
+  description: 
   sneakSpeed:
     speed: 1
     staminaUse: 0
@@ -107,7 +109,9 @@ MonoBehaviour:
       type: 0
     can: 1
   idle:
-    side: []
+    side:
+    - {fileID: 1396567543, guid: 3eaaf0616c682804ea425854e46da856, type: 3}
+    - {fileID: -1226826187, guid: 3eaaf0616c682804ea425854e46da856, type: 3}
     front: []
     back: []
     speed: 0.15

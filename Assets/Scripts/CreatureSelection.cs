@@ -10,6 +10,8 @@ public class CreatureSelection : MonoBehaviour
     public float speed;
     public float minHeight, maxHeight;
 
+    public TextMeshProUGUI nameT, info, desc;
+
     public GameObject saveObject, dietObject, selectObject, infoObject;
     public GameObject[] diets;
     int current;
@@ -45,10 +47,19 @@ public class CreatureSelection : MonoBehaviour
     {
         for (int i = 0; i < RoomManager.Instance.creatures.Length; i++)
         {
-            if (name == RoomManager.Instance.creatures[i].name) current = i;
+            if (name.ToLower() == RoomManager.Instance.creatures[i].name.ToLower()) current = i;
+            print(RoomManager.Instance.creatures[i].name.ToLower());
         }
 
         SaveManager.Instance.chosenC = current;
+
+        Creature.Creature c = RoomManager.Instance.creatures[current];
+        nameT.text = c.name;
+        info.text = "Weight: " + c.mass + "kg\n" +
+                    "Length: " + c.length + "m\n" +
+                    "Walk Speed: " + Mathf.Round(c.walkSpeed.speed * 36) / 10 + "km/h\n" +
+                    "Run Speed: " + Mathf.Round(c.runSpeed.speed * 36) / 10 + "km/h";
+        desc.text = c.description;
 
         OpenInfo();
     }

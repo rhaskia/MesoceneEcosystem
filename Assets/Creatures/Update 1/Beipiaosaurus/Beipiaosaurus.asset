@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
   m_Name: Beipiaosaurus
   m_EditorClassIdentifier: 
+  diet: 0
   mass: 85
   length: 2.2
+  maxHealth: 100
+  staminaRegen: 0
+  healthRegen: 0
+  description: 
   sneakSpeed:
     speed: 1
     staminaUse: 0
@@ -81,6 +86,18 @@ MonoBehaviour:
       type: 0
     can: 1
   flySpeed:
+    speed: 0.9
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
+  buoyancy: 0
+  swimSpeed:
     speed: 1
     staminaUse: 0
     minStamina: 10
@@ -127,6 +144,18 @@ MonoBehaviour:
     back: []
     speed: 0.15
     oneTime: 0
+  crouch:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouchwalk:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
   glide:
     side: []
     front: []
@@ -134,19 +163,29 @@ MonoBehaviour:
     speed: 0.15
     oneTime: 0
   fly:
-    side: []
+    side:
+    - {fileID: -1309796355, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
+    - {fileID: 51310591, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
+    - {fileID: -541216779, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
+    - {fileID: -847862859, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
+    - {fileID: -800805714, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
+    - {fileID: -848475071, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
+    - {fileID: -701156430, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
+    - {fileID: -729266194, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   rest:
-    side: []
+    side:
+    - {fileID: -701156430, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   sleep:
-    side: []
+    side:
+    - {fileID: -729266194, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
     front: []
     back: []
     speed: 0.15
@@ -158,7 +197,8 @@ MonoBehaviour:
     speed: 0.15
     oneTime: 0
   drink:
-    side: []
+    side:
+    - {fileID: -800805714, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
     front: []
     back: []
     speed: 0.15
@@ -176,7 +216,7 @@ MonoBehaviour:
     front: []
     back: []
     speed: 0.15
-    oneTime: 0
+    oneTime: 1
   rmb:
     side:
     - {fileID: -903337594, guid: 51fa28db261366d48968002122200eaa, type: 3}
@@ -190,15 +230,17 @@ MonoBehaviour:
     front: []
     back: []
     speed: 0.15
-    oneTime: 0
+    oneTime: 1
   limp:
-    side: []
+    side:
+    - {fileID: -701156430, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
     front: []
     back: []
     speed: 0.15
     oneTime: 0
   death:
-    side: []
+    side:
+    - {fileID: -729266194, guid: 261a4d6260818074bba3cac63899b61c, type: 3}
     front: []
     back: []
     speed: 0.15

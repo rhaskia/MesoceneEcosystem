@@ -109,7 +109,9 @@ MonoBehaviour:
       type: 0
     can: 1
   idle:
-    side: []
+    side:
+    - {fileID: 285628574, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
+    - {fileID: -699892272, guid: 6870968081c129f4795cf50a184c20b8, type: 3}
     front: []
     back: []
     speed: 0.15

@@ -61,6 +61,8 @@ namespace Player
             //Loading Save
             if (pv.IsMine) health.UpdateHealth(SaveManager.Instance.saves[SaveManager.Instance.chosenSave].health);
 
+            zoom.minMaxZoom *= creature.length;
+
             sensX.value = PlayerPrefs.GetInt("SensX", 10);
             sensY.value = PlayerPrefs.GetInt("SensY", 10);
         }
@@ -169,11 +171,11 @@ namespace Player
         [PunRPC]
         public void SetFlip(Vector2 input)
         {
-            if (input.x > 0.01)
+            if (input.x > 0.1)
             {
                 info.canimation.flip = true;
             }
-            else if (input.x < -0.01)
+            else if (input.x < -0.1)
             {
                 info.canimation.flip = false;
             }

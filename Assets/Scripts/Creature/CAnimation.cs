@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Creature
 {
-    public enum Animations { idle, walk, run, crouch, crouchwalk, jump, glide, fly, rest, sleep, eat, drink, LMB, RMB, limp, death }
+    public enum Animations { idle, walk, run, crouch, crouchwalk, jump, glide, fly, rest, sleep, eat, drink, lmb, rmb, limp, death }
     public enum Directions { Side, Front, Back }
 
     //Creature Animation Manager
@@ -33,16 +33,14 @@ namespace Creature
         Vector3 size;
         Vector3 centre = new Vector3();
 
-        public AnimationBundle[] allAnims;
+        public AnimationBundle[] allAnims => new AnimationBundle[] { current.idle, current.walk, current.run, current.crouch, current.crouchwalk, current.jump, current.glide, current.fly,
+            current.rest, current.sleep, current.eat, current.drink, current.lmb, current.rmb, current.limp, current.death };
 
         public void StartAnim()
         {
             pv = GetComponent<PhotonView>();
             ppu = current.idle.side[0].rect.width / current.length;
             ManageAnimation();
-
-            allAnims = new AnimationBundle[] { current.idle, current.walk, current.run,current.crouch, current.crouchwalk, current.jump, current.glide, current.fly, current.rest, current.sleep,
-                current.eat, current.drink, current.lmb, current.rmb, current.limp, current.death };
         }
 
         void Update()
@@ -86,7 +84,6 @@ namespace Creature
 
         void ManageAnimation()
         {
-            allAnims = new AnimationBundle[] { current.idle, current.walk, current.run, current.jump, current.glide, current.fly, current.rest, current.sleep, current.eat, current.drink, current.lmb, current.rmb, current.limp, current.death };
             AnimationSet(allAnims[((int)currentAnim)]);
 
             pv.RPC("UpdateAnimations", RpcTarget.All, currentAnim, currentDir, currentFrame, ppu);
@@ -142,6 +139,8 @@ namespace Creature
 
         void AnimationCase(Sprite[] set, AnimationBundle anim)
         {
+            print(set.Length);
+
             if (currentFrame >= set.Length)
             {
                 currentFrame = 0;

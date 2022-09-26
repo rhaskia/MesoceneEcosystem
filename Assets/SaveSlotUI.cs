@@ -10,6 +10,7 @@ public class SaveSlotUI : MonoBehaviour
 
     public TMP_InputField text;
     public Image image;
+    public GameObject selected;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +21,7 @@ public class SaveSlotUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        selected.SetActive(save == SaveManager.Instance.chosenSave);
     }
 
     public void Reload()

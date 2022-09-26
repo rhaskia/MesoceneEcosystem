@@ -114,9 +114,10 @@ namespace Creature
             //Flying
             if (flying)
             {
+                rb.drag = airDrag;
                 if (moveInput.flyUp) rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
-                if (moveInput.flyDown) rb.AddForce(new Vector3(0, -jumpForce, 0), ForceMode.Impulse);
-
+                else if (moveInput.flyDown) rb.AddForce(new Vector3(0, -jumpForce, 0), ForceMode.Impulse);
+                else rb.drag = waterDrag;
 
             }
             rb.useGravity = !flying;
@@ -192,7 +193,7 @@ namespace Creature
                 rb.drag = waterDrag * submergence;
                 rb.velocity += -9.81f * ((1f - buoyancy * submergence) * Time.deltaTime) * Vector3.up;
             }
-            else rb.drag = airDrag;
+            else if (!flying) rb.drag = airDrag;
 
             //
 
