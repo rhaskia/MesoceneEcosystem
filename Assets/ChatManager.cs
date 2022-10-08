@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.EventSystems;
 using Photon.Pun;
 using System;
+using System.Linq;
 
 public class ChatManager : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class ChatManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             if (textInput.text.Length == 0 || textInput.text.Length > maxLength) return;
+
+            if (IsCommand(textInput.text)) return;
 
             string nameColor = "#83FFD4";
 
@@ -84,5 +87,42 @@ public class ChatManager : MonoBehaviour
 
         string message = "<color=" + nameColor + ">" + newPlayer.NickName + "<color=white> joined the server";
         pv.RPC("SendMessagePUN", RpcTarget.All, message);
+    }
+
+    public bool IsCommand(string str)
+    {
+        if (str.Substring(0, 1) != "/") return false;
+
+        if (str.Substring(1, 3).ToLower() == "ban")
+        {
+            string name = str.Substring(4).Replace(" ", "");
+
+            if (GetPlayer(name) != null) pv.RPC("KickPlayer", GetPlayer(name));
+        }
+
+        if (str.Substring(1, 4).ToLower() == "kick")
+        {
+            string name = str.Substring(5).Replace(" ", "");
+
+            if (GetPlayer(name) != null) pv.RPC("KickPlayer", GetPlayer(name));
+        }
+
+        return false;
+    }
+
+    public Photon.Realtime.Player GetPlayer(string name)
+    {
+        foreach (var player in (from kvp in PhotonNetwork.CurrentRoom.Players select kvp.Value).Distinct())
+        {
+            if (player.NickName.ToLower() == name.ToLower()) return player;
+        }
+
+        return null;
+    }
+
+    [PunRPC]
+    private void KickPlayer()
+    {
+        PhotonNetwork.LeaveRoom(); // load lobby scene, returns to master server
     }
 }

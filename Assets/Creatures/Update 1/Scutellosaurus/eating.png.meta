@@ -1,0 +1,609 @@
+fileFormatVersion: 2
+guid: 814dfaa8e1e97804c957bf4453ca93e6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -119236866371785199
+    second: Scutellosaurus_lawleri_Eating_Animation_0
+  - first:
+      213: 521229306939055033
+    second: Scutellosaurus_lawleri_Eating_Animation_1
+  - first:
+      213: -8010102867127211359
+    second: Scutellosaurus_lawleri_Eating_Animation_2
+  - first:
+      213: -362600403796636809
+    second: Scutellosaurus_lawleri_Eating_Animation_3
+  - first:
+      213: -101286297204449330
+    second: Scutellosaurus_lawleri_Eating_Animation_4
+  - first:
+      213: -3641996683779062677
+    second: Scutellosaurus_lawleri_Eating_Animation_5
+  - first:
+      213: -5902797317396424899
+    second: Scutellosaurus_lawleri_Eating_Animation_6
+  - first:
+      213: 7528134712386675197
+    second: Scutellosaurus_lawleri_Eating_Animation_7
+  - first:
+      213: 1351976508242080117
+    second: Scutellosaurus_lawleri_Eating_Animation_8
+  - first:
+      213: -6730894862458005627
+    second: Scutellosaurus_lawleri_Eating_Animation_9
+  - first:
+      213: -5568054037878384349
+    second: Scutellosaurus_lawleri_Eating_Animation_10
+  - first:
+      213: -6491315730376967034
+    second: Scutellosaurus_lawleri_Eating_Animation_11
+  - first:
+      213: -4323117950734122006
+    second: Scutellosaurus_lawleri_Eating_Animation_12
+  - first:
+      213: 4926533243552886079
+    second: Scutellosaurus_lawleri_Eating_Animation_13
+  - first:
+      213: -4831736375290134577
+    second: Scutellosaurus_lawleri_Eating_Animation_14
+  - first:
+      213: 553590644921242935
+    second: Scutellosaurus_lawleri_Eating_Animation_15
+  - first:
+      213: -5339335002184003419
+    second: Scutellosaurus_lawleri_Eating_Animation_16
+  - first:
+      213: 3226658234814978356
+    second: Scutellosaurus_lawleri_Eating_Animation_17
+  - first:
+      213: -3253202918697162029
+    second: Scutellosaurus_lawleri_Eating_Animation_18
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 76
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11e67c7a3b2685ef0800000000000000
+      internalID: -119236866371785199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_1
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 76
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bb10a60b47cb3700800000000000000
+      internalID: 521229306939055033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_2
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 76
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa6b86b1e566d090800000000000000
+      internalID: -8010102867127211359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_3
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 76
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77bc9489ad8c7faf0800000000000000
+      internalID: -362600403796636809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 57
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecf938a36a8289ef0800000000000000
+      internalID: -101286297204449330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_5
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 57
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64c23eef47057dc0800000000000000
+      internalID: -3641996683779062677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_6
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 57
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d37157b3d1d051ea0800000000000000
+      internalID: -5902797317396424899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_7
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 57
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df1681992ae497860800000000000000
+      internalID: 7528134712386675197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 38
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 571317e987f23c210800000000000000
+      internalID: 1351976508242080117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_9
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 38
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58750bec8ce0792a0800000000000000
+      internalID: -6730894862458005627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_10
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 38
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32954167a5c4ab2b0800000000000000
+      internalID: -5568054037878384349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_11
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 38
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68cb9f55cb63ae5a0800000000000000
+      internalID: -6491315730376967034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 19
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae3c060f0233104c0800000000000000
+      internalID: -4323117950734122006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_13
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 19
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3d6f1412ef8e5440800000000000000
+      internalID: 4926533243552886079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_14
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 19
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf7f76cd5932fcb0800000000000000
+      internalID: -4831736375290134577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_15
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 19
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 735928d22cfbea700800000000000000
+      internalID: 553590644921242935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a05302ca1fd6e5b0800000000000000
+      internalID: -5339335002184003419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_17
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 0
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4395cb9a19467cc20800000000000000
+      internalID: 3226658234814978356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Scutellosaurus_lawleri_Eating_Animation_18
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 85
+        height: 19
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3daaac08e2d4ad2d0800000000000000
+      internalID: -3253202918697162029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Scutellosaurus_lawleri_Eating_Animation_9: -6730894862458005627
+      Scutellosaurus_lawleri_Eating_Animation_7: 7528134712386675197
+      Scutellosaurus_lawleri_Eating_Animation_11: -6491315730376967034
+      Scutellosaurus_lawleri_Eating_Animation_18: -3253202918697162029
+      Scutellosaurus_lawleri_Eating_Animation_5: -3641996683779062677
+      Scutellosaurus_lawleri_Eating_Animation_10: -5568054037878384349
+      Scutellosaurus_lawleri_Eating_Animation_17: 3226658234814978356
+      Scutellosaurus_lawleri_Eating_Animation_6: -5902797317396424899
+      Scutellosaurus_lawleri_Eating_Animation_4: -101286297204449330
+      Scutellosaurus_lawleri_Eating_Animation_16: -5339335002184003419
+      Scutellosaurus_lawleri_Eating_Animation_12: -4323117950734122006
+      Scutellosaurus_lawleri_Eating_Animation_8: 1351976508242080117
+      Scutellosaurus_lawleri_Eating_Animation_1: 521229306939055033
+      Scutellosaurus_lawleri_Eating_Animation_2: -8010102867127211359
+      Scutellosaurus_lawleri_Eating_Animation_13: 4926533243552886079
+      Scutellosaurus_lawleri_Eating_Animation_14: -4831736375290134577
+      Scutellosaurus_lawleri_Eating_Animation_3: -362600403796636809
+      Scutellosaurus_lawleri_Eating_Animation_0: -119236866371785199
+      Scutellosaurus_lawleri_Eating_Animation_15: 553590644921242935
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

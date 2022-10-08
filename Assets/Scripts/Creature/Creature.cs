@@ -1,5 +1,11 @@
 using UnityEngine;
 
+public enum Biome
+{
+    BorealForest, Chaparral, Coastal, CoastalSpires, Desert, GameTrail, Grasslands, HotSprings, MarshallIslands, OasisIslands,
+    Rainforest, Redwoods, RollingHills, Savannah, Taiga, TemperateArchipelago, TemperateForest, Tundra, Wetlands, WindwellBay
+};
+
 namespace Creature
 {
     //Animation holder
