@@ -5,6 +5,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.UI;
 using System.IO;
+using Newtonsoft.Json;
 
 [Serializable]
 public class Save
@@ -74,7 +75,7 @@ public class SaveManager : MonoBehaviour
 
     void Start()
     {
-        path = Application.persistentDataPath + "/mesocenesavedata.json";
+        path = Application.dataPath + Path.AltDirectorySeparatorChar + "mesocenesavedata.json";
 
         Load();
         ReloadSaves();
@@ -129,7 +130,7 @@ public class SaveManager : MonoBehaviour
 
     public void Save()
     {
-        string jsonString = JsonUtility.ToJson(new SaveList(saves));
+        string jsonString = JsonConvert.SerializeObject(new SaveList(saves));
         if (jsonString == null) jsonString = "";
 
         File.WriteAllText(path, jsonString);
@@ -143,7 +144,7 @@ public class SaveManager : MonoBehaviour
         {
             string data = File.ReadAllText(path);
 
-            saves = JsonUtility.FromJson<SaveList>(data).saves;
+            saves = JsonConvert.DeserializeObject<SaveList>(data).saves;
             UpdateInfo();
         }
         else
