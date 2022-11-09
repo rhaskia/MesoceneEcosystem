@@ -54,8 +54,16 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         if (scene.buildIndex == 1)
         {
-            int[] pos = SaveManager.Instance.saves[SaveManager.Instance.chosenSave].position;
-            PhotonNetwork.Instantiate("Player", new Vector3(pos[0], pos[1], pos[2]), Quaternion.identity);
+            Save save = SaveManager.Instance.saves[SaveManager.Instance.chosenSave];
+
+            Vector3 pos = new Vector3();
+
+            if (save.newSave) pos = GameObject.FindGameObjectWithTag("Spawns").transform.GetChild(Random.Range(0, 3)).position;
+            else pos = new Vector3(save.position[0], save.position[1], save.position[2]);
+
+            save.newSave = false;
+
+            PhotonNetwork.Instantiate("Player", pos, Quaternion.identity);
 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

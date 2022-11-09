@@ -4,8 +4,7 @@ using System.Linq;
 using System.Text;
 using Cinemachine;
 using UnityEngine;
-
-
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CinemachineFreeLook))]
 public class CinemachineFreeLookZoom : MonoBehaviour
@@ -15,11 +14,23 @@ public class CinemachineFreeLookZoom : MonoBehaviour
 
     public Vector2 minMaxZoom;
     public float zoomPercent;
+
+    public Slider X, Y;
+    float xsave, ysave;
+
+    public void Start()
+    {
+        xsave = freelook.m_XAxis.m_MaxSpeed;
+        ysave = freelook.m_YAxis.m_MaxSpeed;
+    }
+
     public void Awake()
     {
         freelook = GetComponentInChildren<CinemachineFreeLook>();
         originalOrbits = new CinemachineFreeLook.Orbit[freelook.m_Orbits.Length];
 
+        freelook.m_XAxis.m_MaxSpeed = xsave * X.value;
+        freelook.m_YAxis.m_MaxSpeed = ysave * Y.value;
 
         for (int i = 0; i < freelook.m_Orbits.Length; i++)
         {

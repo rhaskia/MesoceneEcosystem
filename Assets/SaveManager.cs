@@ -20,6 +20,8 @@ public class Save
 
     public int[] position;
 
+    public bool newSave;
+
     //public Ailment[] ailments;
 
     public Save(string _name, int _creature)
@@ -33,6 +35,8 @@ public class Save
         growth = Creature.Growth.GS.baby;
 
         position = new int[3];
+
+        newSave = true;
     }
 }
 

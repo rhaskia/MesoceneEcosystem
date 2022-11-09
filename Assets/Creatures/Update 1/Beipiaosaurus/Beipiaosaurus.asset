@@ -31,7 +31,7 @@ MonoBehaviour:
       type: 0
     can: 1
   walkSpeed:
-    speed: 3
+    speed: 10
     staminaUse: 0
     minStamina: 10
     disturbance:

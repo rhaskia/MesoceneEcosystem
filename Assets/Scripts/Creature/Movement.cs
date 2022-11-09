@@ -1,6 +1,7 @@
 using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -24,6 +25,7 @@ namespace Creature
     public class Movement : MonoBehaviour
     {
         public Cinemachine.CinemachineFreeLook cam;
+        public TextMeshProUGUI position;
 
         [Header("Relations")]
         CreatureInfo info;
@@ -89,6 +91,8 @@ namespace Creature
 
         private void FixedUpdate()
         {
+            position.text = " x:" + transform.position.x.ToString("000") + " y:" + transform.position.y.ToString("000") + " z:" + transform.position.z.ToString("000");
+
             //heaigfght
             //BuoyancyManager();
 
