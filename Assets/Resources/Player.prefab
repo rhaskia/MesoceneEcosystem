@@ -882,9 +882,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minMaxZoom: {x: 0.3, y: 1.2}
-  zoomPercent: 0
-  X: {fileID: 0}
-  Y: {fileID: 0}
+  zoomPercent: 0.3
+  X: {fileID: 7730075078515949959}
+  Y: {fileID: 1941568832962144640}
 --- !u!114 &4931992569987175277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2662,7 +2662,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4392484317176524593}
-  m_LocalRotation: {x: 0.0025734361, y: 0.9771951, z: -0.21199639, w: 0.011862226}
+  m_LocalRotation: {x: 0.0025734287, y: 0.9771951, z: -0.21199639, w: 0.011862192}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3496,7 +3496,7 @@ MonoBehaviour:
   thirstSlider: {fileID: 1208567351263288565}
   hungerSlider: {fileID: 539321472989548541}
   pv: {fileID: 0}
-  pauseButton: 9
+  pauseButton: 27
   pauseMenu: {fileID: 6717693135744168197}
   sensX: {fileID: 1941568832962144640}
   sensY: {fileID: 7730075078515949959}
@@ -4146,7 +4146,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5301471039205607153}
-  m_LocalRotation: {x: 0.0025734364, y: 0.9771951, z: -0.2119964, w: 0.011862226}
+  m_LocalRotation: {x: 0.0025734287, y: 0.9771951, z: -0.2119964, w: 0.011862192}
   m_LocalPosition: {x: -0.0728235, y: 1.5, z: 2.999116}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6809,7 +6809,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1767.1079}
+  m_AnchoredPosition: {x: 0, y: 1767.1067}
   m_SizeDelta: {x: 0, y: 2297.1067}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &7363509428455471039
@@ -6836,7 +6836,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7363509428455471039}
-  m_LocalRotation: {x: 0.0027887754, y: 0.9731774, z: -0.22973599, w: 0.011813445}
+  m_LocalRotation: {x: 0.0027887803, y: 0.9731774, z: -0.229736, w: 0.011813465}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7018,7 +7018,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2053689119735454585}
   m_HandleRect: {fileID: 2396838538544226799}
   m_Direction: 2
-  m_Value: -0.0000006562524
+  m_Value: -0.000000103618795
   m_Size: 0.23072502
   m_NumberOfSteps: 0
   m_OnValueChanged:

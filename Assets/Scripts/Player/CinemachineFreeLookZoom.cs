@@ -18,6 +18,8 @@ public class CinemachineFreeLookZoom : MonoBehaviour
     public Slider X, Y;
     float xsave, ysave;
 
+    public int active = 1;
+
     public void Start()
     {
         xsave = freelook.m_XAxis.m_MaxSpeed;
@@ -29,9 +31,6 @@ public class CinemachineFreeLookZoom : MonoBehaviour
         freelook = GetComponentInChildren<CinemachineFreeLook>();
         originalOrbits = new CinemachineFreeLook.Orbit[freelook.m_Orbits.Length];
 
-        freelook.m_XAxis.m_MaxSpeed = xsave * X.value;
-        freelook.m_YAxis.m_MaxSpeed = ysave * Y.value;
-
         for (int i = 0; i < freelook.m_Orbits.Length; i++)
         {
             originalOrbits[i].m_Height = freelook.m_Orbits[i].m_Height;
@@ -41,8 +40,11 @@ public class CinemachineFreeLookZoom : MonoBehaviour
 
     public void Update()
     {
-        zoomPercent -= Input.GetAxis("Mouse ScrollWheel");
+        zoomPercent -= Input.GetAxis("Mouse ScrollWheel") * active;
         zoomPercent = Mathf.Clamp(zoomPercent, minMaxZoom.x, minMaxZoom.y);
+
+        freelook.m_XAxis.m_MaxSpeed = xsave * X.value / 10 * active;
+        freelook.m_YAxis.m_MaxSpeed = ysave * Y.value / 10 * active;
 
         for (int i = 0; i < freelook.m_Orbits.Length; i++)
         {

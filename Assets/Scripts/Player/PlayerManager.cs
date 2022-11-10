@@ -95,13 +95,6 @@ namespace Player
             if (!pv.IsMine)
                 return;
 
-            //Sliders
-            freeLook.m_XAxis.m_AccelTime = 1 / Mathf.Abs(sensX.value);
-            freeLook.m_XAxis.m_InvertInput = sensX.value < 0;
-
-            freeLook.m_YAxis.m_AccelTime = 1 / Mathf.Abs(sensY.value);
-            freeLook.m_YAxis.m_InvertInput = sensY.value < 0;
-
             textX.text = (sensX.value / 10).ToString("0.0");
             textY.text = (sensY.value / 10).ToString("0.0");
 
@@ -115,13 +108,13 @@ namespace Player
             {
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-                freeLook.enabled = false;
+                zoom.active = 0;
             }
             else
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
-                freeLook.enabled = true;
+                zoom.active = 1;
             }
 
             pauseMenu.SetActive(menuOpen);
