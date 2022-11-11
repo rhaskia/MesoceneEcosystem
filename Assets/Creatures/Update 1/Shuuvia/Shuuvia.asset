@@ -15,8 +15,10 @@ MonoBehaviour:
   diet: 4
   mass: 2
   length: 0.6
+  maxHealth: 100
   staminaRegen: 0
   healthRegen: 0
+  description: 
   sneakSpeed:
     speed: 1
     staminaUse: -0.1
@@ -82,8 +84,20 @@ MonoBehaviour:
       strength: 0
       decrease: 0
       type: 0
-    can: 1
+    can: 0
   flySpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 0
+  buoyancy: 0
+  swimSpeed:
     speed: 1
     staminaUse: 0
     minStamina: 10
@@ -138,6 +152,18 @@ MonoBehaviour:
     - {fileID: 409701210, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
     - {fileID: 1846931901, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
     - {fileID: 1049860778, guid: ed9791c44ef5b7442968337eeb8e2569, type: 3}
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouch:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouchwalk:
+    side: []
     front: []
     back: []
     speed: 0.15

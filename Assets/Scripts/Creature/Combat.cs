@@ -24,37 +24,37 @@ namespace Creature
         // Update is called once per frame
         void Update()
         {
-            if (GameStateManager.Instance.paused || !pv.IsMine)
-                return;
+            //if (GameStateManager.Instance.paused || !pv.IsMine)
+            //    return;
 
-            if (Input.GetKeyDown(attackKey))
-            {
-                Attack1();
-                animator.SetCurrent(Animations.lmb);
-            }
+            //if (Input.GetKeyDown(attackKey))
+            //{
+            //    Attack1();
+            //    animator.SetCurrent(Animations.lmb);
+            //}
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                animator.SetCurrent(Animations.lmb);
-                var collisions = Physics.OverlapBox(attackHitBox.transform.position, attackHitBox.transform.lossyScale / 2, attackHitBox.transform.rotation);
+            //if (Input.GetMouseButtonDown(0))
+            //{
+            //    animator.SetCurrent(Animations.lmb);
+            //    var collisions = Physics.OverlapBox(attackHitBox.transform.position, attackHitBox.transform.lossyScale / 2, attackHitBox.transform.rotation);
 
-                foreach (var item in collisions)
-                {
-                    if (item.tag == "Creature" && item.gameObject != gameObject)
-                    {
-                        item.GetComponent<Health>().TakeDamage(20);
-                    }
-                }
-            }
+            //    foreach (var item in collisions)
+            //    {
+            //        if (item.tag == "Creature" && item.gameObject != gameObject)
+            //        {
+            //            item.GetComponent<Health>().TakeDamage(20);
+            //        }
+            //    }
+            //}
 
-            if (Input.GetMouseButtonDown(1))
-            {
-                //isBlocking = false;
-                animator.SetCurrent(Animations.rmb);
-            }
+            //if (Input.GetMouseButtonDown(1))
+            //{
+            //    //isBlocking = false;
+            //    animator.SetCurrent(Animations.rmb);
+            //}
 
-            isAttacking = animator.currentAnim == Animations.lmb || animator.currentAnim == Animations.rmb;
-            attackHitBox.SetActive(isAttacking);
+            //isAttacking = animator.currentAnim == Animations.lmb || animator.currentAnim == Animations.rmb;
+            //attackHitBox.SetActive(isAttacking);
         }
 
         [ContextMenu("Attack 01")]

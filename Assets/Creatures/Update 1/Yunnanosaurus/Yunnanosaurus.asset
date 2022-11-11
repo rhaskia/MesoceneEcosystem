@@ -73,7 +73,7 @@ MonoBehaviour:
       strength: 0
       decrease: 0
       type: 0
-    can: 1
+    can: 0
   glideSpeed:
     speed: 1
     staminaUse: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
       strength: 0
       decrease: 0
       type: 0
-    can: 1
+    can: 0
   flySpeed:
     speed: 1
     staminaUse: 0
@@ -95,7 +95,7 @@ MonoBehaviour:
       strength: 0
       decrease: 0
       type: 0
-    can: 1
+    can: 0
   buoyancy: 0
   swimSpeed:
     speed: 1

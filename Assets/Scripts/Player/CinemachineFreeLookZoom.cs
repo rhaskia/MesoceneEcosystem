@@ -43,8 +43,11 @@ public class CinemachineFreeLookZoom : MonoBehaviour
         zoomPercent -= Input.GetAxis("Mouse ScrollWheel") * active;
         zoomPercent = Mathf.Clamp(zoomPercent, minMaxZoom.x, minMaxZoom.y);
 
-        freelook.m_XAxis.m_MaxSpeed = xsave * X.value / 10 * active;
-        freelook.m_YAxis.m_MaxSpeed = ysave * Y.value / 10 * active;
+        freelook.m_XAxis.m_MaxSpeed = Mathf.Abs(xsave * X.value / 10 * active);
+        freelook.m_YAxis.m_MaxSpeed = Mathf.Abs(ysave * Y.value / 10 * active);
+
+        freelook.m_XAxis.m_InvertInput = X.value > 0;
+        freelook.m_YAxis.m_InvertInput = Y.value > 0;
 
         for (int i = 0; i < freelook.m_Orbits.Length; i++)
         {

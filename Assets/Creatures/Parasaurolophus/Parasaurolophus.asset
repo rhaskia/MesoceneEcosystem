@@ -1,0 +1,240 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3b2e271b7ff82a408599ba51ef93ecf, type: 3}
+  m_Name: Parasaurolophus
+  m_EditorClassIdentifier: 
+  diet: 1
+  mass: 3100
+  length: 10
+  maxHealth: 100
+  staminaRegen: 1
+  healthRegen: 1
+  description: "Parasaurolophus is a genus of herbivorous hadrosaurid ornithopod
+    dinosaur that lived in what is now North America and possibly Asia during the
+    Late Cretaceous Period, about 76.5\u201373 million years ago. It was a herbivore
+    that walked both as a biped and as a quadruped. "
+  sneakSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
+  walkSpeed:
+    speed: 7
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
+  trotSpeed:
+    speed: 10
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
+  runSpeed:
+    speed: 13
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
+  jumpForce:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 0
+  glideSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 0
+  flySpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 0
+  buoyancy: 0
+  swimSpeed:
+    speed: 1
+    staminaUse: 0
+    minStamina: 10
+    disturbance:
+      position: {x: 0, y: 0, z: 0}
+      range: 0
+      strength: 0
+      decrease: 0
+      type: 0
+    can: 1
+  idle:
+    side:
+    - {fileID: -1289214958, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    - {fileID: 1021179534, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  walk:
+    side:
+    - {fileID: -961918525, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    - {fileID: -629731221, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    - {fileID: 713622348, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    - {fileID: -1118555460, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    - {fileID: -400662047, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    - {fileID: 1681736362, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    - {fileID: 1055967723, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    - {fileID: 1896227254, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    - {fileID: -2113117403, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    - {fileID: -475428879, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    - {fileID: 1920812109, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    - {fileID: -1289214958, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    - {fileID: 1021179534, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    - {fileID: -691266750, guid: 79d825c2c071bd14a81fd8da054e827a, type: 3}
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  run:
+    side:
+    - {fileID: 1081388151, guid: a52eff6e0269fdd4c9eee2c3a48dcf71, type: 3}
+    - {fileID: -1209731199, guid: a52eff6e0269fdd4c9eee2c3a48dcf71, type: 3}
+    - {fileID: 2026660621, guid: a52eff6e0269fdd4c9eee2c3a48dcf71, type: 3}
+    - {fileID: 46916814, guid: a52eff6e0269fdd4c9eee2c3a48dcf71, type: 3}
+    - {fileID: -1969037569, guid: a52eff6e0269fdd4c9eee2c3a48dcf71, type: 3}
+    - {fileID: -965994803, guid: a52eff6e0269fdd4c9eee2c3a48dcf71, type: 3}
+    - {fileID: -2133607840, guid: a52eff6e0269fdd4c9eee2c3a48dcf71, type: 3}
+    - {fileID: -802408392, guid: a52eff6e0269fdd4c9eee2c3a48dcf71, type: 3}
+    - {fileID: 168720363, guid: a52eff6e0269fdd4c9eee2c3a48dcf71, type: 3}
+    - {fileID: 261859719, guid: a52eff6e0269fdd4c9eee2c3a48dcf71, type: 3}
+    - {fileID: -434871457, guid: a52eff6e0269fdd4c9eee2c3a48dcf71, type: 3}
+    - {fileID: 165032894, guid: a52eff6e0269fdd4c9eee2c3a48dcf71, type: 3}
+    - {fileID: -1573972462, guid: a52eff6e0269fdd4c9eee2c3a48dcf71, type: 3}
+    - {fileID: -1189868206, guid: a52eff6e0269fdd4c9eee2c3a48dcf71, type: 3}
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  jump:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouch:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  crouchwalk:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  glide:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  fly:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  rest:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  sleep:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  eat:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  drink:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  lmb:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  rmb:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  limp:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  death:
+    side: []
+    front: []
+    back: []
+    speed: 0.15
+    oneTime: 0
+  dead: {fileID: 0}

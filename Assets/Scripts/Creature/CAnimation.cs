@@ -50,11 +50,11 @@ namespace Creature
 
             //Sizes
             maincollider.height = size.x;
-            maincollider.radius = size.y / 2f;
-            maincollider.center = centre;
+            maincollider.radius = size.y / 4f;
+            maincollider.center = centre + Vector3.up * (material.material.mainTexture.height / ppu) * 0.25f;
 
-            slipcollider.height = size.x * 1.01f;
-            slipcollider.radius = size.y / 2.01f;
+            slipcollider.height = material.material.mainTexture.height / ppu;
+            slipcollider.radius = size.y / 2f;
             slipcollider.center = centre;
 
             sprite.localScale = size;
