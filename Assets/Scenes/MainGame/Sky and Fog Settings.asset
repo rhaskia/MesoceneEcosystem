@@ -503,7 +503,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 55261.973
   aerosolDensity:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   aerosolTint:
     m_OverrideState: 1
@@ -516,7 +516,7 @@ MonoBehaviour:
     m_Value: 0
   numberOfBounces:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 1
   groundTint:
     m_OverrideState: 1
     m_Value: {r: 0.4, g: 0.25, b: 0.15, a: 1}

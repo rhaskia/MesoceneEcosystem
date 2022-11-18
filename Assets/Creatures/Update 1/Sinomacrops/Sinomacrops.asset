@@ -16,8 +16,8 @@ MonoBehaviour:
   mass: 2
   length: 0.33
   maxHealth: 100
-  staminaRegen: 0
-  healthRegen: 0
+  staminaRegen: 2
+  healthRegen: 2
   description: 
   sneakSpeed:
     speed: 1
@@ -32,7 +32,7 @@ MonoBehaviour:
     can: 1
   walkSpeed:
     speed: 1
-    staminaUse: 0
+    staminaUse: 3
     minStamina: 10
     disturbance:
       position: {x: 0, y: 0, z: 0}
@@ -42,8 +42,8 @@ MonoBehaviour:
       type: 0
     can: 1
   trotSpeed:
-    speed: 3
-    staminaUse: 0
+    speed: 2
+    staminaUse: 4
     minStamina: 10
     disturbance:
       position: {x: 0, y: 0, z: 0}
@@ -53,8 +53,8 @@ MonoBehaviour:
       type: 0
     can: 1
   runSpeed:
-    speed: 5
-    staminaUse: 0
+    speed: 3
+    staminaUse: 5
     minStamina: 10
     disturbance:
       position: {x: 0, y: 0, z: 0}
@@ -64,8 +64,8 @@ MonoBehaviour:
       type: 0
     can: 1
   jumpForce:
-    speed: 10
-    staminaUse: 0
+    speed: 7
+    staminaUse: 6
     minStamina: 10
     disturbance:
       position: {x: 0, y: 0, z: 0}
@@ -84,10 +84,10 @@ MonoBehaviour:
       strength: 0
       decrease: 0
       type: 0
-    can: 1
+    can: 0
   flySpeed:
     speed: 1
-    staminaUse: 0
+    staminaUse: 6
     minStamina: 10
     disturbance:
       position: {x: 0, y: 0, z: 0}
@@ -111,7 +111,7 @@ MonoBehaviour:
   idle:
     side:
     - {fileID: -481684176, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
-    - {fileID: 21300000, guid: 2c58103697083d64f9f93d303fdabaec, type: 3}
+    - {fileID: -481684176, guid: 7ae14ac4ba2230c4c9a106239465cd86, type: 3}
     front: []
     back: []
     speed: 0.15

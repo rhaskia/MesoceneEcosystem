@@ -96,6 +96,10 @@ namespace Creature
             //heaigfght
             //BuoyancyManager();
 
+            //Stamina
+            stamina += creature.staminaRegen * Time.deltaTime;
+            stamina = Mathf.Clamp(stamina, 0, maxStamina);
+
             if (moveInput == null || !pv.IsMine || GameStateManager.Instance.paused)
                 return;
 
@@ -111,18 +115,14 @@ namespace Creature
 
             if (onGround || flying) rb.velocity = new Vector3(totalInput.x, rb.velocity.y, totalInput.z);
 
-            //Stamina
-            stamina += creature.staminaRegen * Time.deltaTime;
-            stamina = Mathf.Clamp(stamina, 0, maxStamina);
-
             //Flying
             if (flying)
             {
                 rb.drag = airDrag;
-                if (moveInput.flyUp) rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
-                else if (moveInput.flyDown) rb.AddForce(new Vector3(0, -jumpForce, 0), ForceMode.Impulse);
-                else rb.drag = waterDrag;
 
+                if (moveInput.flyUp) rb.velocity = new Vector3(rb.velocity.x, speedMult, rb.velocity.z);
+                else if (moveInput.flyDown) rb.velocity = new Vector3(rb.velocity.x, -speedMult, rb.velocity.z);
+                else rb.drag = waterDrag;
             }
             rb.useGravity = !flying;
 
@@ -150,7 +150,13 @@ namespace Creature
             //Managing stuff
             if (onGround)
             {
-                gliding = false; flying = false;
+                gliding = false;
+                flying = false;
+
+                if (info.canimation.currentAnim == Animations.fly)
+                {
+                    info.canimation.SetCurrent(Animations.idle);
+                }
 
                 if (moveInput.jump && creature.jumpForce.can) rb.AddForce(new Vector3(0, creature.jumpForce.speed, 0), ForceMode.Impulse);
                 if (moveInput.crouch) crouching = !crouching;
@@ -216,16 +222,16 @@ namespace Creature
             if (moveInput.trot)
             {
                 stamina -= creature.runSpeed.staminaUse;
-                if (stamina > creature.runSpeed.minStamina) return creature.runSpeed.speed * mult;
                 crouching = false;
+                if (stamina > creature.runSpeed.minStamina) return creature.runSpeed.speed * mult;
             }
 
             //Running
             if (moveInput.run)
             {
                 stamina -= creature.runSpeed.staminaUse;
-                if (stamina > creature.runSpeed.minStamina) return creature.runSpeed.speed * mult;
                 crouching = false;
+                if (stamina > creature.runSpeed.minStamina) return creature.runSpeed.speed * mult;
             }
 
             stamina -= creature.walkSpeed.staminaUse * Time.fixedDeltaTime;
@@ -269,7 +275,10 @@ namespace Creature
             {
                 info.canimation.SetCurrent(Animations.fly);
             }
-
+            else if (info.canimation.currentAnim == Animations.fly)
+            {
+                info.canimation.SetCurrent(Animations.idle);
+            }
         }
 
         //Swimming Stuff

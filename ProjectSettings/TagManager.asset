@@ -8,6 +8,7 @@ TagManager:
   - Water
   - Creature
   - Spawns
+  - Tree
   layers:
   - Default
   - TransparentFX

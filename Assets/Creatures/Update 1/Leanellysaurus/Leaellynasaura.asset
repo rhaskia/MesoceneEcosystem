@@ -16,8 +16,8 @@ MonoBehaviour:
   mass: 5
   length: 2
   maxHealth: 100
-  staminaRegen: 0
-  healthRegen: 0
+  staminaRegen: 2
+  healthRegen: 2
   description: 
   sneakSpeed:
     speed: 1
@@ -32,7 +32,7 @@ MonoBehaviour:
     can: 1
   walkSpeed:
     speed: 4
-    staminaUse: 0
+    staminaUse: 3
     minStamina: 10
     disturbance:
       position: {x: 0, y: 0, z: 0}
@@ -65,7 +65,7 @@ MonoBehaviour:
     can: 1
   jumpForce:
     speed: 20
-    staminaUse: 0
+    staminaUse: 6
     minStamina: 10
     disturbance:
       position: {x: 0, y: 0, z: 0}
